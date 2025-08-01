@@ -9,3 +9,21 @@
 
 2. `src/vite-env.d.ts 文件作用是什么？`
     > vite-env.d.ts 是 Vite 项目中用于 类型声明补充 的文件，通常用于告诉 TypeScript Vite 环境下的一些全局类型（比如 import.meta、.env 文件、静态资源模块等），从而避免类型报错。
+
+3. `tsconfig.app.json` 和 `tsconfig.node.json` 什么关系?  
+它们之间的关系本质上是：都继承自一个共同的基础配置（如 tsconfig.base.json 或 tsconfig.json），但针对不同运行环境做了定制化的配置。  
+它们的区别与关系概览  如下：
+| 配置文件                 | 目的                                     | 运行环境       | 常见配置差异                                 |  
+| -------------------- | -------------------------------------- | ---------- | -------------------------------------- |  
+| `tsconfig.app.json`  | 编译前端应用（如 Vue/React）                    | 浏览器        | `"target": "ESNext"`、不含 `node` 类型      |  
+| `tsconfig.node.json` | 编译服务端代码、脚本等                            | Node.js 环境 | `"module": "CommonJS"`、含 `@types/node` |  
+| 共用基础配置               | `tsconfig.json` 或 `tsconfig.base.json` | -          | 提供公共规则，如 `strict`、`baseUrl`            |  
+
+| 方面   | `tsconfig.app.json`     | `tsconfig.node.json`          |  
+| ---- | ----------------------- | ----------------------------- |  
+| 面向目标 | 浏览器前端项目                 | Node.js 工具/脚本/服务端             |  
+| 包含类型 | 不包含 Node 类型（避免冲突）       | 包含 `@types/node`              |  
+| 常用场景 | `src/`、Vue/React 项目     | `vite.config.ts`、构建工具脚本       |  
+| 模块类型 | 通常是 `"ESNext"`（适配 Vite） | 通常是 `"CommonJS"` 或 `"ESNext"` |  
+
+
