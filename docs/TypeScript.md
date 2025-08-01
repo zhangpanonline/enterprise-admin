@@ -23,4 +23,4 @@
 
 4. 在 `vite.config.js` 中 `import { fileURLToPath, URL } from 'node:url'` 报错：找不到模块“node:url”或其相应的类型声明。
 
-  解决方案：在 `tsconfig.node.json` 中添加 `compilerOptions.types: ["node"]`，并确保已安装 @types/node。
+   解决方案：在 `tsconfig.node.json` 中添加 `compilerOptions.types: ["node"]`，并确保已安装 @types/node。
