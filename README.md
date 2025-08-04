@@ -3,6 +3,7 @@
 [NodeJS](/docs/NodeJS.md)  
 [TailwindCSS](/docs/TailwindCSS.md)  
 [TypeScript](/docs/TypeScript.md)  
+[CI](/docs/CI.md)  
 
 
 ### 功能点
