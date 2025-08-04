@@ -6,7 +6,8 @@
 
 
 ### 功能点
-- [ ] [conventionalcommits git提交规范](/docs/commit.md)
+- [x] [conventionalcommits git提交规范](/docs/commit.md)
+- [x] CI/CD
 - [ ] 动态路由
 - [ ] vitePress
 - [ ] Axios 封装
@@ -22,7 +23,6 @@
 - [ ] 多角色权限
 - [ ] 组织架构
 - [ ] 多种登录方式
-- [ ] CI/CD
 
 
 ### 多端

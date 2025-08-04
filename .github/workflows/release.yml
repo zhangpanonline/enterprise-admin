@@ -1,12 +1,34 @@
 name: Release
 
-# 当 master 分支被 push,就会触发
+# 触发条件：当 master 分支被 push,就会触发
 on:
-  push:
+  push: # pull_request, workflow_dispatch, schedule, watch, release, issue_comment, push, pull_request, pull_request_target, workflow_run, actions
     branches:
       - main
+  #   - dev/**        # 或匹配 dev/xx 分支
+  # tags:
+  #   - 'v*'          # 也可以监听 tag，如 v1.0.0
+  # paths:
+  #   - 'src/**'      # 只监听 src 下改动
+  #   - '!docs/**'    # 排除 docs 下改动
 
-# 权限
+  pull_request: # 创建或更新 Pull Request 时
+    branches:
+      - main
+#   types: [opened, synchronize, reopened]  # 控制具体 PR 操作类型
+
+# workflow_dispatch: 手动点击触发（适用于按钮发布），GitHub → Actions → Workflow → 有按钮可以手动触发
+#   inputs:
+#     version:
+#       description: '要发布的版本号'
+#       required: true
+#       default: 'v1.0.0'
+
+# schedule: 定时触发，最多 5 分钟一次
+#   - cron: '0 0 * * *' # 每天 UTC 零点运行
+
+
+# 权限声明（默认 read，仅当你需要写 tag/release 时配置）
 permissions:
   contents: write
   issues: write
@@ -14,13 +36,14 @@ permissions:
   packages: write
   id-token: write
 
+# Job（一个或多个并行/串行执行的任务）
 jobs:
-  release:
-    runs-on: ubuntu-latest
+  release: # 任务 ID（自定义名称）
+    runs-on: ubuntu-latest # 运行环境（Ubuntu/Windows/macOS）
 
-    steps:
+    steps: # 每个 job 由一系列 step 组成
       - name: 签出代码
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # shell 命令 或 uses: 第三方 action
         with:
           fetch-depth: 0
 
@@ -40,7 +63,7 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       - name: Set Git user
-        run: |
+        run: | # 多命令运行，使用 | 分隔
           git config --global user.name "semantic-release-bot"
           git config --global user.email "semantic@release.bot"
       
