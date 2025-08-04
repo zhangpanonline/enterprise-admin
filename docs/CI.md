@@ -19,6 +19,7 @@ pnpm add -D semantic-release \
 // .releaserc.cjs
 module.exports = {
   branches: ['main'],
+  repositoryUrl: 'https://github.com/zhangpanonline/enterprise-admin',
   plugins: [
     '@semantic-release/commit-analyzer',           // 分析提交类型（feat, fix 等）
     '@semantic-release/release-notes-generator',   // 生成 changelog 内容
@@ -58,6 +59,11 @@ jobs:
       - name: Install Dependencies
         run: pnpm i --frozen-lockfile
 
+      - name: Set Git user
+        run: |
+          git config --global user.name "semantic-release-bot"
+          git config --global user.email "semantic@release.bot"
+      
       - name: Run semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
