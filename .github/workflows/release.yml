@@ -34,3 +34,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: pnpm exec semantic-release
+        
+permissions:
+      contents: read
+      pages: write
+      id-token: write
