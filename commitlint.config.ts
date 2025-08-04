@@ -27,7 +27,7 @@ module.exports = {
     'footer-max-line-length': [1, 'always', 120],
 
     // ✅ 强制 footer 前要空一行（用于 BREAKING CHANGE）
-    'footer-leading-blank': [2, 'always'],
+    'footer-leading-blank': [1, 'always'],
 
     // ✅ 允许中文/emoji，不强制使用英文句式
     'subject-case': [0]
