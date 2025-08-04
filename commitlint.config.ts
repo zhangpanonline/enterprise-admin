@@ -20,7 +20,7 @@ module.exports = {
     ],
 
     // ✅ 限制 subject 长度（标题）
-    'subject-max-length': [2, 'always', 50],
+    'subject-max-length': [1, 'always', 50],
 
     // ✅ 关闭/放宽 body 和 footer 的行长限制
     'body-max-line-length': [1, 'always', 120],
