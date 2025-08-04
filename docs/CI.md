@@ -19,7 +19,6 @@ pnpm add -D semantic-release \
 // .releaserc.cjs
 module.exports = {
   branches: ['main'],
-  repositoryUrl: 'https://github.com/zhangpanonline/enterprise-admin',
   plugins: [
     '@semantic-release/commit-analyzer',           // 分析提交类型（feat, fix 等）
     '@semantic-release/release-notes-generator',   // 生成 changelog 内容
