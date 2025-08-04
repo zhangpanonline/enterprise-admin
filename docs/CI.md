@@ -14,60 +14,9 @@ pnpm add -D semantic-release \
   @semantic-release/github
 ```
 ### 2. 创建 .releaserc.cjs 配置文件
-在项目根目录新建 .releaserc.cjs：
-```js
-// .releaserc.cjs
-module.exports = {
-  branches: ['main'],
-  plugins: [
-    '@semantic-release/commit-analyzer',           // 分析提交类型（feat, fix 等）
-    '@semantic-release/release-notes-generator',   // 生成 changelog 内容
-    '@semantic-release/changelog',                 // 写入 CHANGELOG.md
-    '@semantic-release/git',                       // 提交 package.json + changelog
-    '@semantic-release/github'                     // 创建 GitHub Release
-  ]
-}
-```
+在项目根目录新建 .releaserc.cjs 文件
 ### 3. 添加 GitHub Actions 工作流
-在 `.github/workflows/release.yml` 中创建：
-```yaml
-name: Release
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  release:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.14.0
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22.18.0
-          registry-url: https://registry.npmjs.org
-          cache: pnpm
-
-      - name: Install Dependencies
-        run: pnpm i --frozen-lockfile
-
-      - name: Set Git user
-        run: |
-          git config --global user.name "semantic-release-bot"
-          git config --global user.email "semantic@release.bot"
-      
-      - name: Run semantic-release
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: pnpm exec semantic-release
-```
+创建 `.github/workflows/release.yml` 文件
 ### 4. 配置 GitHub Secrets（GH_TOKEN）
 1. 打开你的 GitHub 仓库
 
