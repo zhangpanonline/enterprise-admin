@@ -1,5 +1,3 @@
-### 使用 Commitizen + commitlint + husky + cz-conventional-changelog/cz-customizable 实现交互式提交 + 格式校验 + Git 提交钩子
-
 1. husky是什么？原理是什么？
     * 什么是 Husky？
         Husky 是一个用于管理 Git hooks 的工具，让你可以在特定 Git 操作（如 commit、push）时自动执行脚本操作，比如：
@@ -67,7 +65,7 @@
     | push 前运行测试/构建 | `vitest`、`vue-tsc`     | 保证 push 的代码无语法或逻辑错误                      |
 
 
-2. 配置
+2. 使用 Commitizen + commitlint + husky + cz-conventional-changelog/cz-customizable 实现交互式提交 + 格式校验 + Git 提交钩子
     1. 安装依赖
         ```bash
         pnpm add -D commitizen cz-conventional-changelog commitlint @commitlint/cli husky
@@ -186,6 +184,15 @@
             subjectLimit: 100
         }
         ```
+提交规范工具依赖作用对比表
+| 包名 📦                                 | 作用简述                                               | 所在阶段                   | 备注说明                                                   |
+| ------------------------------------- | -------------------------------------------------- | ---------------------- | ------------------------------------------------------ |
+| **`@commitlint/cli`**                 | 提供 `commitlint` 的命令行工具，用于校验提交信息是否符合规范              | Git hook: `commit-msg` | 通常在 `.husky/commit-msg` 中调用：`npx commitlint --edit $1` |
+| **`@commitlint/config-conventional`** | `commitlint` 的配置 preset，遵循 Conventional Commits 规范 | 配置文件中使用                | 必须配合 `commitlint.config.js` 中的 `extends` 一起使用          |
+| **`commitlint`**                      | commitlint 核心模块，自动引入 CLI 与配置校验逻辑                   | 核心工具                   | 通常项目中只装 CLI 就够，`commitlint` 本体可以理解为 umbrella package   |
+| **`husky`**                           | Git Hook 管理工具，用于在 commit/push 前自动执行脚本              | Git Hooks 阶段           | 会在 `.git/hooks` 中注册触发器，调用 `.husky/` 目录下脚本              |
+| **`commitizen`**                      | 提供交互式命令行提交工具（`cz`），引导用户输入规范提交信息                    | 开发者手动执行                | 命令为 `npx cz` 或 `pnpm commit`，用于生成符合规范的 commit message  |
+| **`cz-customizable`**                 | commitizen 的自定义配置适配器，可以自定义提交类型、提示内容                | 配合 commitizen 使用       | 在 `.cz-config.js` 中配置 `types`、`scopes`、`messages` 等    |
 
 
 ### INTERVIEW
