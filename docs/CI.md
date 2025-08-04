@@ -13,10 +13,10 @@ pnpm add -D semantic-release \
   @semantic-release/release-notes-generator \
   @semantic-release/github
 ```
-### 2. 创建 .releaserc.js 配置文件
-在项目根目录新建 .releaserc.js：
+### 2. 创建 .releaserc.cjs 配置文件
+在项目根目录新建 .releaserc.cjs：
 ```js
-// .releaserc.js
+// .releaserc.cjs
 module.exports = {
   branches: ['main'],
   plugins: [
@@ -43,22 +43,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22.18.0
-          cache: 'pnpm'
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         with:
           version: 10.14.0
 
-      - name: Install dependencies
-        run: pnpm install
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.18.0
+          registry-url: https://registry.npmjs.org
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm i --frozen-lockfile
 
       - name: Run semantic-release
         env:
