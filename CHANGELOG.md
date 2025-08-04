@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.0.0...v1.0.1) (2025-08-04)
+
+
+### Bug Fixes
+
+* **工程配置:** fixed[#2](https://github.com/zhangpanonline/enterprise-admin/issues/2) ([fc2c044](https://github.com/zhangpanonline/enterprise-admin/commit/fc2c044b94593a00a441443038658a806342521f))
+
 # 1.0.0 (2025-08-04)
 
 
