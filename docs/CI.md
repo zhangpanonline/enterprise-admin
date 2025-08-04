@@ -1,4 +1,4 @@
-# 使用 `GitHub Actions` +  `semantic-release` 实现 CI 全自动化发布工具
+# 使用 `GitHub Actions` +  `semantic-release` 实现全自动的版本管理和发布
 * 自动版本管理
 * 自动 changelog
 * 自动打 tag
@@ -103,7 +103,7 @@ semantic-release 会自动解析这些提交，决定 bump 哪种版本（major 
 * 自动生成 GitHub Release
 
 
-## 项目结构预览（最终）
+### 项目结构预览（最终）
 ```pgsql
 .github/
 └── workflows/
@@ -113,5 +113,8 @@ CHANGELOG.md                ← 自动生成
 package.json                ← 自动更新版本号
 ```
 
-# INTERVIEW
+## INTERVIEW
 1. 我们在项目中使用了 semantic-release + GitHub Actions 组成全自动版本发布体系。通过分析符合 Conventional Commit 格式的提交信息，自动更新版本号、生成 changelog、打 Git tag，并发布 GitHub Release，彻底解放人工流程，实现企业级 DevOps 自动化交付。
+
+## 参考文档
+[别再手动发版开源项目了！ GitHub + NPM 的自动化发版【Semantic Release 详细教程】](https://juejin.cn/post/7443382399699877925)  

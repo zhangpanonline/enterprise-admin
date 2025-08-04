@@ -23,6 +23,6 @@ module.exports =  {
   },
   scopes: ["工程配置", "文档变更"],
   allowCustomScopes: true,
-  allowBreakingChanges: ['feat', 'fix'],
+  allowBreakingChanges: ['feat', 'fix'], // allowBreakingChanges: ['feat', 'fix'] 的作用是控制哪些类型的提交可以填写破坏性变更说明（BREAKING CHANGE），从而支持语义化版本自动升级时正确地判定为 major version（主版本）更新。
   subjectLimit: 100
 }
