@@ -43,19 +43,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22.18.0
           cache: 'pnpm'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10.14.0
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run Semantic Release
+      - name: Run semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: pnpm exec semantic-release

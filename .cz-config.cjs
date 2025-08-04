@@ -21,7 +21,7 @@ module.exports =  {
     footer: '关联的 issue（如: #31, #34）（可选）:',
     confirmCommit: '确认提交？'
   },
-  scopes: ["工程配置"],
+  scopes: ["工程配置", "文档变更"],
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix'],
   subjectLimit: 100
