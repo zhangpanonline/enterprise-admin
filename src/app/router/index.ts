@@ -1,14 +1,23 @@
-// src/app/router/index.ts
-import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import { type App } from 'vue'
+import { createRouter, createWebHistory, type RouteRecordRaw, type Router } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('@/features/dashboard/pages/Home.vue')
+    redirect: '/login'
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/features/auth/views/LoginPage.vue')
   },
 ]
 
-export const router = createRouter({
+const router: Router = createRouter({
   history: createWebHistory(),
   routes
 })
+
+export function setupRouter(app: App) {
+  app.use(router)
+}

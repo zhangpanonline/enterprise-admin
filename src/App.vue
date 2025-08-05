@@ -2,9 +2,7 @@
 </script>
 
 <template>
-  <div class="text-3xl text-red-400" >
-    12321
-  </div>
+    <RouterView />
 </template>
 
 <style scoped>
