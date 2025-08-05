@@ -7,7 +7,6 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vite.dev/config/
-console.log(fileURLToPath(import.meta.url))
 export default defineConfig({
   plugins: [
     vue(),
