@@ -10,7 +10,7 @@ export function useLogin() {
   const login = async ({ email, password }: { email: string; password: string }) => {
     try {
       loading.value = true
-      const user = await loginByEmail(email, password)
+      const { user, access_token, refresh_token, token_type, expires_at, expires_in } = await loginByEmail(email, password)
       authStore.setUser(user)
       ElMessage.success('登录成功')
       router.push('/dashboard')

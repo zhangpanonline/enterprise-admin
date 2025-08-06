@@ -1,4 +1,4 @@
-import { supabase } from '@/shared/utils/supabase'
+import { supabaseAxios } from '@/shared/utils/request/supabase'
 
 // supabase.auth.signUp({
 //   email: 'zhangpan.online@outlook.com',
@@ -8,11 +8,10 @@ import { supabase } from '@/shared/utils/supabase'
 // })
 
 export async function loginByEmail(email: string, password: string) {
-  const { data, error } = await supabase.auth.signInWithPassword({
+  const res = await supabaseAxios.post('/token?grant_type=password', {
     email,
-    password
+    password,
   })
 
-  if (error) throw error
-  return data.user
+  return res
 }
