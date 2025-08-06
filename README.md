@@ -11,8 +11,8 @@
 - [x] [conventionalcommits git提交规范](/docs/commit.md)
 - [x] CI/CD
 - [x] [按需自动导入](/docs/按需自动导入.md)
-- [x] Pinia + pinia-plugin-persistedstate + secure-ls 实现本地 AES 加密持久化
-- [ ] Axios 封装
+- [x] [Pinia + pinia-plugin-persistedstate + secure-ls 实现本地 AES 加密持久化](/docs/Pinia数据加密持久化.md)
+- [ ] Axios 封装 + 请求拦截器 + 响应拦截器 + token 续签
 - [ ] 用户、角色列表
 - [ ] 组织架构
 - [ ] 多角色权限
@@ -29,7 +29,7 @@
 - [ ] 代码编辑器
 - [ ] 日历
 - [ ] Turborepo
-- [ ] 大数据滚动
+- [ ] 大数据处理，虚拟列表滚动
 
 
 ### 多端
