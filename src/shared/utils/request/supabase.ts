@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useAuthStore } from '@/features/auth/store/useAuthStore'
 
 export const supabaseAxios = axios.create({
     baseURL: `${import.meta.env.VITE_SUPABASE_URL}/auth/v1`,
@@ -10,14 +11,16 @@ export const supabaseAxios = axios.create({
 
 // 请求拦截器
 supabaseAxios.interceptors.request.use(config => {
-    // TODO token
-    const token = localStorage.getItem('token')
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`
+    const { accessToken } = useAuthStore()
+    if (accessToken) {
+        config.headers.Authorization = `Bearer ${accessToken}`
     }
     console.log('请求拦截：', config)
     return config
-}, error => Promise.reject(error))
+}, error => {
+    console.log('请求拦截错误：', error)
+    return Promise.reject(error)
+})
 
 // 响应拦截器
 supabaseAxios.interceptors.response.use(response => {
@@ -26,7 +29,8 @@ supabaseAxios.interceptors.response.use(response => {
     // TODO
     return res
 }, error => {
-    const msg = error?.response?.data?.message || error?.message || '请求错误'
+    console.log('响应拦截错误：', error)
+    const msg = error?.response?.data?.msg || error?.message || '请求错误'
     ElMessage.error(msg)
     return Promise.reject(error)
 })

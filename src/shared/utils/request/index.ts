@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useAuthStore } from '@/features/auth/store/useAuthStore'
 
 const request = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
@@ -7,10 +8,9 @@ const request = axios.create({
 
 // 请求拦截器
 request.interceptors.request.use(config => {
-    // TODO token
-    const token = localStorage.getItem('token')
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`
+    const { accessToken } = useAuthStore()
+    if (accessToken) {
+        config.headers.Authorization = `Bearer ${accessToken}`
     }
     return config
 }, error => Promise.reject(error))

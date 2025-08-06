@@ -1,16 +1,30 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
 import type { User } from '@supabase/supabase-js'
 
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<User | null>(null)
+  const accessToken = ref<string | null>(null)
+  const refreshToken = ref<string | null>(null)
 
-  function setUser(newUser: User | null) {
-    user.value = newUser
+  function setUser({ user: u, access_token, refresh_token }: { user: User, access_token: string, refresh_token: string}) {
+    user.value = u
+    accessToken.value = access_token
+    refreshToken.value = refresh_token
+  }
+
+  function clearUser() {
+    user.value = null
+    accessToken.value = null
+    refreshToken.value = null
   }
 
   return {
     user,
-    setUser
+    accessToken,
+    refreshToken,
+    setUser,
+    clearUser,
   }
+}, {
+  persist: true,
 })

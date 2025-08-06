@@ -23,8 +23,8 @@ import { useLogin } from '../hooks/useLogin'
 
 const formRef = ref()
 const form = ref({
-  email: '',
-  password: ''
+  email: 'zhangpan.online@outlook.com',
+  password: '12345678'
 })
 const rules = {
   email: [{ required: true, message: '请输入邮箱', trigger: 'blur' }],

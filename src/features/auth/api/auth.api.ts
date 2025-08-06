@@ -1,4 +1,5 @@
 import { supabaseAxios } from '@/shared/utils/request/supabase'
+// import type { User } from '@supabase/supabase-js'
 
 // supabase.auth.signUp({
 //   email: 'zhangpan.online@outlook.com',

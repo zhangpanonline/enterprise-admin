@@ -11,13 +11,14 @@
 - [x] [conventionalcommits git提交规范](/docs/commit.md)
 - [x] CI/CD
 - [x] [按需自动导入](/docs/按需自动导入.md)
+- [x] Pinia + pinia-plugin-persistedstate + secure-ls 实现本地 AES 加密持久化
+- [ ] Axios 封装
 - [ ] 用户、角色列表
 - [ ] 组织架构
 - [ ] 多角色权限
 - [ ] 多种登录方式
 - [ ] 动态路由
 - [ ] vitePress
-- [ ] Axios 封装
 - [ ] D3图表
 - [ ] 地图打点、路径等
 - [ ] 主题切换
@@ -29,7 +30,6 @@
 - [ ] 日历
 - [ ] Turborepo
 - [ ] 大数据滚动
-- [ ] Pinia + 本地持久化存储（pinia-plugin-persistedstate） + 本地数据加密（secure-ls）
 
 
 ### 多端

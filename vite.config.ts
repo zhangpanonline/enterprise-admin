@@ -27,6 +27,9 @@ export default defineConfig({
       dts: 'src/components.d.ts',
     }),
   ],
+  server: {
+    port: 8888,
+  },
   resolve: {
     alias: {
       // 这里要使用绝对路径
