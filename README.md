@@ -4,6 +4,7 @@
 [TailwindCSS](/docs/TailwindCSS.md)  
 [TypeScript](/docs/TypeScript.md)  
 [CI](/docs/CI.md)  
+- [ ] turborepo + Monorpo
 
 
 ### 功能点
@@ -28,6 +29,7 @@
 - [ ] 日历
 - [ ] Turborepo
 - [ ] 大数据滚动
+- [ ] 本地数据加密（secure-ls）
 
 
 ### 多端
