@@ -5,6 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import { useAuthStore } from '@/features/auth/store/useAuthStore'
+import { useAuthStore } from '@/app/store/auth'
 const authStore = useAuthStore()
 </script>

@@ -8,11 +8,7 @@ import { supabaseAxios } from '@/shared/utils/request/supabase'
 //     console.log(r)
 // })
 
-export async function loginByEmail(email: string, password: string) {
-  const res = await supabaseAxios.post('/token?grant_type=password', {
+export const loginByEmail = (email: string, password: string) => supabaseAxios.post('/token?grant_type=password', {
     email,
     password,
   })
-
-  return res
-}

@@ -1,4 +1,4 @@
-import { useAuthStore } from '../store/useAuthStore'
+import { useAuthStore } from '@/app/store/auth'
 import { loginByEmail } from '../api/auth.api'
 import { ElMessage } from 'element-plus'
 
