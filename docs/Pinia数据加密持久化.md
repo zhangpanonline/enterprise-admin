@@ -30,3 +30,7 @@ pinia.use(createPersistedState, {
 
 export default pinia
 ```
+
+## INTERVIEW
+### 1. 项目状态管理是如何做的？  
+我们的项目采用集中式全局状态管理，将登录用户信息（如 token、用户信息等）放在 app/store/auth.ts 中，通过 Pinia 管理并持久化，同时配合自动续签逻辑，在项目任意模块中均可访问和控制登录状态。

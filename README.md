@@ -12,7 +12,7 @@
 - [x] CI/CD
 - [x] [按需自动导入](/docs/按需自动导入.md)
 - [x] [Pinia + pinia-plugin-persistedstate + secure-ls 实现本地 AES 加密持久化](/docs/Pinia数据加密持久化.md)
-- [ ] Axios 封装 + 请求拦截器 + 响应拦截器 + token 续签
+- [ ] [Axios 封装](/docs/Axios.md)
 - [ ] 用户、角色列表
 - [ ] 组织架构
 - [ ] 多角色权限

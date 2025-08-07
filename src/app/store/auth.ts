@@ -12,18 +12,11 @@ export const useAuthStore = defineStore('auth', () => {
     refreshToken.value = refresh_token
   }
 
-  function clearUser() {
-    user.value = null
-    accessToken.value = null
-    refreshToken.value = null
-  }
-
   return {
     user,
     accessToken,
     refreshToken,
     setUser,
-    clearUser,
   }
 }, {
   persist: true,
