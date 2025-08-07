@@ -4,32 +4,34 @@
 [TailwindCSS](/docs/TailwindCSS.md)  
 [TypeScript](/docs/TypeScript.md)  
 [CI](/docs/CI.md)  
-- [ ] turborepo + Monorpo
+- [ ] Turborepo + Monorpo
 
 
-### 功能点
+### 框架配置
 - [x] [conventionalcommits git提交规范](/docs/commit.md)
 - [x] CI/CD
 - [x] [按需自动导入](/docs/按需自动导入.md)
 - [x] [Pinia + pinia-plugin-persistedstate + secure-ls 实现本地 AES 加密持久化](/docs/Pinia数据加密持久化.md)
 - [ ] [Axios 封装](/docs/Axios.md)
+- [ ] 主题切换
+- [ ] 国际化
+
+### 功能点
 - [ ] 用户、角色列表
 - [ ] 组织架构
 - [ ] 多角色权限
+- [ ] vitePress
 - [ ] 多种登录方式
 - [ ] 动态路由
-- [ ] vitePress
 - [ ] D3图表
 - [ ] 地图打点、路径等
-- [ ] 主题切换
-- [ ] 国际化
 - [ ] 富文本
 - [ ] 流程图
 - [ ] 甘特图
 - [ ] 代码编辑器
 - [ ] 日历
-- [ ] Turborepo
 - [ ] 大数据处理，虚拟列表滚动
+- [ ] GSAP 动画
 
 
 ### 多端
@@ -37,3 +39,6 @@
 - [ ] 微信小程序
 - [ ] App（Android）
 - [ ] 桌面端
+
+
+![](https://geps.dev/progress/10)
