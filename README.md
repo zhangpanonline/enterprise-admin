@@ -4,41 +4,43 @@
 [TailwindCSS](/docs/TailwindCSS.md)  
 [TypeScript](/docs/TypeScript.md)  
 [CI](/docs/CI.md)  
-- [ ] Turborepo + Monorpo
 
 
 ### 框架配置
-- [x] [conventionalcommits git提交规范](/docs/commit.md)
-- [x] CI/CD
-- [x] [按需自动导入](/docs/按需自动导入.md)
-- [x] [Pinia + pinia-plugin-persistedstate + secure-ls 实现本地 AES 加密持久化](/docs/Pinia数据加密持久化.md)
-- [ ] [Axios 封装](/docs/Axios.md)
-- [ ] 主题切换
-- [ ] 国际化
+![](https://geps.dev/progress/100) [conventionalcommits git提交规范](/docs/commit.md)
+![](https://geps.dev/progress/100) CI/CD
+![](https://geps.dev/progress/100) [按需自动导入](/docs/按需自动导入.md)
+![](https://geps.dev/progress/100) [Pinia + pinia-plugin-persistedstate + secure-ls 实现本地 AES 加密持久化](/docs/Pinia数据加密持久化.md)
+![](https://geps.dev/progress/10)  [Axios 封装](/docs/Axios.md)
+![](https://geps.dev/progress/0)  主题切换
+![](https://geps.dev/progress/0)  国际化
+![](https://geps.dev/progress/0)  Turborepo + Monorpo
 
 ### 功能点
-- [ ] 用户、角色列表
-- [ ] 组织架构
-- [ ] 多角色权限
-- [ ] vitePress
-- [ ] 多种登录方式
-- [ ] 动态路由
-- [ ] D3图表
-- [ ] 地图打点、路径等
-- [ ] 富文本
-- [ ] 流程图
-- [ ] 甘特图
-- [ ] 代码编辑器
-- [ ] 日历
-- [ ] 大数据处理，虚拟列表滚动
-- [ ] GSAP 动画
+![](https://geps.dev/progress/0)  用户、角色列表
+![](https://geps.dev/progress/0)  组织架构
+![](https://geps.dev/progress/0)  多角色权限
+![](https://geps.dev/progress/0)  vitePress
+![](https://geps.dev/progress/0)  多种登录方式
+![](https://geps.dev/progress/0)  动态路由
+![](https://geps.dev/progress/0)  D3图表
+![](https://geps.dev/progress/0)  地图打点、路径等
+![](https://geps.dev/progress/0)  富文本
+![](https://geps.dev/progress/0)  流程图
+![](https://geps.dev/progress/0)  甘特图
+![](https://geps.dev/progress/0)  代码编辑器
+![](https://geps.dev/progress/0)  日历
+![](https://geps.dev/progress/0)  大数据处理，虚拟列表滚动
+![](https://geps.dev/progress/0)  GSAP 动画
+![](https://geps.dev/progress/0)  websocket
+![](https://geps.dev/progress/10) [边缘函数](/docs/边缘函数.md)
+
 
 
 ### 多端
-- [ ] PC端
-- [ ] 微信小程序
-- [ ] App（Android）
-- [ ] 桌面端
+![](https://geps.dev/progress/0)  PC端
+![](https://geps.dev/progress/0)  微信小程序
+![](https://geps.dev/progress/0)  App（Android）
+![](https://geps.dev/progress/0)  桌面端
 
 
-![](https://geps.dev/progress/10)

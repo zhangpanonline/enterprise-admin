@@ -1,4 +1,4 @@
-import { supabaseAxios } from '@/shared/utils/request/supabase'
+import { http } from '@/shared/utils/request'
 import type { User } from '@supabase/supabase-js'
 
 export interface Session {
@@ -19,14 +19,12 @@ export interface Session {
 // })
 
 // 登录
-export const loginByEmail = (email: string, password: string) => supabaseAxios.post<Session>('/token?grant_type=password', {
+export const loginByEmail = (email: string, password: string) => http.post<Session>('/auth/v1/token?grant_type=password', {
   email,
   password,
 })
 
 // 刷新token
-export const refreshAccessToken = (refreshToken: string) => supabaseAxios.post<Session>('/token?grant_type=refresh_token', {
+export const refreshAccessToken = (refreshToken: string) => http.post<Session>('/auth/v1/token?grant_type=refresh_token', {
   refresh_token: refreshToken,
 })
-
-//
