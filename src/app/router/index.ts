@@ -1,26 +1,19 @@
 import { type App } from 'vue'
-import { createRouter, createWebHistory, type RouteRecordRaw, type Router } from 'vue-router'
+import { createRouter, createWebHistory, type Router } from 'vue-router'
+import { useAuthStore } from '@/app/store/auth'
+import { routes } from './routes'
 
-const routes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    redirect: '/login'
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import('@/features/auth/views/LoginPage.vue')
-  },
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import('@/features/dashboard/views/Home.vue')
-  },
-]
 
 const router: Router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+router.beforeEach((to) => {
+  const authStore = useAuthStore()
+  if (to.name !== 'Login' && !authStore.accessToken) {
+    return { name: 'Login' }
+  }
 })
 
 export function setupRouter(app: App) {

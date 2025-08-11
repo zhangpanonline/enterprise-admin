@@ -12,11 +12,19 @@ export const useAuthStore = defineStore('auth', () => {
     refreshToken.value = refresh_token
   }
 
+  function $reset() {
+    user.value = null
+    accessToken.value = null
+    refreshToken.value = null
+    localStorage.clear()
+  }
+
   return {
     user,
     accessToken,
     refreshToken,
     setUser,
+    $reset
   }
 }, {
   persist: true,

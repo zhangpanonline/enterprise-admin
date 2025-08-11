@@ -24,6 +24,9 @@ export const loginByEmail = (email: string, password: string) => http.post<Sessi
   password,
 })
 
+// 退出登录
+export const loginOutApi = () => http.post('/auth/v1/logout')
+
 // 刷新token
 export const refreshAccessToken = (refreshToken: string) => http.post<Session>('/auth/v1/token?grant_type=refresh_token', {
   refresh_token: refreshToken,

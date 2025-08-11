@@ -17,8 +17,7 @@
 ![](https://geps.dev/progress/0)  Turborepo + Monorpo  
 
 ### 功能点
-![](https://geps.dev/progress/0)  用户、角色列表  
-![](https://geps.dev/progress/0)  组织架构  
+![](https://geps.dev/progress/0)  [用户、角色、组织关系表](/docs/用户、角色、组织关系表.md)  
 ![](https://geps.dev/progress/0)  多角色权限  
 ![](https://geps.dev/progress/0)  vitePress  
 ![](https://geps.dev/progress/0)  多种登录方式  
