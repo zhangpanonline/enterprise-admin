@@ -14,6 +14,11 @@ router.beforeEach((to) => {
   if (to.name !== 'Login' && !authStore.accessToken) {
     return { name: 'Login' }
   }
+  if (to.name === 'Login' && authStore.accessToken) {
+    return {
+      name: 'Home'
+    }
+  }
 })
 
 export function setupRouter(app: App) {

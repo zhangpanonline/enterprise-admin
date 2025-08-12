@@ -25,7 +25,7 @@ const search = reactive({
 
 const tableData = ref([])
 
-fetchData()
+// fetchData()
 async function fetchData() {
     tableData.value = []
     const res = await getUserApi(search)

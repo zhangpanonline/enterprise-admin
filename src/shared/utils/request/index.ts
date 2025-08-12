@@ -22,6 +22,7 @@ export const http = axios.create({
 
 // 请求拦截器
 http.interceptors.request.use((config) => {
+    console.log('↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓')
     console.log('请求地址：', import.meta.env.VITE_SUPABASE_URL + config.url)
     // const { loading = true } = config.headers
     loadingInstance = ElLoading.service({
@@ -63,16 +64,16 @@ http.interceptors.response.use(response => {
 }, async error => {
     loadingInstance?.close()
     console.log('响应拦截错误：', error)
-    if (error?.response?.data?.code === "PGRST303") {
+    if (error?.response?.data?.code === "PGRST303" || error?.response?.data?.code === 401) {
         const res = await useRefreshToken()
         console.log('刷新token:', res)
         error.response.config.headers.Authorization = `Bearer ${res}`
         return http(error?.response.config)
     } else {
-        const msg = error?.response?.data?.msg || error?.response?.statusText || error?.message || '请求错误'
+        const msg = error?.response?.data?.message || error?.response?.statusText || error?.message || '请求错误'
         await ElMessageBox.confirm(
             msg,
-            'Error',
+            error?.response?.status || 'Error',
             {
                 confirmButtonText: 'OK',
                 showCancelButton: false,
@@ -86,4 +87,11 @@ http.interceptors.response.use(response => {
 // 生成唯一key (方法 + url + body)
 function getRequestKey(config: AxiosRequestConfig) {
     return `${config.method}-${config.url}-${JSON.stringify(config.params)}-${JSON.stringify(config.data)}`
+}
+
+// 状态码
+const statusCode = {
+    200: '查询成功',
+    201: '创建成功',
+    204: '删除成功'
 }

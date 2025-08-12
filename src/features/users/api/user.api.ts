@@ -8,6 +8,9 @@ interface User {
     roles: string[],
 }
 
+// /auth/v1/signup
+// user_metadata
+
 // 新增
 export async function createUserApi(user: User){
     let res = await http.post('/auth/v1/signup', { email: user.email, password: user.password })
