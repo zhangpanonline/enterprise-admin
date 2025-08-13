@@ -40,7 +40,7 @@
 ### 多端
 ![](https://geps.dev/progress/0)  PC端  
 ![](https://geps.dev/progress/0)  微信小程序  
-![](https://geps.dev/progress/0)  App（Android）  
+![](https://geps.dev/progress/0)  Flutter 
 ![](https://geps.dev/progress/0)  桌面端  
 
 

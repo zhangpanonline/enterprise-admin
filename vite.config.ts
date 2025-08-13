@@ -39,7 +39,6 @@ export default defineConfig(() => {
           changeOrigin: true,
           rewrite: path => {
             const _path = path.replace(/^\/api/, '')
-            console.log('======================================================')
             console.log("请求地址：", env.VITE_SUPABASE_URL + _path)
             return _path
           }
