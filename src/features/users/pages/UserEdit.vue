@@ -4,11 +4,11 @@
       <el-form-item label="用户名">
         <el-input v-model="form.name" />
       </el-form-item>
-      <el-form-item label="密码">
+      <el-form-item v-if="!form.id" label="密码">
         <el-input type="password" v-model="form.password" />
       </el-form-item>
       <el-form-item label="邮箱">
-        <el-input v-model="form.email" />
+        <el-input :disabled="!!form.id" v-model="form.email" />
       </el-form-item>
       <el-form-item label="手机号">
         <el-input v-model="form.phone" />
@@ -65,6 +65,7 @@ async function getRoleList() {
 async function handleCrateUser() {
   const api = form.value.id ? editUserApi : createUserApi;
   const msg = form.value.id ? "修改成功" : "创建成功";
+  console.log(form.value, '####')
   const res = await api(form.value);
   if (res.status === 200) {
     ElMessage.success(msg);

@@ -4,13 +4,10 @@ import { createClient } from 'npm:@supabase/supabase-js@2';
 // 推荐使用 Deno.serve（Supabase docs 建议使用内置 Deno.serve）
 Deno.serve(async (req)=>{
   try {
-    const { page = 1, perPage = 10 } = await req.json();
+    const { id } = await req.json();
     // 初始化 Supabase 管理客户端（必须用服务角色密钥）
     const supabase = createClient(Deno.env.get("SUPABASE-URL"), Deno.env.get("SUPABASE-SERVICE_ROLE_KEY"));
-    const res = await supabase.auth.admin.listUsers({
-      page,
-      perPage
-    });
+    const res = await supabase.auth.admin.deleteUser(id);
     return new Response(JSON.stringify(res.data), {
       status: 200,
       headers: {
