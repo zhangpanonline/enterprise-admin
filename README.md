@@ -42,5 +42,6 @@
 ![](https://geps.dev/progress/0)  微信小程序  
 ![](https://geps.dev/progress/0)  Flutter 
 ![](https://geps.dev/progress/0)  桌面端  
+![](https://geps.dev/progress/0)  浏览器插件  
 
 
