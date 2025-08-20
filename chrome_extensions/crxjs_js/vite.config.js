@@ -7,6 +7,7 @@ export default defineConfig({
     crx({ manifest }),
   ],
   server: {
+    port: 3000,
     cors: {
       origin: [
         /chrome-extension:\/\//,
