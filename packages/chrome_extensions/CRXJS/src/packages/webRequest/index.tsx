@@ -19,7 +19,7 @@ export default function WebRequest() {
   });
 
   return (
-    <ul>
+    <ul >
       {data.map((item) => (
         <li key={item.url}>
           {item.method}：{item.url}
