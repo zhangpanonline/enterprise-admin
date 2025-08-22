@@ -8,6 +8,7 @@ export default defineManifest({
   icons: {
     48: 'public/logo.png',
   },
+  homepage_url: pkg.homepage,
   action: {
     default_icon: {
       48: 'public/logo.png',
@@ -17,6 +18,7 @@ export default defineManifest({
   permissions: [
     'sidePanel',
     'contentSettings',
+    'storage',
     // 允许监听请求
     'webRequest',
   ],

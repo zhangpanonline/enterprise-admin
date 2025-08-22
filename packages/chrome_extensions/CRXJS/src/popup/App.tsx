@@ -1,5 +1,4 @@
 
-import WebRequest from '@/packages/webRequest'
 import Header from '@/components/Header'
 import './App.css'
 
@@ -8,11 +7,8 @@ export default function App() {
     <div className="h-full">
       <Header></Header>
       <div className='overflow-y-auto h-full' >
-        <WebRequest></WebRequest>
+        1
       </div>
     </div>
   )
 }
-
-// const html = document.querySelector('html')
-// html?.setAttribute('data-theme', 'caramellatte')

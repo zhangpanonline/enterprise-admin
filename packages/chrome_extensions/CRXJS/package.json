@@ -3,6 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://github.com/zhangpanonline/enterprise-admin/tree/main/packages/chrome_extensions/CRXJS",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

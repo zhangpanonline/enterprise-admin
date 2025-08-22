@@ -1,9 +1,8 @@
-
-import ChangeTheme from '@/packages/changeTheme/page'
+import ChangeTheme from "@/packages/changeTheme/page";
 export default function Header() {
   return (
     <div className="navbar bg-base-100 shadow-sm">
-      <div className="navbar-start">
+      <div className="navbar-start w-20">
         <div className="dropdown">
           <div tabindex="0" role="button" className="btn btn-ghost btn-circle">
             <svg
@@ -35,12 +34,17 @@ export default function Header() {
           </ul>
         </div>
       </div>
-      <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">
-          CRXJS + React + Vite + Daisy UI + tailwindcss
-        </a>
+      <div
+        style={{
+          display: "-webkit-box",
+          "-webkit-box-orient": "vertical",
+          "-webkit-line-clamp": "1",
+        }}
+        className="navbar-center text-xl overflow-ellipsis flex-1 overflow-hidden text-nowrap text-center"
+      >
+        CRXJS + React + Vite + Daisy UI + tailwindcss
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end text-nowrap w-[110px]">
         <ChangeTheme></ChangeTheme>
       </div>
     </div>

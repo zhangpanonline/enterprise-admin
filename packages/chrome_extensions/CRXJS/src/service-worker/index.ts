@@ -1,4 +1,4 @@
-import '@/packages/webRequest/service-worker'
+// import '@/packages/webRequest/service-worker'
 
 setBadge({ text: 'OFF', color: '#FF0000' })
 function setBadge({ text, color }: { text: 'ON' | 'OFF', color: string }): void {
