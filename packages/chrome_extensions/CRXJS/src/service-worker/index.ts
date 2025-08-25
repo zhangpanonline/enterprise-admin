@@ -1,4 +1,5 @@
 // import '@/packages/webRequest/service-worker'
+import listenerOnMessage from './onMessage'
 
 setBadge({ text: 'OFF', color: '#FF0000' })
 function setBadge({ text, color }: { text: 'ON' | 'OFF', color: string }): void {
@@ -14,3 +15,7 @@ function setBadge({ text, color }: { text: 'ON' | 'OFF', color: string }): void 
     }, 2000)
   }
 }
+
+chrome.runtime.onInstalled.addListener(() => {
+  listenerOnMessage()
+})

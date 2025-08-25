@@ -1,3 +1,4 @@
+
 export default function Page() {
   chrome.system.cpu.getInfo().then((r) => {
     console.log(r, 'cpu');

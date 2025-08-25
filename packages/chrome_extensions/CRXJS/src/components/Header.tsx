@@ -1,5 +1,7 @@
 import ChangeTheme from "@/packages/changeTheme/page";
-export default function Header() {
+
+type MenuList = Array<{ label: string, key: string }>
+export default function Header({ menuList, handleMenuClick }: { menuList: MenuList, handleMenuClick: (menu: string) => void }) {
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start w-20">
@@ -25,12 +27,11 @@ export default function Header() {
             tabindex="0"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>首页</a>
-            </li>
-            <li>
-              <a>请求拦截</a>
-            </li>
+            {
+              menuList.map(({ label, key }) => <li key={key} onClick={() => handleMenuClick(key)} >
+                <a>{label}</a>
+              </li>)
+            }
           </ul>
         </div>
       </div>

@@ -57,6 +57,7 @@ export default defineManifest({
     'webRequest',
     // 允许同步阻塞并修改请求
     // 'webRequestBlocking'
+    'notifications'
   ],
   host_permissions: ["https://*/*", "http://*/*"],
   chrome_url_overrides: {

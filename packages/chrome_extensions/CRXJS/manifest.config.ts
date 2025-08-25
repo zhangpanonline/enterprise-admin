@@ -21,7 +21,8 @@ export default defineManifest({
     'storage',
     // 允许监听请求
     'webRequest',
-    'system.cpu'
+    'system.cpu',
+    'notifications'
   ],
   host_permissions: ["https://*/*", "http://*/*"], // 允许访问的网站
   content_scripts: [{
