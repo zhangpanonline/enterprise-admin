@@ -1,3 +1,29 @@
+# [1.1.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.0.1...v1.1.0) (2025-08-26)
+
+
+### Features
+
+* **功能实现:** 1.应用流程启动；2.按需导入 ([960401d](https://github.com/zhangpanonline/enterprise-admin/commit/960401d67aef44a670b34b1105f4131bb707fc29))
+* **功能实现:** axios 封装 ([a4b99f6](https://github.com/zhangpanonline/enterprise-admin/commit/a4b99f658b4fb26a860818c08e25b9f9d2e603e6))
+* **功能实现:** axios、supabase封装 ([44c7f32](https://github.com/zhangpanonline/enterprise-admin/commit/44c7f3259768a90c6ebaa1f4201e9fd6e8a98424))
+* **功能实现:** pinia 本地存储AES加密持久化 ([a3392af](https://github.com/zhangpanonline/enterprise-admin/commit/a3392af1c309b9b342e8c080ea263e3aa7c1cc93))
+* **功能实现:** supabase 登录接口调用 ([1390cba](https://github.com/zhangpanonline/enterprise-admin/commit/1390cbae5b6a1b6caaedb6472e1153b70cff7039))
+* **功能实现:** 安装supabase ([fc5f271](https://github.com/zhangpanonline/enterprise-admin/commit/fc5f2718c4fac8c73234e6953a76b691e7d96e19))
+* **功能实现:** 边缘函数 ([31c33b5](https://github.com/zhangpanonline/enterprise-admin/commit/31c33b5e3dfa2ae00f40f605db62c1a072955fb1))
+* **功能实现:** 退出登录、路由拦截、layout布局header组件 ([b4c3265](https://github.com/zhangpanonline/enterprise-admin/commit/b4c3265043595febba36ef5ca361f6d54e96aaad))
+* **浏览器插件:** crxjs 开发浏览器插件学习 ([3333fcc](https://github.com/zhangpanonline/enterprise-admin/commit/3333fccfe4f8af18a56e24201ddcc369ffb09246))
+* **浏览器插件:** 主题切换功能，存储到chrome.storage ([0943dc9](https://github.com/zhangpanonline/enterprise-admin/commit/0943dc999f91dea462a7ff16e3e1afe5481fe0c9))
+* **浏览器插件:** 修复打包时ts报错问题 ([831a4cb](https://github.com/zhangpanonline/enterprise-admin/commit/831a4cb4cf5b32937794e4b5efc26151746c4a39))
+* **浏览器插件:** 实现菜单功能 ([21ef3cd](https://github.com/zhangpanonline/enterprise-admin/commit/21ef3cdfb12b68ddf04eebab5a91466a4c08a8c0))
+* **浏览器插件:** 引入UI库 ([16866a5](https://github.com/zhangpanonline/enterprise-admin/commit/16866a522802f4617ef8eef2fb070d7d74ab9a49))
+* **浏览器插件:** 插件开发demo学习 ([c9a3d6c](https://github.com/zhangpanonline/enterprise-admin/commit/c9a3d6c45b69f58e4f95daae3a44c008ecd94eeb))
+* **浏览器插件:** 获取system.cpu信息 ([54df5b1](https://github.com/zhangpanonline/enterprise-admin/commit/54df5b1f19bcf78a1360cbff70db31799e983936))
+* **浏览器插件:** 获取系统信息 ([d837493](https://github.com/zhangpanonline/enterprise-admin/commit/d837493cc272f5bde43696f4c59ec27e482f5356))
+* **浏览器插件:** 请求拦截 ([56761b3](https://github.com/zhangpanonline/enterprise-admin/commit/56761b338da96c9422284975a69854642ec1a927))
+* **系统管理:** 用户列表 ([b2fd6e5](https://github.com/zhangpanonline/enterprise-admin/commit/b2fd6e53f4721e31cc05e586ed16ce872b69ddbf))
+* **系统管理:** 用户管理分页 ([03dbf03](https://github.com/zhangpanonline/enterprise-admin/commit/03dbf039cf519341ce841e852376670a392da247))
+* **系统管理:** 角色页面增删查改 ([1e4bdda](https://github.com/zhangpanonline/enterprise-admin/commit/1e4bddaf77a5f579230cfb6aa42dec09e49280cb))
+
 ## [1.0.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.0.0...v1.0.1) (2025-08-04)
 
 
