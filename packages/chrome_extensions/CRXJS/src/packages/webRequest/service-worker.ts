@@ -35,7 +35,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 // 接收到popup请求
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message.type === "request") {
     sendResponse(Array.from(cacheRequest.get(message.tabId) || []));
   }

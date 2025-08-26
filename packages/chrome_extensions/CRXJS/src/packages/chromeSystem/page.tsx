@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export default function Page() {
-  const [cpu, setCpu] = useState<chrome.system.cpu.CpuInfo>();
+  const [cpu, setCpu] = useState<chrome.system.cpu.CpuInfo & { temperatures?: Array<number> }>();
   chrome.system.cpu.getInfo().then((r) => {
     setCpu(r)
   });
