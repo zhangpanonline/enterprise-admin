@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Home from "@/packages/home/page";
 import ChromeSystem from "@/packages/chromeSystem/page";
 import Gsap from "@/packages/gsap/page";
+import WebRequest from "@/packages/webRequest/page";
 import { useState } from "react";
 import "./App.css";
 
@@ -11,6 +12,7 @@ export default function App() {
     { label: "首页", key: "home" },
     { label: "GSAP", key: "gsap" },
     { label: "系统信息", key: "chromeSystem" },
+    { label: "接口监控面板", key: "webRequest" },
   ];
   const handleMenu = (menu: string) => {
     setMenu(menu)
@@ -37,6 +39,8 @@ function getPage(menu: string) {
       return <Gsap></Gsap>;
     case "chromeSystem":
       return <ChromeSystem></ChromeSystem>;
+    case "webRequest":
+      return <WebRequest></WebRequest>;
     default:
       return <Home></Home>;
   }

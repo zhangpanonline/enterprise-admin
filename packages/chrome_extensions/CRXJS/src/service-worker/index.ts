@@ -1,7 +1,9 @@
-// import '@/packages/webRequest/service-worker'
+import '@/packages/webRequest/service-worker'
 import listenerOnMessage from './onMessage'
 
-setBadge({ text: 'OFF', color: '#FF0000' })
+if (import.meta.env.DEV) {
+  setBadge({ text: 'OFF', color: '#FF0000' })
+}
 function setBadge({ text, color }: { text: 'ON' | 'OFF', color: string }): void {
   chrome.action.setBadgeText({ text });
   chrome.action.setBadgeBackgroundColor({ color });

@@ -42,6 +42,15 @@
 ![](https://geps.dev/progress/0)  微信小程序  
 ![](https://geps.dev/progress/0)  Flutter 
 ![](https://geps.dev/progress/0)  桌面端  
-![](https://geps.dev/progress/0)  浏览器插件  
+![](https://geps.dev/progress/0)  浏览器插件
+  * 系统信息  
+  * 拦截请求/响应（接口监控面板）  
+  
+  * 代理接口  
+  * 长连接  
+  * 爬虫/数据采集  
+  * 通知与提醒  
+  * 配置页
+  * 页面调试工具
 
 
