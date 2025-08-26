@@ -3,3 +3,5 @@
 
 2. git提交规范  
 在团队中我们采用了基于 Conventional Commits 的提交规范，配合 husky + commitlint 做了 Git 钩子校验，同时接入了 commitizen 提供交互式提交体验，确保所有人都能按照统一风格提交。这样我们可以基于提交记录自动生成 changelog，同时也方便代码回溯与版本管理。在 CI/CD 流程中我们还使用了 semantic-release，让构建、打包、发布、发版本号等完全自动化。
+
+3. [你怎么优化 Element Plus 的打包体积？](./按需自动导入.md#1-你怎么优化-element-plus-的打包体积)
