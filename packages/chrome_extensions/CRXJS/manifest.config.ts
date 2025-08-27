@@ -6,12 +6,19 @@ export default defineManifest({
   name: pkg.name,
   version: pkg.version,
   icons: {
-    48: 'public/logo.png',
+    "16": "images/icon1-16.png",
+    "32": "images/icon1-32.png",
+    "48": "images/icon1-48.png",
+    "128": "images/icon1-128.png"
   },
   homepage_url: pkg.homepage,
   action: {
+    // 默认图标
     default_icon: {
-      48: 'public/logo.png',
+      "16": "images/icon2-16.png",
+      "32": "images/icon2-32.png",
+      "48": "images/icon2-48.png",
+      "128": "images/icon2-128.png"
     },
     default_popup: 'src/popup/index.html',
   },

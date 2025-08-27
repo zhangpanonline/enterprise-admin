@@ -19,7 +19,7 @@ export default function App() {
     chrome.runtime.sendMessage({ type: 'notifications', options: {
       type: "basic",
       title: 'title',
-      iconUrl: chrome.runtime.getURL('logo.png'),
+      iconUrl: chrome.runtime.getURL('/images/icon1-16.png'),
       message: 'contextMessage'
     } });
   }

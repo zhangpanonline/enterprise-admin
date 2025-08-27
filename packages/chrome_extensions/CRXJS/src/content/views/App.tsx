@@ -1,4 +1,4 @@
-import Logo from '@/assets/logo.png'
+import Logo from '../../../images/icon1-48.png'
 import { useState } from 'react'
 import './App.css'
 

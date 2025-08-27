@@ -1,4 +1,4 @@
-import '@/packages/webRequest/service-worker'
+import listenerWebRequest from  '@/packages/webRequest/service-worker'
 import listenerOnMessage from './onMessage'
 
 if (import.meta.env.DEV) {
@@ -18,6 +18,14 @@ function setBadge({ text, color }: { text: 'ON' | 'OFF', color: string }): void 
   }
 }
 
+// 首次安装
 chrome.runtime.onInstalled.addListener(() => {
   listenerOnMessage()
+  // 请求监控
+  listenerWebRequest()
+})
+
+// 卸载
+chrome.runtime.onSuspend.addListener(() => {
+
 })
