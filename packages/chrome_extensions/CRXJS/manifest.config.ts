@@ -30,12 +30,13 @@ export default defineManifest({
     'webRequest',
     'system.cpu',
     'system.memory',
-    'notifications'
+    'notifications',
+    'scripting'
   ],
   host_permissions: ["https://*/*", "http://*/*"], // 允许访问的网站
   content_scripts: [{
     js: ['src/content/main.tsx'],
-    matches: ['https://*/*'],
+    matches: ["<all_urls>"],
   }],
   side_panel: {
     default_path: 'src/sidepanel/index.html',
