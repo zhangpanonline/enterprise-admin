@@ -43,12 +43,5 @@
 ![](https://geps.dev/progress/0)  Flutter 
 ![](https://geps.dev/progress/0)  桌面端  
 ![](https://geps.dev/progress/0)  浏览器插件
-  * 系统信息  
-  * 拦截请求/响应（接口监控面板）  
-  
-  * 长连接  
-  * 通知与提醒  
-  * 配置页
-  * 页面调试工具
 
 
