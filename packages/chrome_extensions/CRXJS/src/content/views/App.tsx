@@ -23,7 +23,7 @@ function FixedButton() {
 function App() {
   return (
     <div className="bg-white p-4 rounded-md shadow-md w-max-content h-min-content">
-      <h1>S<sub>han</sub>B<sub>ing</sub></h1>
+      <h1>S<sub>hang</sub>B<sub>an</sub></h1>
     </div>
   )
 }
