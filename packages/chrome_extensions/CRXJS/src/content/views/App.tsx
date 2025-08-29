@@ -13,7 +13,7 @@ function FixedButton() {
 
   return (
     <>
-      <button data-theme={theme} className="fixed right-5 bottom-5 z-99999 bg-primary cursor-pointer shadow-md w-10 h-10 rounded-full animate-bounce" onClick={() => setShow(!show)} />
+      {/* <button data-theme={theme} className="fixed right-5 bottom-5 z-99999 bg-primary cursor-pointer shadow-md w-10 h-10 rounded-full animate-bounce" onClick={() => setShow(!show)} /> */}
       <div data-theme={theme} className="fixed right-15 bottom-5 z-99999 flex">
         {show && App()}
       </div>

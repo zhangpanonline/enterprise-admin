@@ -17,6 +17,14 @@ export const routes: RouteRecordRaw[] = [
         component: () => import('@/features/dashboard/views/Home.vue')
       },
       {
+        path: '/crx',
+        name: 'Crx',
+        meta: {
+          title: '插件管理'
+        },
+        component: () => import('@/features/crx/pages/CrxPage.vue')
+      },
+      {
         path: '/users',
         name: 'Users',
         meta: {
