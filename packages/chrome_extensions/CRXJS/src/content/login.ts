@@ -9,7 +9,11 @@ window.addEventListener("message", (event) => {
     chrome.runtime.sendMessage(
       { code: event.data.code, type: "login" },
       (res) => {
-        window.postMessage({ type: 'login-response', status: res.status }, "*");
+        if (chrome.runtime.lastError) {
+          console.error(chrome.runtime.lastError.message);
+          return;
+        }
+        window.postMessage({ type: "login-response", status: res.status }, "*");
       }
     );
   }

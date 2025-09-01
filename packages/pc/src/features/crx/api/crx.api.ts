@@ -7,6 +7,7 @@ import type { UUID } from "crypto";
 export interface Crx {
   code: UUID;
   access_token: string;
+  refresh_token: string;
   expires_at: string;
   id?: number,
   created_at?: string,

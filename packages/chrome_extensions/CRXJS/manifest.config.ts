@@ -33,7 +33,8 @@ export default defineManifest({
     'notifications',
     'scripting',
     // 获取 OAuth2 访问令牌
-    'identity'
+    'identity',
+    'offscreen'
   ],
   host_permissions: ["https://*/*", "http://*/*"], // 允许访问的网站
   content_scripts: [{
