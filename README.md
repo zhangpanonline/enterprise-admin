@@ -15,6 +15,7 @@
 ![](https://geps.dev/progress/0)  主题切换  
 ![](https://geps.dev/progress/0)  国际化  
 ![](https://geps.dev/progress/0)  Turborepo + Monorpo  
+![](https://geps.dev/progress/0)  微服务  
 
 ### 功能点
 ![](https://geps.dev/progress/0)  多角色权限  
