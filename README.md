@@ -14,7 +14,7 @@
 ![](https://geps.dev/progress/50)  [Axios 封装](/docs/Axios.md)  
 ![](https://geps.dev/progress/0)  主题切换  
 ![](https://geps.dev/progress/0)  国际化  
-![](https://geps.dev/progress/0)  Turborepo + Monorpo  
+![](https://geps.dev/progress/0)  [Turborepo + Monorpo](/docs/Turborepo.md)  
 ![](https://geps.dev/progress/0)  微服务  
 
 ### 功能点
@@ -29,20 +29,20 @@
 ![](https://geps.dev/progress/0)  甘特图  
 ![](https://geps.dev/progress/0)  代码编辑器  
 ![](https://geps.dev/progress/0)  日历  
-![](https://geps.dev/progress/0)  大数据处理，虚拟列表滚动  
+![](https://geps.dev/progress/100)  大数据处理，虚拟列表滚动  
 ![](https://geps.dev/progress/0)  GSAP 动画  
 ![](https://geps.dev/progress/0)  websocket  
 ![](https://geps.dev/progress/0)  AI聊天，提供网站信息  
 ![](https://geps.dev/progress/0)  PWA(Service Worker)  
-![](https://geps.dev/progress/10) [边缘函数](/docs/边缘函数.md)  
+![](https://geps.dev/progress/50) [边缘函数](/docs/边缘函数.md)  
 
 
 
 ### 多端
-![](https://geps.dev/progress/0)  PC端  
+![](https://geps.dev/progress/5)  PC端  
 ![](https://geps.dev/progress/0)  微信小程序  
 ![](https://geps.dev/progress/0)  Flutter 
 ![](https://geps.dev/progress/0)  桌面端  
-![](https://geps.dev/progress/0)  [浏览器插件](/docs/浏览器插件.md)
+![](https://geps.dev/progress/10)  [浏览器插件](/docs/浏览器插件.md)
 
 
