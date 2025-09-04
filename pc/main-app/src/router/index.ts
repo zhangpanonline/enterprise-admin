@@ -11,6 +11,11 @@ const router = createRouter({
       path: '/sub-app-next',
       name: 'subAppNext',
       component: () => import('@/views/sub-app-next.vue'),
+    },
+    {
+      path: '/sub-app-vue',
+      name: 'subAppVue',
+      component: () => import('@/views/sub-app-vue.vue'),
     }
   ],
 })

@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import '@/assets/index.css'
 
 import WujieVue from 'wujie-vue3'
 

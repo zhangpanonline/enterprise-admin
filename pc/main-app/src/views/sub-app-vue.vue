@@ -1,5 +1,5 @@
 <template>
-  <WujieVue width="100%" height="100%" name="sub-app-next" sync url="//localhost:1001"> </WujieVue>
+  <WujieVue width="100%" height="100%" name="sub-app-vue" sync url="//localhost:1003"> </WujieVue>
   <button class="bg-red-500" @click="onClick">主应用传递给子应用</button>
 </template>
 
