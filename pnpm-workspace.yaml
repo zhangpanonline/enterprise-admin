@@ -1,6 +1,7 @@
 packages:
   - packages/**
   - pc/**
+  - demo/**
 
 catalog:
   # 工程依赖

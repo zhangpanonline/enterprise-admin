@@ -5,12 +5,12 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/sub-app-vue',
+      redirect: '/sub-app-next',
     },
     {
-      path: '/sub-app-vue',
-      name: 'subAppVue',
-      component: () => import('@/views/sub-app-vue.vue'),
+      path: '/sub-app-next',
+      name: 'subAppNext',
+      component: () => import('@/views/sub-app-next.vue'),
     }
   ],
 })
