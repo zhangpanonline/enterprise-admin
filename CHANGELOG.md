@@ -1,3 +1,18 @@
+# [1.2.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.1.0...v1.2.0) (2025-09-04)
+
+
+### Features
+
+* **功能实现:** 大数据渲染 ([bd8a7d7](https://github.com/zhangpanonline/enterprise-admin/commit/bd8a7d7b38cceba334f0aa6a9497844035a2d89a))
+* **功能实现:** 微服务 ([682e945](https://github.com/zhangpanonline/enterprise-admin/commit/682e945d8d00a85a01448e48abfd23f551fafec0))
+* **功能实现:** 添加demo文件 ([256b91c](https://github.com/zhangpanonline/enterprise-admin/commit/256b91c20786068ea6e926507ea7ae0320d923ff))
+* **浏览器插件:** content script ([51659fd](https://github.com/zhangpanonline/enterprise-admin/commit/51659fdbb636b18f5a8c517515d11e30a4a45bc1))
+* **浏览器插件:** webRequest功能 ([f31df10](https://github.com/zhangpanonline/enterprise-admin/commit/f31df10992de56aa9b0cd2d054f5a820d1ae2635))
+* **浏览器插件:** 接口监控面板 ([8f284fa](https://github.com/zhangpanonline/enterprise-admin/commit/8f284fa9bbf74c492c183fd80b91efcb1be5b0b7))
+* **浏览器插件:** 添加identity权限 ([1be47a8](https://github.com/zhangpanonline/enterprise-admin/commit/1be47a8a9e1ec59c7d860c335fbdea91a8742d6f))
+* **浏览器插件:** 继续完善通过网页端登录插件逻辑 ([e8d5e32](https://github.com/zhangpanonline/enterprise-admin/commit/e8d5e32cdfc24590f64c3c41db09b0a3cc64404a))
+* **浏览器插件:** 网页端登录插件80% ([8677239](https://github.com/zhangpanonline/enterprise-admin/commit/86772391e807d57d2a08417fe48824317f7e8b9f))
+
 # [1.1.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.0.1...v1.1.0) (2025-08-26)
 
 
