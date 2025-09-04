@@ -4,6 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <RouterLink to="/sub-app-next">sub-app-next</RouterLink>
+  <RouterLink to="/sub-app-nuxt">sub-app-nuxt</RouterLink>
   <RouterLink to="/sub-app-vue">sub-app-vue</RouterLink>
   <RouterView class="outline"></RouterView>
 </template>
