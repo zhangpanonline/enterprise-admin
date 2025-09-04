@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/zhangpanonline/enterprise-admin/compare/v1.3.2...v1.3.3) (2025-09-04)
+
+
+### Bug Fixes
+
+* **微前端:** 修复刷新404问题 ([bfe5667](https://github.com/zhangpanonline/enterprise-admin/commit/bfe5667476e9bb6b4f4b9f3f964273c4db05c5f5))
+
 ## [1.3.2](https://github.com/zhangpanonline/enterprise-admin/compare/v1.3.1...v1.3.2) (2025-09-04)
 
 
