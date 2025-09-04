@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+    "rewrites": [
+      {
+        "source": "/sub-app-vue/(.*)",
+        "destination": "/sub-app-vue/index.html"
+      },
+      {
+        "source": "/sub-app-next/(.*)",
+        "destination": "/sub-app-next/index.html"
+      },
+      {
+        "source": "/sub-app-nuxt/(.*)",
+        "destination": "/sub-app-nuxt/index.html"
+      }
+    ]
+}
