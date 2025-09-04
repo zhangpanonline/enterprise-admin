@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+        {
+            "source": "/sub-app-next/(.*)",
+            "destination": "https://next.main.zhangpan.online/$1"
+        },
+        {
+            "source": "/sub-app-nuxt/(.*)",
+            "destination": "https://nuxt.main.zhangpan.online/$1"
+        },
+        {
+            "source": "/sub-app-vue/(.*)",
+            "destination": "https://vue.main.zhangpan.online/$1"
+        }
+    ]
+}

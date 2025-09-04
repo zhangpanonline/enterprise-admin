@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+  basePath: '/sub-app-next'
 };
 
 export default nextConfig;
