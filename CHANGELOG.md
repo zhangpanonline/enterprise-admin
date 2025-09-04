@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.2.0...v1.3.0) (2025-09-04)
+
+
+### Features
+
+* **功能实现:** main-app 添加环境变量 ([19a77d2](https://github.com/zhangpanonline/enterprise-admin/commit/19a77d2b0bd0a9cc75d6b3a115a792a100df35be))
+
 # [1.2.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.1.0...v1.2.0) (2025-09-04)
 
 
