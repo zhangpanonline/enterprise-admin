@@ -46,7 +46,7 @@ export default function Header({ menuList, handleMenuClick }: { menuList: MenuLi
         } as CustomCSSProperties}
         className="navbar-center text-xl overflow-ellipsis flex-1 overflow-hidden text-nowrap text-center"
       >
-        CRXJS + React + Vite + Daisy UI + tailwindcss
+        CRXJS + React + Vite + Daisy UI + tailwindcss { import.meta.env.DEV && "（dev）" }
       </div>
       <div className="navbar-end text-nowrap w-[110px]">
         <ChangeTheme></ChangeTheme>

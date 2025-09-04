@@ -1,6 +1,8 @@
 <template>
     <el-menu default-active="/" router>
         <el-menu-item index="/">首页</el-menu-item>
+        <el-menu-item index="/bigDataRender">大数据渲染</el-menu-item>
+        <el-menu-item index="/crx">插件管理</el-menu-item>
         <el-sub-menu index="system">
             <template #title>系统管理</template>
             <el-menu-item index="/users">用户管理</el-menu-item>

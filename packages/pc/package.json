@@ -19,7 +19,8 @@
     "secure-ls": "^2.0.0",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.17",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.5.1",
+    "vue-virtual-scroller": "2.0.0-beta.8"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",

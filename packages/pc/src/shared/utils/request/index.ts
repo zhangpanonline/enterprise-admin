@@ -1,6 +1,7 @@
 import axios, { type AxiosRequestConfig, type CreateAxiosDefaults } from 'axios'
 import { useAuthStore } from '@/app/store/auth'
 import { useRefreshToken } from '@/features/auth/hooks/useRefreshToken'
+export * from './supabase'
 
 let loadingInstance: ReturnType<typeof ElLoading.service> | null = null
 
