@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/zhangpanonline/enterprise-admin/compare/v1.3.1...v1.3.2) (2025-09-04)
+
+
+### Bug Fixes
+
+* **功能实现:** 解决跨域问题 ([3c58158](https://github.com/zhangpanonline/enterprise-admin/commit/3c58158ece9d4da2a10da7a490d89d6c10c36c13))
+
 ## [1.3.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.3.0...v1.3.1) (2025-09-04)
 
 
