@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.3.3...v1.4.0) (2025-09-05)
+
+
+### Features
+
+* **主应用:** 添加nuxt文件 ([de4e4f8](https://github.com/zhangpanonline/enterprise-admin/commit/de4e4f8615706e82a4e2a649596a70940bad2882))
+* **微前端:** 添加nuxt.js ([9a0be72](https://github.com/zhangpanonline/enterprise-admin/commit/9a0be723e33ca2c70522439dc93187229cd79fca))
+
 ## [1.3.3](https://github.com/zhangpanonline/enterprise-admin/compare/v1.3.2...v1.3.3) (2025-09-04)
 
 
