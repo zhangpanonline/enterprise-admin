@@ -6,6 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      // redirect: '/sub-app-next',
       component: () => import('@/views/home.vue'),
     },
     {
