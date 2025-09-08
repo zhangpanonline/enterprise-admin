@@ -33,6 +33,9 @@ export default defineConfig({
   ],
   server: {
     port: 1000,
+    proxy: {
+      '/sub-app-nuxt': 'http://localhost:1002'
+    }
   },
   resolve: {
     alias: {
