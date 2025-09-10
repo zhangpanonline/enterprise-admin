@@ -8,7 +8,7 @@
           class="showMicroBtn relative flex py-3 pl-5 pr-2.5 cursor-pointer items-center gap-5 justify-between w-full font-medium text-gray-700 z-0 before:absolute before:inset-0 before:from-gray-900/6 before:to-gray-900/9 before:bg-linear-to-r before:scale-x-0 before:origin-left before:transition-transform before:duration-400 hover:before:scale-x-100 before:z-[-1] before:rounded-r-full"
           @click="showMicroApp = !showMicroApp"
         >
-          <img :src="microList[activeMicro].icon" class="w-5 h-5" />
+          <img v-if="microList[activeMicro].icon" :src="microList[activeMicro].icon" class="w-5 h-5" />
           <p class="flex-1">{{ activeMicro }}</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@
             ref="microListRef"
             class="absolute left-1/2 right-1 mt-2 bg-white rounded-md shadow-lg border border-gray-200"
           >
-            <RouterLink v-for="({ path, icon }, key) in microList" :key="key" :to="path">
+            <RouterLink v-for="({ path, icon }, key) in microList" :key="key" :to="path" @click="activeMicro = key">
               <p
                 class="relative px-4 py-2 text-md text-gray-700 flex items-center z-0 mb-0.5 before:absolute before:inset-0 before:bg-gray-100 before:scale-x-0 before:origin-left before:transition-transform before:duration-400 hover:before:scale-x-100 before:z-[-1] before:rounded-r-full"
               >
@@ -64,6 +64,10 @@
 import { onClickOutside } from '@vueuse/core'
 const showMicroApp = ref(false)
 const microList = {
+  home: {
+    path: '/',
+    icon: ''
+  },
   vue: {
     path: '/sub-app-vue',
     icon: 'https://vercel.com/api/v0/deployments/dpl_A6VTumhp3WTYmWYVxyxbbTYCLQGS/favicon?project=main-app&readyState=READY&teamId=team_ssIRefcwQEBAr07w4bHFSFQP',
@@ -81,7 +85,7 @@ const microListRef = useTemplateRef<HTMLElement>('microListRef')
 onClickOutside(microListRef, () => (showMicroApp.value = false), {
   ignore: ['.showMicroBtn'],
 })
-const activeMicro = 'vue'
+const activeMicro = ref('home')
 
 const menuList = [
   {}

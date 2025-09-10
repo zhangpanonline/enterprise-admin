@@ -1,4 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
+import { readFileSync } from 'node:fs'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -11,6 +12,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig(() => {
+  
   return {
     plugins: [
       vue(),
@@ -35,10 +37,12 @@ export default defineConfig(() => {
     server: {
       port: 1000,
       proxy: {
-        '/sub-app-next': 'http://localhost:1001',
-        '/sub-app-nuxt': 'http://localhost:1002',
-        '/sub-app-vue': 'http://localhost:1003',
       },
+      https: {
+        key: readFileSync(fileURLToPath(new URL('key.pem', import.meta.url))),
+        cert: readFileSync(fileURLToPath(new URL('cert.pem', import.meta.url))),
+        passphrase: 'zhangpan',
+      }
     },
     resolve: {
       alias: {

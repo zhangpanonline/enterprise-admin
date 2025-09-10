@@ -6,7 +6,6 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      // redirect: '/sub-app-next',
       component: () => import('@/views/home.vue'),
     },
     {
@@ -23,6 +22,11 @@ const router = createRouter({
       path: '/sub-app-vue',
       name: 'subAppVue',
       component: () => import('@/views/sub-app-vue.vue'),
+    },
+    {
+      path: '/:pathMatch(.*)',
+      name: 'notFound',
+      component: () => import('@/views/notFound.vue')
     }
   ],
 })
