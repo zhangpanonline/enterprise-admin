@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.4.0...v1.5.0) (2025-09-10)
+
+
+### Features
+
+* **主应用:** 左侧菜单子应用选择添加动画 ([df7af6e](https://github.com/zhangpanonline/enterprise-admin/commit/df7af6efd1f0687590a7e8e22eb278ce48470ee9))
+* **主应用:** 开始写布局功能,添加子应用切换按钮 ([120d6c5](https://github.com/zhangpanonline/enterprise-admin/commit/120d6c59cb11a3ee7e973069f4521e438afa89d6))
+
 # [1.4.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.3.3...v1.4.0) (2025-09-05)
 
 
