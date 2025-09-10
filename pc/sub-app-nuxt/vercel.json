@@ -9,6 +9,10 @@
           "value": "https://main.zhangpan.online"
         },
         {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://localhost:1000"
+        },
+        {
           "key": "Access-Control-Allow-Methods",
           "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
         },

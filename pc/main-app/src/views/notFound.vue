@@ -1,10 +1,8 @@
 <template>
-
-    <div class="home" >232</div>
+<div class="not-found" >404</div>
 </template>
-
 <style lang="css" scoped>
-.home {
+.not-found {
     width: 100%;
     height: 100%;
 }
