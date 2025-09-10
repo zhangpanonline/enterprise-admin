@@ -6,11 +6,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://main.zhangpan.online"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "https://localhost:1000"
+          "value": "*"
         },
         {
           "key": "Access-Control-Allow-Methods",
