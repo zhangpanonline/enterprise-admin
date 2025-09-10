@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.5.0...v1.5.1) (2025-09-10)
+
+
+### Bug Fixes
+
+* **微前端:** 修复子应用vercel.json处理跨域配置出错问题 ([4cb7db7](https://github.com/zhangpanonline/enterprise-admin/commit/4cb7db79072bb80e8515e4b08be681e683c55844))
+
 # [1.5.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.4.0...v1.5.0) (2025-09-10)
 
 
