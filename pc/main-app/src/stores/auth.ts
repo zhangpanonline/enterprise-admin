@@ -1,11 +1,12 @@
 import { defineStore } from 'pinia'
+import type { AuthUser } from '@supabase/supabase-js'
 export const useAuthStore = defineStore('auth', () => {
   const state = reactive({
     access_token: '',
     token_type: '',
     expires_in: 0,
     expires_at: 0,
-    user: {}
+    user: {} as AuthUser
   })
 
   const clear = () => {
@@ -13,7 +14,7 @@ export const useAuthStore = defineStore('auth', () => {
     state.token_type = '',
     state.expires_in = 0,
     state.expires_at = 0,
-    state.user = {}
+    state.user = {} as AuthUser
   }
 
   const setAuth = (o: any) => {

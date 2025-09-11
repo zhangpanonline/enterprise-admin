@@ -59,10 +59,11 @@
       <ul class="flex-1 overflow-y-auto"></ul>
 
       <div
-        class="relative flex hover:bg-gray-100 py-3 text-sm pl-5 pr-2.5 cursor-pointer items-center gap-5 justify-between w-full font-medium text-gray-700 z-0"
+        class="relative flex hover:bg-gray-100 py-3 text-sm pl-5 pr-2.5 cursor-pointer items-center justify-between w-full font-medium text-gray-700 z-0"
         @click="showSystem = !showSystem"
       >
-        <p class="showSystem flex-1">{{ authStore.user.email }}</p>
+        <img class="w-5 h-5 rounded-full" v-if="authStore.user.user_metadata.avatar_url" :src="authStore.user.user_metadata.avatar_url" />
+        <p class="showSystem flex-1 text-center">{{ authStore.user.email }}</p>
         <Transition
           enter-active-class="transition-all duration-400 ease-out"
           enter-from-class="opacity-0 translate-y-5"

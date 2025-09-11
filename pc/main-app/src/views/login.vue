@@ -49,6 +49,7 @@
           aria-label="GitHub"
           role="button"
           class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-600 focus:border-[#6e7681] hover:border-[#6e7681] focus:ring-[#6e7681] before:absolute before:inset-0 before:bg-linear-90 before:to-[#6e7681] before:via-[#6e7681/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md"
+          @click="signInWithOAuth('github')"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
