@@ -1,13 +1,11 @@
 import { defineStore } from 'pinia'
-const auth_key = `sb-${new URL(import.meta.env.VITE_SUPABASE_URL).hostname.split('.')[0]}-auth-token`
-const initData = JSON.parse(localStorage.getItem(auth_key) || '{}')
 export const useAuthStore = defineStore('auth', () => {
   const state = reactive({
-    access_token: initData.access_token || '',
-    token_type: initData.token_type || '',
-    expires_in: initData.expires_in || 0,
-    expires_at: initData.expires_at || 0,
-    user: initData.user || {}
+    access_token: '',
+    token_type: '',
+    expires_in: 0,
+    expires_at: 0,
+    user: {}
   })
 
   const clear = () => {
@@ -17,6 +15,7 @@ export const useAuthStore = defineStore('auth', () => {
     state.expires_at = 0,
     state.user = {}
   }
+
   const setAuth = (o: any) => {
     state.access_token = o.access_token || '',
     state.token_type = o.token_type || '',
@@ -25,10 +24,17 @@ export const useAuthStore = defineStore('auth', () => {
     state.user = o.user || {}
   }
 
+  const initAuth = () => {
+    const auth_key = `sb-${new URL(import.meta.env.VITE_SUPABASE_URL).hostname.split('.')[0]}-auth-token`
+    const auth_data = JSON.parse(localStorage.getItem(auth_key) || '{}')
+    setAuth(auth_data)
+  }
+
   return {
     ...toRefs(state),
     clear,
-    setAuth
+    setAuth,
+    initAuth
   }
 })
 

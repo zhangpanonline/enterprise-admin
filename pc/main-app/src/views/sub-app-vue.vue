@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const VITE_SUB_APP_VUE = import.meta.env.VITE_SUB_APP_VUE
 import wujie from 'wujie-vue3'
 const onClick = () => {

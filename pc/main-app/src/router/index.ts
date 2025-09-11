@@ -33,6 +33,14 @@ const router = createRouter({
       component: () => import('@/views/login.vue'),
     },
     {
+      path: '/authcallback',
+      name: 'authCallback',
+      meta: {
+        requiresAuth: false
+      },
+      component: () => import('@/views/auth-callback.vue'),
+    },
+    {
       path: '/:pathMatch(.*)',
       name: 'notFound',
       component: () => import('@/views/notFound.vue'),
@@ -42,14 +50,16 @@ const router = createRouter({
 
 router.beforeEach((to) => {
   const authStore = useAuthStore() as any
+  if (to.meta.requiresAuth === false) {
+    return true
+  }
   if (to.name !== 'login' && !authStore.access_token) {
     return { name: 'login' }
   }
   if (to.name === 'login' && authStore.access_token) {
-    return {
-      name: 'home',
-    }
+    return { name: 'home' }
   }
+  return true
 })
 
 export default router
