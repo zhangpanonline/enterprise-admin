@@ -1,3 +1,12 @@
+# [1.6.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.5.1...v1.6.0) (2025-09-11)
+
+
+### Features
+
+* **主应用:** 实现登录功能 ([e0c7c6a](https://github.com/zhangpanonline/enterprise-admin/commit/e0c7c6aa3a056fb2dba4cd1055f329e4e612d4f1))
+* **主应用:** 接入github登录 ([e53f094](https://github.com/zhangpanonline/enterprise-admin/commit/e53f094f565764c7a5a5028ddb5431ad6dd53aed))
+* **主应用:** 接入google登录 ([77d808e](https://github.com/zhangpanonline/enterprise-admin/commit/77d808ed6087ecd4be437693f1f4d670fbbe6aef))
+
 ## [1.5.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.5.0...v1.5.1) (2025-09-10)
 
 
