@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const VITE_SUB_APP_NUXT = import.meta.env.VITE_SUB_APP_NUXT
 import wujie from 'wujie-vue3'
 const onClick = () => {
