@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <h1 >You did it!</h1>
+  <div class="w-full h-full bg-gray-300" >2323</div>
 
 </template>
 

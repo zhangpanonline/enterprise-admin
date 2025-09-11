@@ -8,7 +8,7 @@
       <h2 class="mb-3 text-3xl font-semibold text-center">登录</h2>
       <p class="text-sm text-center text-gray-600">
         没有账号？
-        <a href="#" rel="noopener noreferrer" class="underline">点击注册</a>
+        <a href="#" rel="noopener noreferrer" class="underline">不能注册</a>
       </p>
       <div class="my-6 grid grid-cols-2 gap-2.5">
         <button
@@ -65,7 +65,7 @@
         <button
           aria-label="QQ"
           role="button"
-          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-600 focus:border-[#1DA1F2] hover:border-[#1DA1F2] focus:ring-[#1DA1F2] before:absolute before:inset-0 before:bg-linear-90 before:to-[#1DA1F2] before:via-[#1DA1F2/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md"
+          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-600 focus:border-[#1DA1F2] hover:border-[#1DA1F2] focus:ring-[#1DA1F2] before:absolute before:inset-0 before:bg-linear-90 before:to-[#1DA1F2] before:via-[#1DA1F2/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md bg-gray-500/20"
         >
           <svg
             t="1757501507117"
@@ -88,7 +88,7 @@
         <button
           aria-label="WeChat"
           role="button"
-          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 focus:border-[#07C160] hover:border-[#07C160] border-gray-600 focus:ring-[#07C160] before:absolute before:inset-0 before:bg-linear-90 before:to-[#07C160] before:via-[#07C160/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md"
+          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 focus:border-[#07C160] hover:border-[#07C160] border-gray-600 focus:ring-[#07C160] before:absolute before:inset-0 before:bg-linear-90 before:to-[#07C160] before:via-[#07C160/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md bg-gray-500/20"
         >
           <svg
             t="1757501193588"
@@ -116,7 +116,7 @@
         <button
           aria-label="Alipay"
           role="button"
-          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 focus:border-[#1677FF] hover:border-[#1677FF] border-gray-600 focus:ring-[#1677FF] before:absolute before:inset-0 before:bg-linear-90 before:to-[#1677FF] before:via-[#1677FF/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md"
+          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 focus:border-[#1677FF] hover:border-[#1677FF] border-gray-600 focus:ring-[#1677FF] before:absolute before:inset-0 before:bg-linear-90 before:to-[#1677FF] before:via-[#1677FF/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md bg-gray-500/20"
         >
           <svg
             t="1757501104317"
@@ -158,7 +158,7 @@
             <div class="flex justify-between">
               <label for="password" class="text-sm">密码</label>
               <a rel="noopener noreferrer" href="#" class="text-xs hover:underline text-gray-600"
-                >忘记密码?</a
+                >忘记密码？不能找回</a
               >
             </div>
             <input

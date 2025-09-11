@@ -515,9 +515,21 @@ importers:
 
   pc/sub-app-vue:
     dependencies:
+      '@supabase/supabase-js':
+        specifier: ^2.57.4
+        version: 2.57.4
+      '@tailwindcss/vite':
+        specifier: ^4.1.11
+        version: 4.1.11(vite@7.0.6(@types/node@22.18.0)(jiti@2.5.1)(lightningcss@1.30.1)(terser@5.44.0)(yaml@2.8.1))
+      element-plus:
+        specifier: ^2.10.5
+        version: 2.10.5(vue@3.5.21(typescript@5.8.3))
       pinia:
         specifier: ^3.0.3
         version: 3.0.3(typescript@5.8.3)(vue@3.5.21(typescript@5.8.3))
+      tailwindcss:
+        specifier: ^4.1.13
+        version: 4.1.13
       vue:
         specifier: ^3.5.18
         version: 3.5.21(typescript@5.8.3)
@@ -7722,6 +7734,9 @@ packages:
   tailwindcss@4.1.12:
     resolution: {integrity: sha512-DzFtxOi+7NsFf7DBtI3BJsynR+0Yp6etH+nRPTbpWnS2pZBaSksv/JGctNwSWzbFjp0vxSqknaUylseZqMDGrA==}
 
+  tailwindcss@4.1.13:
+    resolution: {integrity: sha512-i+zidfmTqtwquj4hMEwdjshYYgMbOrPzb9a0M3ZgNa0JMoZeFC6bxZvO8yr8ozS6ix2SDz0+mvryPeBs2TFE+w==}
+
   tailwindcss@4.1.4:
     resolution: {integrity: sha512-1ZIUqtPITFbv/DxRmDr5/agPqJwF69d24m9qmM1939TJehgY539CtzeZRjbLt5G6fSy/7YqqYsfvoTEw9xUI2A==}
 
@@ -10550,7 +10565,7 @@ snapshots:
       enhanced-resolve: 5.18.3
       jiti: 2.5.1
       lightningcss: 1.30.1
-      magic-string: 0.30.17
+      magic-string: 0.30.18
       source-map-js: 1.2.1
       tailwindcss: 4.1.11
 
@@ -11230,7 +11245,7 @@ snapshots:
       '@vue/compiler-ssr': 3.5.18
       '@vue/shared': 3.5.18
       estree-walker: 2.0.2
-      magic-string: 0.30.17
+      magic-string: 0.30.18
       postcss: 8.5.6
       source-map-js: 1.2.1
 
@@ -16569,6 +16584,8 @@ snapshots:
   tailwindcss@4.1.11: {}
 
   tailwindcss@4.1.12: {}
+
+  tailwindcss@4.1.13: {}
 
   tailwindcss@4.1.4: {}
 

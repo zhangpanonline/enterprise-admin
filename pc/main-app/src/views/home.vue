@@ -1,7 +1,7 @@
 <template>
-  <div class="w-screen h-screen box-border p-5 flex gap-5">
+  <div class="w-screen h-screen box-border pl-5 flex gap-5">
     <!-- 左侧菜单 -->
-    <div class="w-[269px] bg-white rounded-2xl shadow py-5 flex flex-col justify-between">
+    <div class="w-[269px] bg-white rounded-2xl shadow py-5 my-5 flex flex-col justify-between">
       <!-- 应用切换 -->
       <div class="relative w-full pr-2.5 inline-block text-left">
         <div
