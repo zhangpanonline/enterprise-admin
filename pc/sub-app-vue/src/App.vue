@@ -1,8 +1,5 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div class="w-full h-full bg-gray-300" >2323</div>
-
+  <div class="w-full h-full box-border bg-[#f0f5f9]">
+    <RouterView></RouterView>
+  </div>
 </template>
-
-<style scoped></style>
