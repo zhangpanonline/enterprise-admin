@@ -12,7 +12,8 @@
     {
       "source": "/sub-app-nuxt/(.*)",
       "destination": "/sub-app-nuxt/index.html"
-    }
+    },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
