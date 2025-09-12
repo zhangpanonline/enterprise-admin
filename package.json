@@ -31,5 +31,10 @@
   },
   "engines": {
     "node": ">= 22.18.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/node": "22.16.5"
+    }
   }
 }
