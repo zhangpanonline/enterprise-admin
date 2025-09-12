@@ -19,3 +19,4 @@ app.use(WujieVue)
 app.mount('#app')
 
 useAuthStore().initAuth()
+

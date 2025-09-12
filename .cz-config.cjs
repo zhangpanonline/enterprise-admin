@@ -22,6 +22,7 @@ module.exports =  {
     confirmCommit: '确认提交？'
   },
   scopes: ["vue子应用", "next子应用", "nuxt子应用", "主应用", "微前端", "浏览器插件", "系统管理", "工程配置", "文档变更", "功能实现"],
+  enableMultipleScopes: true,
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix'], // allowBreakingChanges: ['feat', 'fix'] 的作用是控制哪些类型的提交可以填写破坏性变更说明（BREAKING CHANGE），从而支持语义化版本自动升级时正确地判定为 major version（主版本）更新。
   subjectLimit: 100
