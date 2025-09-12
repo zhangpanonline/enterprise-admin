@@ -7,6 +7,11 @@ Deno.serve(async (req)=>{
   const allowedOrigins = [
     "https://main.zhangpan.online",  // 生产环境
     "https://vue.main.zhangpan.online",  // 生产环境
+    "https://nuxt.main.zhangpan.online",  // 生产环境
+    "https://next.main.zhangpan.online",  // 生产环境
+    "https://localhost:1000",        // 本地调试
+    "https://localhost:1001",        // 本地调试
+    "https://localhost:1002",        // 本地调试
     "https://localhost:1003",        // 本地调试
   ]
   const headers = new Headers()

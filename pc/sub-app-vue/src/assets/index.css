@@ -1,6 +1,5 @@
 @import "tailwindcss";
-
-#sub-app-vue {
+html, body, #sub-app-vue {
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }

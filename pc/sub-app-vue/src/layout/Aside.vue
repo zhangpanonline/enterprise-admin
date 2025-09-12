@@ -53,21 +53,14 @@
 
 <script lang="ts" setup>
 import { signOutApi } from '@/api'
-import type { RouteRecordRaw } from 'vue-router'
-import { routes } from '@/router/routes'
 import { useAuthStore } from '@/stores/auth'
+
+defineProps(['menuList'])
+
 const authStore = useAuthStore()
 const route = useRoute()
 const router = useRouter()
 const defaultActive = route.path
-const menuList = getMenu(routes)
-function getMenu(list: Array<RouteRecordRaw>): any {
-  return list.map(({ path, meta, children }) => ({
-    title: meta?.title,
-    path,
-    children: getMenu(children || []),
-  }))
-}
 
 const handleCommand = async (command: string) => {
   if (command === 'logout') {
@@ -80,6 +73,6 @@ const handleCommand = async (command: string) => {
     }
   }
 }
-</script>
 
-<style lang="css" scoped></style>
+
+</script>
