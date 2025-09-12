@@ -21,6 +21,9 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
       imports: ['vue', 'vue-router'],
       dts: 'src/auto-imports.d.ts', // 自动生成类型文件
+      dirs: [
+        "./src/api/index.ts"
+      ]
     }),
 
     // 自动注册组件（ElementPlus 等）
