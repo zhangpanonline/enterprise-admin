@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2.5 flex flex-col gap-2.5">
+  <div class="p-2.5 flex flex-col gap-2.5 h-[calc(100vh - 60px)]">
     <header class="h-16 bg-white flex items-center px-5">
       <el-button class="ml-auto" type="primary" @click="visible = true">添加</el-button>
     </header>

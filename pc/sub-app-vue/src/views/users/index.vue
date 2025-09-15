@@ -1,7 +1,7 @@
 <template>
   <div class="p-2.5 flex flex-col gap-2.5">
     <header class="h-16 bg-white flex items-center px-5"></header>
-    <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
+    <el-table v-loading="loading" :data="tableData" class="flex-1" stripe style="width: 100%">
       <el-table-column prop="full_name" label="全称" />
       <el-table-column prop="user_name" label="用户名" />
       <el-table-column prop="email" label="邮箱" />

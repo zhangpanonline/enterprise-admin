@@ -3,3 +3,12 @@
     <RouterView></RouterView>
   </div>
 </template>
+
+
+<script setup lang="ts" >
+const router = useRouter()
+window.$wujie?.bus.$on("navigate", (path: string) => {
+  router.push(path)
+});
+
+</script>
