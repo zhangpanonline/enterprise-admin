@@ -17,6 +17,25 @@
 * **微前端:** vue子应用适配主应用 ([0345542](https://github.com/zhangpanonline/enterprise-admin/commit/0345542dbef0827264bcff834cae4b4a4faaa8dc))
 * **微前端:** 完成主子应用路由通信 ([377f107](https://github.com/zhangpanonline/enterprise-admin/commit/377f107148fdd444a3672da59eeb08690f0f85e3))
 
+# [1.6.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.5.1...v1.6.0) (2025-09-15)
+
+
+### Bug Fixes
+
+* **vue子应用:** 打包出错 ([48aab88](https://github.com/zhangpanonline/enterprise-admin/commit/48aab8874eb8fa68a42ae013e59fdc4f8760fdd7))
+* **微前端:** 刷新链接丢失 ([6e7a3ef](https://github.com/zhangpanonline/enterprise-admin/commit/6e7a3ef27b92e63f2405dd5a70d867eac406e169))
+
+
+### Features
+
+* **vue子应用:** 添加字典、用户、角色页面 ([1f6d85d](https://github.com/zhangpanonline/enterprise-admin/commit/1f6d85d0bc154b34c068af4c97fab98e82266e48))
+* **vue子应用:** 添加路由 ([546cf31](https://github.com/zhangpanonline/enterprise-admin/commit/546cf31d2952659c58741ac4a8599e3280e56ae5))
+* **主应用:** 实现登录功能 ([e0c7c6a](https://github.com/zhangpanonline/enterprise-admin/commit/e0c7c6aa3a056fb2dba4cd1055f329e4e612d4f1))
+* **主应用:** 接入github登录 ([e53f094](https://github.com/zhangpanonline/enterprise-admin/commit/e53f094f565764c7a5a5028ddb5431ad6dd53aed))
+* **主应用:** 接入google登录 ([77d808e](https://github.com/zhangpanonline/enterprise-admin/commit/77d808ed6087ecd4be437693f1f4d670fbbe6aef))
+* **微前端:** vue子应用适配主应用 ([0345542](https://github.com/zhangpanonline/enterprise-admin/commit/0345542dbef0827264bcff834cae4b4a4faaa8dc))
+* **微前端:** 完成主子应用路由通信 ([377f107](https://github.com/zhangpanonline/enterprise-admin/commit/377f107148fdd444a3672da59eeb08690f0f85e3))
+
 # [1.6.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.5.1...v1.6.0) (2025-09-11)
 
 
