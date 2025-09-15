@@ -1,8 +1,14 @@
-<script setup lang="ts"></script>
-
 <template>
-  <h1 >You did it!</h1>
-
+  <div class="w-full h-full box-border bg-[#f0f5f9]">
+    <RouterView></RouterView>
+  </div>
 </template>
 
-<style scoped></style>
+
+<script setup lang="ts" >
+const router = useRouter()
+window.$wujie?.bus.$on("navigate", (path: string) => {
+  router.push(path)
+});
+
+</script>

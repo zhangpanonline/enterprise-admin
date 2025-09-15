@@ -40,8 +40,8 @@ export default defineConfig(() => {
       proxy: {
       },
       https: {
-        key: readFileSync(fileURLToPath(new URL('key.pem', import.meta.url))),
-        cert: readFileSync(fileURLToPath(new URL('cert.pem', import.meta.url))),
+        key: readFileSync(fileURLToPath(new URL('../key.pem', import.meta.url))),
+        cert: readFileSync(fileURLToPath(new URL('../cert.pem', import.meta.url))),
         passphrase: 'zhangpan',
       }
     },
