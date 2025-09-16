@@ -13,7 +13,7 @@
 ![](https://geps.dev/progress/100) [Pinia + pinia-plugin-persistedstate + secure-ls 实现本地 AES 加密持久化](/docs/Pinia数据加密持久化.md)  
 ![](https://geps.dev/progress/50)  [Axios 封装](/docs/Axios.md)  
 ![](https://geps.dev/progress/0)  主题切换  
-![](https://geps.dev/progress/0)  国际化  
+![](https://geps.dev/progress/20)  国际化  
 ![](https://geps.dev/progress/0)  [Turborepo + Monorpo](/docs/Turborepo.md)  
 ![](https://geps.dev/progress/50)  微前端  
 
