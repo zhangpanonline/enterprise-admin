@@ -18,6 +18,14 @@ export const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/extension/index.vue'),
   },
   {
+    path: '/bigDataRender',
+    name: 'bigDataRender',
+    meta: {
+      title: '大数据渲染'
+    },
+    component: () => import('@/views/bigDataRender/index.vue')
+  },
+  {
     path: '/system',
     name: 'system',
     meta: {
@@ -50,12 +58,4 @@ export const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
-  //   {
-  //     path: '/bigDataRender',
-  //     name: 'BigDataRender',
-  //     meta: {
-  //       title: '大数据渲染'
-  //     },
-  //     component: () => import('@/features/bigDataRender/pages/BBigDataRenderPage.vue')
-  //   },
 ]
