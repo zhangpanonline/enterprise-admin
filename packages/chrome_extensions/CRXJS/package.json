@@ -1,7 +1,7 @@
 {
   "name": "crxzp",
   "type": "module",
-  "version": "0.0.01",
+  "version": "1.0.1",
   "private": true,
   "homepage": "https://github.com/zhangpanonline/enterprise-admin/tree/main/packages/chrome_extensions/CRXJS",
   "scripts": {
