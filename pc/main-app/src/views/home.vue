@@ -57,7 +57,7 @@
 
       <!-- 菜单 -->
       <ul class="flex-1 overflow-y-auto pr-2.5">
-        <li v-for="(v, idx) in menuList" :key="v.title" >
+        <li v-for="(v, idx) in menuList[activeMicro]" :key="v.title" >
           <!-- 一级菜单 -->
           <div @click="toggleMenu(idx, v)" :class="`mb-1 relative flex py-3 pl-5 pr-2.5 cursor-pointer items-center gap-5 justify-between w-full font-medium text-gray-700 z-0 before:absolute before:inset-0 ${colorList[idx].start} ${colorList[idx].end} before:bg-linear-to-l ${activePath === v.path ? 'before:scale-x-100' : 'before:scale-x-0'} before:origin-left before:transition-transform before:duration-500 hover:before:scale-x-100 before:z-[-1] before:rounded-r-full`">
             {{ v.title }}
@@ -115,7 +115,8 @@ const router = useRouter()
 const authStore = useAuthStore()
 const showMicroApp = ref(false)
 const showSystem = ref(false)
-const activePath = ref(decodeURIComponent(window.location.href).split('=')[1])
+const refreshHref = decodeURIComponent(window.location.href)
+const activePath = ref(refreshHref.split('=')[1])
 
 const colorList = [
   {
@@ -237,16 +238,24 @@ onClickOutside(microListRef, () => (showMicroApp.value = false), {
 onClickOutside(systemRef, () => (showSystem.value = false), {
   ignore: ['.showSystem'],
 })
+
 const activeMicro = ref<keyof typeof microList>('vue')
+refreshHref.includes(microList.vue.path) && (activeMicro.value = 'vue')
+refreshHref.includes(microList.next.path) && (activeMicro.value = 'next')
+refreshHref.includes(microList.nuxt.path) && (activeMicro.value = 'nuxt')
 
 type Menu = {
   title: string,
   path: string,
   children?: Array<Menu>
 }
-const menuList = ref<Array<Menu>>([])
+const menuList = reactive({
+  vue: [] as Array<Menu>,
+  next: [] as Array<Menu>,
+  nuxt: [] as Array<Menu>,
+})
 wujieVue3.bus.$on('menu-list', (list: Array<Menu>) => {
-  menuList.value = list
+  menuList[activeMicro.value] = list
 })
 const handleSignOut = async () => {
   const { error } = await signOutApi()
