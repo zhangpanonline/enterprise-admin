@@ -41,7 +41,7 @@
 ### 多端
 ![](https://geps.dev/progress/5)  PC端  
 ![](https://geps.dev/progress/0)  微信小程序  
-![](https://geps.dev/progress/0)  Flutter 
+![](https://geps.dev/progress/0)  Flutter  
 ![](https://geps.dev/progress/0)  桌面端  
 ![](https://geps.dev/progress/10)  [浏览器插件](/docs/浏览器插件.md)
 
