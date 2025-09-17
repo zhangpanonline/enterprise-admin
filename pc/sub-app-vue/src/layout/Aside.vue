@@ -55,7 +55,7 @@
 import { signOutApi } from '@/api'
 import { useAuthStore } from '@/stores/auth'
 
-defineProps(['menuList'])
+defineModel('menuList')
 
 const authStore = useAuthStore()
 const route = useRoute()
