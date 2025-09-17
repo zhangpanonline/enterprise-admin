@@ -9,18 +9,18 @@
 ### 框架配置
 ![](https://geps.dev/progress/100) [conventionalcommits git提交规范](/docs/commit.md)  
 ![](https://geps.dev/progress/100) CI/CD  
-![](https://geps.dev/progress/100) [按需自动导入](/docs/按需自动导入.md)  
+![](https://geps.dev/progress/100) [Vite按需自动导入](/docs/按需自动导入.md)  
 ![](https://geps.dev/progress/100) [Pinia + pinia-plugin-persistedstate + secure-ls 实现本地 AES 加密持久化](/docs/Pinia数据加密持久化.md)  
 ![](https://geps.dev/progress/50)  [Axios 封装](/docs/Axios.md)  
 ![](https://geps.dev/progress/0)  主题切换  
-![](https://geps.dev/progress/0)  国际化  
-![](https://geps.dev/progress/0)  [Turborepo + Monorpo](/docs/Turborepo.md)  
-![](https://geps.dev/progress/50)  微前端  
+![](https://geps.dev/progress/100)  国际化  
+![](https://geps.dev/progress/30)  [Turborepo + Monorpo](/docs/Turborepo.md)  
+![](https://geps.dev/progress/100)  微前端  
 
 ### 功能点
 ![](https://geps.dev/progress/0)  多角色权限  
 ![](https://geps.dev/progress/0)  vitePress  
-![](https://geps.dev/progress/0)  多种登录方式  
+![](https://geps.dev/progress/50)  多种登录方式  
 ![](https://geps.dev/progress/0)  动态路由  
 ![](https://geps.dev/progress/0)  D3图表  
 ![](https://geps.dev/progress/0)  地图打点、路径等  
@@ -43,6 +43,6 @@
 ![](https://geps.dev/progress/0)  微信小程序  
 ![](https://geps.dev/progress/0)  Flutter  
 ![](https://geps.dev/progress/0)  桌面端  
-![](https://geps.dev/progress/10)  [浏览器插件](/docs/浏览器插件.md)
+![](https://geps.dev/progress/90)  [浏览器插件](/docs/浏览器插件.md)
 
 

@@ -5,7 +5,7 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/home',
     name: 'home',
     meta: {
-      title: '首页',
+      title: 'menu.home',
     },
     component: () => import('@/views/home.vue'),
   },
@@ -13,7 +13,7 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/extension',
     name: 'extension',
     meta: {
-      title: '插件管理',
+      title: 'menu.extension',
     },
     component: () => import('@/views/extension/index.vue'),
   },
@@ -21,7 +21,7 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/bigDataRender',
     name: 'bigDataRender',
     meta: {
-      title: '大数据渲染'
+      title: 'menu.bigDataRender',
     },
     component: () => import('@/views/bigDataRender/index.vue')
   },
@@ -29,14 +29,14 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/system',
     name: 'system',
     meta: {
-      title: '系统管理',
+      title: 'menu.systemManage',
     },
     children: [
       {
         path: '/system/users',
         name: 'systemusers',
         meta: {
-          title: '用户管理',
+          title: 'menu.userManage',
         },
         component: () => import('@/views/users/index.vue'),
       },
@@ -44,7 +44,7 @@ export const routes: Array<RouteRecordRaw> = [
         path: '/system/roles',
         name: 'systemroles',
         meta: {
-          title: '角色管理',
+          title: 'menu.roleManage',
         },
         component: () => import('@/views/roles/index.vue'),
       },
@@ -52,7 +52,7 @@ export const routes: Array<RouteRecordRaw> = [
         path: '/system/dicts',
         name: 'systemdicts',
         meta: {
-          title: '字典管理',
+          title: 'menu.dictManage',
         },
         component: () => import('@/views/dicts/index.vue'),
       },

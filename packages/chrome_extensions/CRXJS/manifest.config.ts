@@ -36,10 +36,10 @@ export default defineManifest({
     'identity',
     'offscreen'
   ],
-  host_permissions: ["https://*/*", "http://*/*"], // 允许访问的网站
+  host_permissions: ["https://*.zhangpan.online/*"], // 允许访问的网站
   content_scripts: [{
     js: ['src/content/main.tsx'],
-    matches: ["<all_urls>"],
+    matches: ["https://*.zhangpan.online/*"],
   }],
   side_panel: {
     default_path: 'src/sidepanel/index.html',

@@ -5,16 +5,16 @@
     <div
       class="w-full max-w-md p-4 rounded-md shadow-2xl sm:p-8 bg-radial from-indigo-100 to-indigo-200 text-gray-800"
     >
-      <h2 class="mb-3 text-3xl font-semibold text-center">登录</h2>
+      <h2 class="mb-3 text-3xl font-semibold text-center">{{ t('login.title') }}</h2>
       <p class="text-sm text-center text-gray-600">
-        没有账号？
-        <a href="#" rel="noopener noreferrer" class="underline">不能注册</a>
+        {{ t('login.noaccount') }}
+        <a href="#" rel="noopener noreferrer" class="underline">{{ t('login.noCreate') }}</a>
       </p>
       <div class="my-6 grid grid-cols-2 gap-2.5">
         <button
           aria-label="Google"
           type="button"
-          class="grid grid-cols-2 relative cursor-pointer z-0 items-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-600 focus:border-[#ea4335] hover:border-[#ea4335] focus:ring-[#EA4335] before:absolute before:inset-0 before:bg-linear-90 before:to-[#EA4335] before:via-[#EA4335/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md"
+          class="grid grid-cols-2 relative cursor-pointer z-0 items-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-400 focus:border-[#ea4335] hover:border-[#ea4335] focus:ring-[#EA4335] before:absolute before:inset-0 before:bg-linear-90 before:to-[#EA4335] before:via-[#EA4335/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md"
           @click="signInWithOAuth('google')"
         >
           <svg
@@ -48,7 +48,7 @@
         <button
           aria-label="GitHub"
           role="button"
-          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-600 focus:border-[#6e7681] hover:border-[#6e7681] focus:ring-[#6e7681] before:absolute before:inset-0 before:bg-linear-90 before:to-[#6e7681] before:via-[#6e7681/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md"
+          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-400 focus:border-[#6e7681] hover:border-[#6e7681] focus:ring-[#6e7681] before:absolute before:inset-0 before:bg-linear-90 before:to-[#6e7681] before:via-[#6e7681/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md"
           @click="signInWithOAuth('github')"
         >
           <svg
@@ -65,7 +65,7 @@
         <button
           aria-label="QQ"
           role="button"
-          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-600 focus:border-[#1DA1F2] hover:border-[#1DA1F2] focus:ring-[#1DA1F2] before:absolute before:inset-0 before:bg-linear-90 before:to-[#1DA1F2] before:via-[#1DA1F2/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md bg-gray-500/20"
+          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 border rounded-md focus:ring-2 focus:ring-offset-1 border-gray-300 focus:border-[#1DA1F2] hover:border-[#1DA1F2] focus:ring-[#1DA1F2] before:absolute before:inset-0 before:bg-linear-90 before:to-[#1DA1F2] before:via-[#1DA1F2/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md bg-gray-500/20"
         >
           <svg
             t="1757501507117"
@@ -88,7 +88,7 @@
         <button
           aria-label="WeChat"
           role="button"
-          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 focus:border-[#07C160] hover:border-[#07C160] border-gray-600 focus:ring-[#07C160] before:absolute before:inset-0 before:bg-linear-90 before:to-[#07C160] before:via-[#07C160/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md bg-gray-500/20"
+          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 focus:border-[#07C160] hover:border-[#07C160] border-gray-300 focus:ring-[#07C160] before:absolute before:inset-0 before:bg-linear-90 before:to-[#07C160] before:via-[#07C160/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md bg-gray-500/20"
         >
           <svg
             t="1757501193588"
@@ -116,7 +116,7 @@
         <button
           aria-label="Alipay"
           role="button"
-          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 focus:border-[#1677FF] hover:border-[#1677FF] border-gray-600 focus:ring-[#1677FF] before:absolute before:inset-0 before:bg-linear-90 before:to-[#1677FF] before:via-[#1677FF/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md bg-gray-500/20"
+          class="relative z-0 cursor-pointer items-center grid grid-cols-2 w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 focus:border-[#1677FF] hover:border-[#1677FF] border-gray-300 focus:ring-[#1677FF] before:absolute before:inset-0 before:bg-linear-90 before:to-[#1677FF] before:via-[#1677FF/80] before:via-30% before:-z-1 before:scale-x-0 hover:before:scale-x-100 focus:before:scale-x-100 before:transition-transform before:origin-left before:ease before:rounded-md bg-gray-500/20"
         >
           <svg
             t="1757501104317"
@@ -137,15 +137,15 @@
           <p class="text-left">Alipay</p>
         </button>
       </div>
-      <div class="flex items-center w-full my-4">
+      <div class="flex items-center w-full my-4 whitespace-nowrap text-xs">
         <hr class="w-full text-gray-600" />
-        <p class="px-3 text-gray-600">OR</p>
+        <p class="px-3 text-gray-600">{{ t('login.orLogin') }}</p>
         <hr class="w-full text-gray-600" />
       </div>
       <form action="" class="space-y-8">
         <div class="space-y-4">
           <div class="space-y-2">
-            <label for="email" class="block text-sm">邮件地址</label>
+            <label for="email" class="block text-sm">{{ t('login.email') }}</label>
             <input
               type="email"
               name="email"
@@ -156,9 +156,9 @@
           </div>
           <div class="space-y-2">
             <div class="flex justify-between">
-              <label for="password" class="text-sm">密码</label>
+              <label for="password" class="text-sm">{{ t('login.password') }}</label>
               <a rel="noopener noreferrer" href="#" class="text-xs hover:underline text-gray-600"
-                >忘记密码？不能找回</a
+                >{{ t('login.forgetPassword') }}</a
               >
             </div>
             <input
@@ -175,7 +175,7 @@
           class="w-full cursor-pointer px-8 py-3 font-semibold rounded-md bg-violet-600 text-gray-50 flex justify-center gap-5 items-center"
           @click="showHcaptcha = true"
         >
-          <span>登 录</span>
+          <span>{{ t('login.title') }}</span>
           <div
             v-if="loading"
             class="w-4 h-4 border-1 border-dashed rounded-full animate-spin dark:border-violet-600"
@@ -185,19 +185,72 @@
     </div>
     <vue-hcaptcha
       v-if="showHcaptcha"
+      :language="language"
       class="absolute bg-gray-500/60 flex justify-center items-center inset-0"
       sitekey="4b6293e2-0baa-4570-b038-c712d5ae0d14"
       @verify="handleLoginByEmail"
     ></vue-hcaptcha>
+    <div class="px-5 h-8 bg-gray-400 flex items-center rounded-full fixed top-5 right-5">
+      <div @click="showLanguage = true" class="flex items-center cursor-pointer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="size-4"
+          
+        >
+          <path
+            d="M7.75 2.75a.75.75 0 0 0-1.5 0v1.258a32.987 32.987 0 0 0-3.599.278.75.75 0 1 0 .198 1.487A31.545 31.545 0 0 1 8.7 5.545 19.381 19.381 0 0 1 7 9.56a19.418 19.418 0 0 1-1.002-2.05.75.75 0 0 0-1.384.577 20.935 20.935 0 0 0 1.492 2.91 19.613 19.613 0 0 1-3.828 4.154.75.75 0 1 0 .945 1.164A21.116 21.116 0 0 0 7 12.331c.095.132.192.262.29.391a.75.75 0 0 0 1.194-.91c-.204-.266-.4-.538-.59-.815a20.888 20.888 0 0 0 2.333-5.332c.31.031.618.068.924.108a.75.75 0 0 0 .198-1.487 32.832 32.832 0 0 0-3.599-.278V2.75Z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M13 8a.75.75 0 0 1 .671.415l4.25 8.5a.75.75 0 1 1-1.342.67L15.787 16h-5.573l-.793 1.585a.75.75 0 1 1-1.342-.67l4.25-8.5A.75.75 0 0 1 13 8Zm2.037 6.5L13 10.427 10.964 14.5h4.073Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <span>{{ language }}</span>
+      </div>
+      <div
+        v-if="showLanguage"
+        ref="languageRef"
+        class="absolute right-0 w-27 mt-28 py-2 px-1 flex flex-col gap-1 text-black/80 text-sm z-1 bg-gray-300 rounded-md"
+      >
+        <p
+          @click="switchLanguage('zh')"
+          class="hover:bg-gray-200 px-2.5 py-1 mx-1 rounded-md cursor-pointer text-center items-center flex gap-2"
+          :class="{ 'bg-gray-200': language === 'zh' }"
+        >
+          <span
+            class="w-1.5 h-0 bg-black rounded-full"
+            :class="{ 'h-1.5': language === 'zh' }"
+          ></span>
+          <span>简体中文</span>
+        </p>
+        <p
+          @click="switchLanguage('en')"
+          class="hover:bg-gray-200 px-2.5 py-1 mx-1 rounded-md cursor-pointer text-center items-center flex gap-2"
+          :class="{ 'bg-gray-200': language === 'en' }"
+        >
+          <span
+            class="w-1.5 h-0 bg-black rounded-full"
+            :class="{ 'h-1.5': language === 'en' }"
+          ></span>
+          <span>English</span>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { onClickOutside } from '@vueuse/core'
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha'
+import { useI18n } from 'vue-i18n'
 import { loginByEmailApi, signInWithOAuthApi } from '@/api'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { type SignInWithOAuthCredentials } from '@supabase/supabase-js'
+const { t, locale: language } = useI18n()
 const authStore = useAuthStore()
 const router = useRouter()
 const loading = ref(false)
@@ -216,6 +269,14 @@ const handleLoginByEmail = async (captchaToken: string) => {
     authStore.initAuth()
     router.push('/')
   }
+}
+
+const showLanguage = ref(false)
+const languageRef = useTemplateRef('languageRef')
+onClickOutside(languageRef, () => (showLanguage.value = false))
+const switchLanguage = (local: string) => {
+  language.value = local
+  showLanguage.value = false
 }
 
 // 1. 用户点击 Google 登录
