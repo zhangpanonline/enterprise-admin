@@ -3,9 +3,9 @@ import messages from './langs'
 
 const i18n = createI18n<[typeof messages.zh], 'zh' | 'en'>({
   legacy: false,
-  locale: 'zh',
+  locale: localStorage.getItem('i18n.language') || 'zh',
   fallbackLocale: 'en',
-  messages
+  messages,
 })
 
 export default i18n

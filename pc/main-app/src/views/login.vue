@@ -277,6 +277,7 @@ onClickOutside(languageRef, () => (showLanguage.value = false))
 const switchLanguage = (local: string) => {
   language.value = local
   showLanguage.value = false
+  localStorage.setItem('i18n.language', local)
 }
 
 // 1. 用户点击 Google 登录

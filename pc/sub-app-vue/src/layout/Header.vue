@@ -1,8 +1,7 @@
 <template>
   <div class="flex items-center px-5">
-    <div class="ml-auto">
-      <el-dropdown>
-        <div class="flex items-center cursor-pointer">
+      <el-dropdown class="ml-auto" placement="bottom-end" >
+        <div class="flex items-center cursor-pointer focus-within:outline-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -51,7 +50,6 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-    </div>
   </div>
 </template>
 
@@ -61,5 +59,7 @@ const { locale: language } = useI18n()
 
 const switchLanguage = (local: 'zh' | 'en') => {
   language.value = local
+  localStorage.setItem('i18n.language', local)
+  window.$wujie?.bus.$emit("language", local);
 }
 </script>
