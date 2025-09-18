@@ -1,4 +1,6 @@
 # Turborepo
+[参考1](https://juejin.cn/post/7343156956665839651?searchId=20250918164823B675648D144FA2A817D5)
+[参考2](https://juejin.cn/post/7129267782515949575?searchId=202403060818284D861F5C06622BDC622E#heading-35)
 
 ## 1. 是什么？
 
@@ -32,3 +34,4 @@ Turborepo 本质上是 monorepo 的构建与任务调度工具。
 4. **跨语言支持**
 
    * 虽然最常见的是 JS/TS 项目，但其实它对语言没有强依赖，Rust、Go、Python 等项目也能用。
+
