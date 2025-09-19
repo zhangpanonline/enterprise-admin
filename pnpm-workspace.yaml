@@ -1,8 +1,6 @@
 packages:
-  - packages/**
-  - pc/**
-  - demo/**
-  - server/**
+  - "apps/*"
+  - "packages/*"
 
 ignoredBuiltDependencies:
   - '@tailwindcss/oxide'
