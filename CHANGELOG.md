@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.6.0...v1.6.1) (2025-09-20)
+
+
+### Bug Fixes
+
+* **微前端:** 添加缺失的.env文件| ([31c7f05](https://github.com/zhangpanonline/enterprise-admin/commit/31c7f05542711327e37e99760a11cd112a5636fc))
+
 # [1.6.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.5.1...v1.6.0) (2025-09-19)
 
 
