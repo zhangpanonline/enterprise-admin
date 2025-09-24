@@ -6,6 +6,8 @@ const menuRaw = {
   userManage: { zh: '用户管理', en: 'Users Manage' },
   roleManage: { zh: '角色管理', en: 'Roles Manage' },
   dictManage: { zh: '字典管理', en: 'Dicts Manage' },
+  map: { zh: '地图', en: 'Map' },
+  cesium: { zh: 'CesiumJS', en: 'CesiumJS' },
 }
 
 const menu: Record<'zh' | 'en', Record<string, string>> = { zh: {}, en: {} }

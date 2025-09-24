@@ -3,11 +3,24 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
+const docList = [
+  {
+    path: 'nest',
+    title: 'NestJS'
+  },
+  {
+    path: 'interview',
+    title: 'Interview'
+  },
+  {
+    path: 'website',
+    title: 'Website'
+  },
+]
 const config: Config = {
-  title: 'My Site',
+  title: 'Doc',
   tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/avatar.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -41,7 +54,7 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: './docs/sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -68,26 +81,45 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
+  plugins: [
+    ...docList.map(({ path }) => [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: `${path}Id`,
+        path,
+        routeBasePath: path,
+        sidebarPath: `./${path}/sidebars.ts`,
+        editUrl:
+          `https://github.com/zhangpanonline/enterprise-admin/tree/main/apps/doc/${path}`,
+      },
+    ])
+  ],
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'ZP',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/avatar.png',
       },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'docsSidebar',
           position: 'left',
           label: 'Tutorial',
         },
+        ...docList.map(({ path, title }) => ({
+          type: 'docSidebar',
+          sidebarId: 'sidebarId',
+          docsPluginId: `${path}Id`,
+          position: 'left' as 'left' | 'right',
+          label: title,
+        })),
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/zhangpanonline/enterprise-admin/tree/main/apps/doc',
           label: 'GitHub',
           position: 'right',
         },
@@ -131,7 +163,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/zhangpanonline/enterprise-admin/tree/main/apps/doc',
             },
           ],
         },

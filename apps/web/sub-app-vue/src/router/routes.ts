@@ -10,6 +10,23 @@ export const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/home.vue'),
   },
   {
+    path: '/map',
+    name: 'map',
+    meta: {
+      title: 'menu.map',
+    },
+    children: [
+      {
+        path: '/map/cesium',
+        name: 'mapCesium',
+        meta: {
+          title: 'menu.cesium',
+        },
+        component: () => import('@/views/map/cesium/index.vue'),
+      }
+    ],
+  },
+  {
     path: '/extension',
     name: 'extension',
     meta: {

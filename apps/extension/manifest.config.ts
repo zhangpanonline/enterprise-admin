@@ -24,17 +24,17 @@ export default defineManifest({
   },
   permissions: [
     'sidePanel',
-    'contentSettings',
+    // 'contentSettings',
     'storage',
     // 允许监听请求
     'webRequest',
     'system.cpu',
     'system.memory',
     'notifications',
-    'scripting',
+    // 'scripting',
     // 获取 OAuth2 访问令牌
-    'identity',
-    'offscreen'
+    // 'identity',
+    // 'offscreen'
   ],
   host_permissions: ["https://*.zhangpan.online/*"], // 允许访问的网站
   content_scripts: [{
