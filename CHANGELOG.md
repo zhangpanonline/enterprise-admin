@@ -1,3 +1,12 @@
+# [1.7.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.6.1...v1.7.0) (2025-09-24)
+
+
+### Features
+
+* **vue子应用:** 添加cesium ([47af6c5](https://github.com/zhangpanonline/enterprise-admin/commit/47af6c5e73b3e511b91fb9abf5e07c22a3a4d617))
+* **服务端:** aOP编程学习 ([f5ed863](https://github.com/zhangpanonline/enterprise-admin/commit/f5ed8630591f88d627419fbef50660382aa8a411))
+* **浏览器插件:** 添加dist.pem ([e16e936](https://github.com/zhangpanonline/enterprise-admin/commit/e16e936c05abef4fe88e73dfc27ef72c7dbdebdc))
+
 ## [1.6.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.6.0...v1.6.1) (2025-09-20)
 
 
