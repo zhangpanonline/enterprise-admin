@@ -2,7 +2,7 @@
     <div class="w-full h-full flex overflow-hidden" >
         <Aside v-if="!isWujie" v-model:menuList="menuList" class="w-60" ></Aside>
         <div class="flex-1 flex flex-col" >
-            <Header class="h-16 bg-white" :class="{ 'mr-2.5': isWujie }"></Header>
+            <Header class="min-h-16 bg-white" :class="{ 'mr-2.5': isWujie }"></Header>
             <RouterView class="flex-1" :class="{ 'pl-0!': isWujie, 'pb-0!': isWujie }" ></RouterView>
         </div>
     </div>
