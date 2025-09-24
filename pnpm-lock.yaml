@@ -647,6 +647,8 @@ importers:
         specifier: ^3.0.4
         version: 3.0.8(typescript@5.8.3)
 
+  apps/web/sub-app-vue/public/Cesium/ThirdParty/Workers: {}
+
   packages/eslint-config:
     devDependencies:
       '@eslint/js':
