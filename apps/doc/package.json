@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start --port 1004 --host 0.0.0.0 --no-open true",
+    "start": "docusaurus start --port 1004 --host 0.0.0.0 --no-open",
     "build": "docusaurus build",
+    "prestart": "node scripts/generateDownloadList.mjs",
+    "prebuild": "node scripts/generateDownloadList.mjs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

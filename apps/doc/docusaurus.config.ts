@@ -22,6 +22,11 @@ const config: Config = {
   tagline: 'Dinosaurs are cool',
   favicon: 'img/avatar.png',
 
+  // staticDirectories: ['static'],
+  // clientModules: ['./src/pages/download/index.css'],
+
+  // stylesheets: ['https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'],
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
@@ -95,6 +100,10 @@ const config: Config = {
     ])
   ],
   themeConfig: {
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 6,
+    },
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
