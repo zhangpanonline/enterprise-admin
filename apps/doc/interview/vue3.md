@@ -2,8 +2,6 @@
 sidebar_position: 1
 ---
 
-# Vue3
-
 ## 1. 请解释Vue 3中Composition API的核心概念，以及它与Options API的区别。为什么在大型项目中更推荐使用Composition API？请用TypeScript示例说明一个简单的Composition API用法。
 
 Composition API是Vue 3引入的一种新的组件编写方式，  
@@ -73,13 +71,13 @@ const { count, increment } = useCounter();
     import Home from '../views/Home.vue';
     import User from '../views/User.vue';
     import Login from '../views/Login.vue';
-
+    
     // 定义meta字段的类型
     interface RouteMeta {
       isAuth?: boolean;
       title?: string;
     }
-
+    
     // 路由配置
     const routes: RouteRecordRaw[] = [
       {
@@ -101,12 +99,12 @@ const { count, increment } = useCounter();
         meta: { title: 'Login' },
       },
     ];
-
+    
     const router = createRouter({
       history: createWebHistory(),
       routes,
     });
-
+    
     // 动态添加路由（示例：根据用户角色）
     function addDynamicRoutes(role: string) {
       if (role === 'admin') {
@@ -118,7 +116,7 @@ const { count, increment } = useCounter();
         });
       }
     }
-
+    
     export default router;
     ```
 2. 导航守卫（结合鉴权）：
@@ -126,16 +124,16 @@ const { count, increment } = useCounter();
     // router/guards.ts
     import router from './index';
     import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
-
+    
     // 模拟鉴权函数
     function isAuthenticated(): boolean {
       return !!localStorage.getItem('token');
     }
-
+    
     // 全局前置守卫
     router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized): boolean | { name: string } => {
       const requiresAuth = to.meta.isAuth as boolean | undefined;
-
+    
       if (requiresAuth) {
         if (isAuthenticated()) {
           return true; // 允许导航
@@ -145,7 +143,7 @@ const { count, increment } = useCounter();
       }
       return true; // 无需鉴权，直接通过
     });
-   ```  
+   ```
 
 3. 组件中使用动态路由：
 
@@ -154,16 +152,16 @@ const { count, increment } = useCounter();
     <script setup lang="ts">
     import { useRoute } from 'vue-router';
     import { ref, onMounted } from 'vue';
-
+    
     const route = useRoute();
     const userId = ref<string>('');
-
+    
     // 获取动态路由参数
     onMounted(() => {
       userId.value = route.params.id as string;
     });
     </script>
-
+    
     <template>
       <div>
         <h1>User Profile: {{ userId }}</h1>
@@ -196,13 +194,13 @@ Pinia是Vue 3的官方状态管理库，基于Vue的响应式系统（ref、reac
     // stores/user.ts
     import { defineStore } from 'pinia';
     import { ref, reactive, computed } from 'vue';
-
+    
     // 定义用户类型
     interface User {
       userName: string;
       age: number | null;
     }
-
+    
     // 定义Store返回值的类型
     interface UserStore {
       user: User;
@@ -211,24 +209,24 @@ Pinia是Vue 3的官方状态管理库，基于Vue的响应式系统（ref、reac
       setToken: (newToken: string) => void;
       fetchUser: () => Promise<void>;
     }
-
+    
     export const useUserStore = defineStore<'user', UserStore>('user', () => {
       // 响应式状态
       const user = reactive<User>({
         userName: '',
         age: null,
       });
-
+    
       const token = ref<string>('');
-
+    
       // Getter
       const fullName = computed(() => `${user.userName || 'Guest'}'s Profile`);
-
+    
       // Action
       function setToken(newToken: string) {
         token.value = newToken;
       }
-
+    
       // 异步Action
       async function fetchUser() {
         try {
@@ -240,7 +238,7 @@ Pinia是Vue 3的官方状态管理库，基于Vue的响应式系统（ref、reac
           console.error('Failed to fetch user:', error);
         }
       }
-
+    
       return { user, token, fullName, setToken, fetchUser };
     });
     ```
@@ -250,23 +248,23 @@ Pinia是Vue 3的官方状态管理库，基于Vue的响应式系统（ref、reac
     <script setup lang="ts">
     import { storeToRefs } from 'pinia';
     import { useUserStore } from '../stores/user';
-
+    
     const userStore = useUserStore();
-
+    
     // 直接访问响应式状态
     const { user, token, fullName } = storeToRefs(userStore);
-
+    
     // 调用action
     const updateToken = () => {
       userStore.setToken('new-token');
     };
-
+    
     // 异步获取用户数据
     onMounted(() => {
       userStore.fetchUser();
     });
     </script>
-
+    
     <template>
       <div>
         <h1>{{ fullName }}</h1>
@@ -306,6 +304,7 @@ Pinia是Vue 3的官方状态管理库，基于Vue的响应式系统（ref、reac
       >   * 可以和 v-if、keep-alive 结合优化性能, 不会触发额外网络请求  
       >
       > `---------------`异步组件是指 Vue 允许你 懒加载组件，只有在使用时才去加载：
+      >
       > ```ts
       > import { defineAsyncComponent } from 'vue';
       > // 方式一
@@ -339,15 +338,15 @@ Pinia是Vue 3的官方状态管理库，基于Vue的响应式系统（ref、reac
       > * 异步组件 = “我暂时不加载组件，等用户需要时再加载”
       > * import() = “JS 原生动态导入模块”，异步组件内部就是用它来懒加载 Vue 组件  
       >
-      >| 特性                   | 动态组件 (`<component :is>`) | 异步组件 (`defineAsyncComponent`) | `import()` |
-      >| -------------------- | ------------------------ | ----------------------------- | ---------- |
-      >| 加载时机                 | 打包时就已加载                  | 使用时才加载                        | 使用时才加载     |
-      >| 是否生成独立 chunk         | 否                        | 是                             | 是          |
-      >| 是否需要 Promise         | 否                        | 是                             | 是          |
-      >| 适用范围                 | Vue 已注册组件                | Vue 组件懒加载                     | 任意模块       |
-      >| 首屏体积优化               | 无                        | 可以                            | 可以         |
-      >| 是否可以设置 loading/error | 否                        | 可以                            | 需要自己实现     |
-
+      > | 特性                   | 动态组件 (`<component :is>`) | 异步组件 (`defineAsyncComponent`) | `import()` |
+      > | -------------------- | ------------------------ | ----------------------------- | ---------- |
+      > | 加载时机                 | 打包时就已加载                  | 使用时才加载                        | 使用时才加载     |
+      > | 是否生成独立 chunk         | 否                        | 是                             | 是          |
+      > | 是否需要 Promise         | 否                        | 是                             | 是          |
+      > | 适用范围                 | Vue 已注册组件                | Vue 组件懒加载                     | 任意模块       |
+      > | 首屏体积优化               | 无                        | 可以                            | 可以         |
+      > | 是否可以设置 loading/error | 否                        | 可以                            | 需要自己实现     |
+    
 4. Tree Shaking：
     * 实现方式：Vite基于esbuild和Rollup，默认支持Tree Shaking，自动移除未使用的代码。
     * 效果：减少打包后的JS文件大小。
@@ -360,112 +359,928 @@ Pinia是Vue 3的官方状态管理库，基于Vue的响应式系统（ref、reac
     * 效果：减少静态资源体积，优化加载速度。
 
 ### 代码示例
-1. Vite配置文件（结合TypeScript）：
-    ```typescript
-    // vite.config.ts
-    import { defineConfig } from 'vite';
-    import vue from '@vitejs/plugin-vue';
-    import { visualizer } from 'rollup-plugin-visualizer';
+#### 1. Vite配置文件（结合TypeScript）
 
-    // 定义环境变量类型
-    interface ImportMetaEnv {
-      readonly VITE_API_URL: string;
-    }
+```typescript
+// vite.config.ts
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { visualizer } from 'rollup-plugin-visualizer';
 
-    // 优化配置
-    export default defineConfig({
-      plugins: [
-        vue(),
-        visualizer(), // 分析打包体积
-      ],
-      build: {
-        minify: 'terser', // 使用Terser压缩代码
-        rollupOptions: {
-          // 外部化依赖，使用CDN加载
-          external: ['vue', 'pinia'],
-          output: {
-            // 手动分包：将node_modules中的库打包到单独chunk
-            manualChunks: {
-              vendor: ['vue', 'pinia'],
-            },
-          },
+// 定义环境变量类型
+interface ImportMetaEnv {
+  readonly VITE_API_URL: string;
+}
+
+// 优化配置
+export default defineConfig({
+  plugins: [
+    vue(),
+    visualizer(), // 分析打包体积
+  ],
+  build: {
+    minify: 'terser', // 使用Terser压缩代码
+    rollupOptions: {
+      // 外部化依赖，使用CDN加载
+      external: ['vue', 'pinia'],
+      output: {
+        // 手动分包：将node_modules中的库打包到单独chunk
+        manualChunks: {
+          vendor: ['vue', 'pinia'],
         },
       },
-      resolve: {
-        // CDN引入时的别名配置
-        alias: {
-          vue: 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js',
-          pinia: 'https://unpkg.com/pinia@2/dist/pinia.esm-browser.js',
-        },
-      },
-    });
-    ```
-2. Vue 3路由懒加载（结合TypeScript）：
-    ```typescript
-    // router/index.ts
-    import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+    },
+  },
+  resolve: {
+    // CDN引入时的别名配置
+    alias: {
+      vue: 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js',
+      pinia: 'https://unpkg.com/pinia@2/dist/pinia.esm-browser.js',
+    },
+  },
+});
+```
 
-    // 定义路由类型
-    interface RouteMeta {
-      title: string;
-    }
+#### 2. Vue 3路由懒加载（结合TypeScript）：
 
-    const routes: RouteRecordRaw[] = [
-      {
-        path: '/',
-        name: 'home',
-        component: () => import('../views/Home.vue'), // 动态导入
-        meta: { title: 'Home' },
-      },
-      {
-        path: '/user/:id',
-        name: 'user',
-        component: () => import('../views/User.vue'), // 动态导入
-        meta: { title: 'User Profile' },
-      },
-    ];
+```typescript
+// router/index.ts
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
-    const router = createRouter({
-      history: createWebHistory(),
-      routes,
-    });
+// 定义路由类型
+interface RouteMeta {
+  title: string;
+}
 
-    export default router;
-    ```
-3. 异步组件使用：
-    ```typescript
-    // views/Home.vue
-    <script setup lang="ts">
-    import { defineAsyncComponent } from 'vue';
+const routes: RouteRecordRaw[] = [
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('../views/Home.vue'), // 动态导入
+    meta: { title: 'Home' },
+  },
+  {
+    path: '/user/:id',
+    name: 'user',
+    component: () => import('../views/User.vue'), // 动态导入
+    meta: { title: 'User Profile' },
+  },
+];
 
-    // 异步加载非关键组件
-    const HeavyComponent = defineAsyncComponent(() =>
-      import('../components/HeavyComponent.vue')
-    );
-    </script>
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
 
-    <template>
-      <div>
-        <h1>Home Page</h1>
-        <Suspense>
-          <HeavyComponent />
-          <template #fallback>Loading...</template>
-        </Suspense>
-      </div>
-    </template>
-    ```
-代码说明：
+export default router;
+```
+
+#### 3. 异步组件使用：
+
+```typescript
+// views/Home.vue
+<script setup lang="ts">
+import { defineAsyncComponent } from 'vue';
+
+// 异步加载非关键组件
+const HeavyComponent = defineAsyncComponent(() =>
+  import('../components/HeavyComponent.vue')
+);
+</script>
+
+<template>
+  <div>
+    <h1>Home Page</h1>
+    <Suspense>
+      <HeavyComponent />
+      <template #fallback>Loading...</template>
+    </Suspense>
+  </div>
+</template>
+```
+### 代码说明
+
 * 代码分包：通过路由懒加载（import('../views/Home.vue')）和manualChunks实现按需加载和模块分离。
 * CDN引入：通过external和alias将Vue和Pinia从打包中排除，使用CDN加载。
-* 按需加载：使用defineAsyncComponent和<Suspense>加载非关键组件。
+* 按需加载：使用defineAsyncComponent和`<Suspense>`加载非关键组件。
 * TypeScript支持：通过RouteRecordRaw和自定义RouteMeta接口确保路由配置的类型安全；defineConfig和ImportMetaEnv提供类型安全的Vite配置。
 * Tree Shaking和压缩：默认启用Tree Shaking，minify: 'terser'确保生产环境代码最小化。
 
-优化效果：
+### 优化效果
+
 * 首屏加载：懒加载和CDN引入显著减少初始JS体积。
 * 打包体积：分包和Tree Shaking移除冗余代码，降低总体文件大小。
 * 开发体验：TypeScript类型注解确保配置可靠，visualizer插件帮助分析打包体积。
 
-注意事项：
+### 注意事项
+
 * CDN引入需确保网络可靠性，可配置本地副本作为降级。
 * 分包策略需根据项目规模调整，避免chunk过多导致HTTP请求增加。
+
+## 5. 在Vue 3项目中，如何结合Vite和TypeScript实现环境变量管理和多环境配置？请提供配置示例并说明其作用。
+
+在Vue 3项目中使用Vite，可以通过.env文件实现环境变量管理和多环境配置。Vite默认加载根目录下的.env文件，按模式（mode）加载特定文件（如.env.development），并支持自定义变量（以VITE_开头）。通过命令行--mode参数指定模式，实现开发、生产等环境的切换。结合TypeScript，可以定义ImportMetaEnv接口，确保变量访问的类型安全。
+
+### 环境变量加载机制：
+
+* 文件命名：`.env（通用）、.env.development（开发）、.env.production（生产）、.env.local（本地覆盖，高优先级）`。
+* 加载优先级：`.env.local > .env.[mode].local > .env.[mode] > .env`。
+* 访问方式：在代码中使用`import.meta.env.VITE_XXX`。
+* 启动命令：`vite --mode development（加载.env.development）`。
+* `TypeScript`支持：扩展`ImportMetaEnv`接口，提供类型提示和自动补全。
+
+### 代码示例：
+
+#### 1. 环境变量文件
+
+```ts
+# .env.development
+VITE_API_URL=http://localhost:3000
+VITE_APP_TITLE=Development App
+
+# .env.production
+VITE_API_URL=https://api.example.com
+VITE_APP_TITLE=Production App
+```
+
+#### 2. TypeScript类型定义（在vite-env.d.ts中）
+
+```ts
+// vite-env.d.ts
+/// <reference types="vite/client" />
+
+interface ImportMetaEnv {
+  readonly VITE_API_URL: string;
+  readonly VITE_APP_TITLE: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+```
+
+#### 3. Vite配置文件（处理mode）
+
+```ts
+// vite.config.ts
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+
+export default defineConfig(({ mode }) => {
+  console.log(`Current mode: ${mode}`); // 调试当前模式
+
+  return {
+    plugins: [vue()],
+    define: {
+      __APP_MODE__: JSON.stringify(mode), // 注入mode到代码中
+    },
+  };
+});
+```
+
+#### 4. 在Vue 3组件中使用
+
+```ts
+// views/App.vue
+// ...
+```
+
+#### 5. Git忽略规则（.gitignore）
+
+```tex
+# 环境变量文件
+.env.local
+.env.*.local
+```
+
+## 6. 在Vue 3全家桶项目中，如何使用TypeScript实现组件的props和emit的类型定义？请提供一个父子组件交互的代码示例。
+
+在Vue 3中，组件的props用于父到子单向数据传递，emit用于子到父事件通信。结合TypeScript，可以通过defineProps和defineEmits定义类型，确保props和emit的参数类型安全，提供IDE自动补全和编译时检查。这在全家桶项目（如与Pinia状态同步或Router导航）中特别有用，避免运行时类型错误。
+
+### 类型定义方式
+
+* `Props`：使用`interface Props { title: string; }`，然后`const props = defineProps<Props>()`，支持默认值和验证（如`withDefaults`）。
+* `Emit`：使用`defineEmits<{ update: (value: string) => true }>()`，定义事件名和`payload`类型（数组或函数签名）。
+* 优势：TypeScript推导事件类型（如emit('update', 'new')自动检查参数），提升代码维护性。
+
+### 代码示例（父子组件交互：子组件输入更新父组件title，实现类似v-model的双向绑定）
+
+```vue
+// Parent.vue
+<template>
+  <div>
+    <h1>Parent Title: {{ title }}</h1>
+    <Child :title="title" @update="setTitle" />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import Child from './Child.vue';
+
+const title = ref<string>('Hello World');
+
+const setTitle = (newTitle: string): void => {
+  title.value = newTitle;
+};
+</script>
+```
+
+```vue
+// Child.vue
+<template>
+  <div>
+    <p>Child received prop: {{ props.title }}</p>
+    <input 
+      v-model="localTitle" 
+      placeholder="Update title here" 
+      @input="handleInput" 
+    />
+    <button @click="setTitle('Custom Update!')">Custom Update</button>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, watch } from 'vue';
+
+// 定义Props类型
+interface Props {
+  title: string;
+}
+
+// 定义props，支持默认值和验证
+const props = withDefaults(defineProps<Props>(), {
+  title: 'Default Title',
+});
+
+// 定义emit类型：update事件接收string参数
+const emit = defineEmits<{
+  update: [value: string],
+  (e: 'change', value: string): void
+}>();
+
+// 本地响应式状态，用于双向绑定
+const localTitle = ref<string>(props.title);
+
+// 监听props变化，同步到localTitle
+watch(() => props.title, (newVal) => {
+  localTitle.value = newVal;
+});
+
+// 处理输入变化，emit更新
+const handleInput = (event: Event): void => {
+  const target = event.target as HTMLInputElement;
+  const value = target.value;
+  localTitle.value = value;
+  emit('update', value);  // TypeScript检查value为string
+};
+
+const setTitle = (val: string): void => {
+  emit('update', val);
+};
+</script>
+```
+
+### 代码说明：
+
+* Props定义：`interface Props`指定`title: string`，`withDefaults`添加默认值。父组件通过`:title="title"`传递，子组件读取`props.title`。
+* `Emit`定义：`defineEmits<{ update: [value: string]}>`确保`emit('update', val)`的`val`必须是`string`。
+* **交互演示**：子组件用localTitle ref处理输入（避免直接改props），@input触发handleInput emit事件。父组件@update监听更新title，实现双向同步。
+* TypeScript集成：所有函数参数和ref都有类型注解，watch和event.target使用类型断言，确保类型安全。
+* 运行效果：输入框变化会实时更新父组件的title；点击按钮触发固定更新。
+
+## 7. 在Vue 3项目中使用Element Plus时，你对它进行过哪些二次封装？请讲一下你认为封装得比较好的组件，并说明封装的原因和实现要点。结合TypeScript给出简单代码示例。
+
+在Vue 3 + Element Plus的项目中，我经常进行二次封装，主要目的是解决原生组件的痛点，如API不统一、验证逻辑重复、主题适配复杂等。通过封装，可以提升代码复用性、维护性和团队协作效率。常见封装包括Form（统一验证）、Table（数据处理）、Upload（文件上传）。我认为封装得最好的两个是自定义Form和Table组件，下面详细说明。
+
+### 1. 自定义Form组件（封装原因：原生ElForm验证规则繁琐、props配置冗余；封装后统一API，支持动态生成表单，支持TypeScript类型推导，与Pinia集成验证状态）
+
+* 实现要点：使用defineProps定义通用props（如model、rules、labelWidth），内部包裹ElForm和ElFormItem，支持v-model双向绑定。添加默认验证（如必填），并暴露validate方法。TypeScript中定义FormProps接口，确保model类型安全。
+* 优势：减少表单代码量50%，便于动态表单（如根据API生成字段）。
+
+#### 代码示例（CustomForm.vue）
+
+```vue
+<template>
+  <el-form
+    ref="formRef"
+    v-bind="$attrs"
+    :model="localModel"
+    :rules="rules"
+    :label-width="labelWidth"
+    @submit.native.prevent
+  >
+    <slot></slot>
+    <el-form-item v-if="showSubmit" style="text-align: right;">
+      <el-button type="primary" @click="handleSubmit">提交</el-button>
+      <el-button @click="handleReset">重置</el-button>
+    </el-form-item>
+  </el-form>
+</template>
+
+<script setup lang="ts">
+import { ref, reactive, watch } from 'vue';
+import type { FormInstance, FormRules } from 'element-plus';
+
+// 定义Props类型
+interface FormProps<T = any> {
+  model: T;
+  rules?: FormRules;
+  labelWidth?: string;
+  showSubmit?: boolean;
+}
+
+const props = withDefaults(defineProps<FormProps>(), {
+  rules: () => ({}),
+  labelWidth: '120px',
+  showSubmit: true,
+});
+
+const emit = defineEmits<{
+  submit: [data: any];
+  reset: [];
+}>();
+
+const formRef = ref<FormInstance>();
+const localModel = reactive({ ...props.model });
+
+// 监听model变化
+watch(() => props.model, (newVal) => {
+  Object.assign(localModel, newVal);
+}, { deep: true });
+
+const handleSubmit = async () => {
+  try {
+    await formRef.value?.validate((valid) => valid);
+    emit('submit', { ...localModel });
+  } catch (error) {
+    console.error('Validation failed:', error);
+  }
+};
+
+const handleReset = () => {
+  formRef.value?.resetFields();
+  emit('reset');
+};
+
+defineExpose({ validate: () => formRef.value?.validate() });
+</script>
+```
+
+#### 使用示例（在父组件）：
+
+```vue
+<template>
+  <CustomForm :model="formData" @submit="onSubmit">
+    <el-form-item label="用户名" prop="username">
+      <el-input v-model="formData.username" />
+    </el-form-item>
+    <el-form-item label="年龄" prop="age">
+      <el-input v-model.number="formData.age" type="number" />
+    </el-form-item>
+  </CustomForm>
+</template>
+
+<script setup lang="ts">
+import { reactive } from 'vue';
+import CustomForm from './CustomForm.vue';
+
+interface FormData {
+  username: string;
+  age: number;
+}
+
+const formData = reactive<FormData>({
+  username: '',
+  age: 0,
+});
+
+const onSubmit = (data: FormData) => {
+  console.log('Submitted:', data);
+};
+</script>
+```
+
+### 2. 自定义Table组件（封装原因：原生ElTable列配置复杂、数据源处理重复；封装后支持分页、搜索、选中状态，与Vite懒加载集成，TypeScript定义列类型）
+
+* 实现要点：包裹ElTable和ElPagination，props包括columns（列定义）、data（表格数据）。内部处理排序、过滤，支持选中行emit。TypeScript用泛型TableColumn定义列，确保data和columns类型匹配。
+* 优势：统一表格渲染逻辑，适合后台管理系统，减少样板代码。
+
+#### 代码示例（CustomTable.vue，简化版）
+
+```vue
+<template>
+  <div>
+    <el-table
+      ref="tableRef"
+      v-bind="$attrs"
+      :data="data"
+      @selection-change="handleSelectionChange"
+    >
+      <el-table-column v-if="showSelection" type="selection" width="55" />
+      <template v-for="column in columns" :key="column.prop">
+        <el-table-column
+          v-bind="column"
+          :prop="column.prop"
+          :label="column.label"
+          :width="column.width"
+        >
+          <template #default="{ row }">
+            <slot :name="`col-${column.prop}`" :row="row">
+              {{ row[column.prop] }}
+            </slot>
+          </template>
+        </el-table-column>
+      </template>
+    </el-table>
+    <el-pagination
+      v-if="pagination"
+      :current-page="currentPage"
+      :page-size="pageSize"
+      :total="total"
+      @current-change="handlePageChange"
+    />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+
+// 定义列类型
+interface TableColumn<T = any> {
+  prop: keyof T;
+  label: string;
+  width?: number;
+  sortable?: boolean;
+}
+
+interface TableProps<T = any> {
+  data: T[];
+  columns: TableColumn<T>[];
+  showSelection?: boolean;
+  pagination?: boolean;
+  currentPage?: number;
+  pageSize?: number;
+  total?: number;
+}
+
+const props = withDefaults(defineProps<TableProps>(), {
+  showSelection: false,
+  pagination: false,
+  currentPage: 1,
+  pageSize: 10,
+  total: 0,
+});
+
+const emit = defineEmits<{
+  'selection-change': [selection: any[]];
+  'page-change': [page: number];
+}>();
+
+const tableRef = ref();
+
+const handleSelectionChange = (selection: any[]) => {
+  emit('selection-change', selection);
+};
+
+const handlePageChange = (page: number) => {
+  emit('page-change', page);
+};
+</script>
+```
+
+### 总体封装经验
+
+* 为什么好：这些封装让Element Plus更贴合项目（如主题变量注入CSS），TypeScript确保props不乱传，Vite支持热更新。
+* 项目应用：在全家桶中，与Pinia联动Form验证，与Router懒加载Table数据，提升了开发效率
+* 改进空间：未来可加更多插件支持，如国际化或暗黑模式。
+
+## 8. 在Vue 3 + Vite + TypeScript项目中，如何处理全局异常和错误边界？请提供代码示例。
+
+在Vue 3 + Vite + TypeScript项目中，异常处理分为全局异常（捕获整个应用的JS运行时错误）和错误边界（组件级隔离错误，防止单个组件崩溃影响整体）。全局异常使用app.config.errorHandler和onErrorCaptured钩子记录日志；错误边界通过自定义组件实现，结合处理异步错误。Vite支持dev模式下热重载错误日志，生产环境可集成Sentry上报。TypeScript定义Error类型，确保日志的类型安全。
+
+### 处理机制
+
+#### 1. 全局异常
+
+* app.config.errorHandler：捕获未处理的Promise错误和渲染错误。
+* onErrorCaptured：组件钩子，捕获子树错误，返回false阻止渲染。
+* 作用：统一日志上报，防止白屏。
+
+#### 2. 错误边界
+
+* 自定义ErrorBoundary组件，使用onErrorCaptured隔离错误，提供fallback UI
+* 结合Vite动态导入处理异步组件加载错误
+
+#### 3. 请求错误：在API服务（如axios）中使用try-catch或拦截器，防止网络错误传播。
+
+#### 4. Vite集成：使用vite.config.ts插件如@vitejs/plugin-vue的errorOverlay，或自定义插件上报
+
+#### 5. TypeScript优势：定义CustomError接口，增强错误分类和IDE提示。
+
+### 代码示例
+
+#### 1. 全局异常处理（main.ts）
+
+```ts
+// main.ts
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import { createPinia } from 'pinia';
+
+const app = createApp(App);
+
+// 定义错误类型
+interface CustomError {
+  message: string;
+  stack?: string;
+  component?: string;
+}
+
+// 全局错误处理器
+app.config.errorHandler = (err: unknown, vm: any, info: string) => {
+  const error: CustomError = {
+    message: err instanceof Error ? err.message : String(err),
+    stack: err instanceof Error ? err.stack : undefined,
+    component: vm?.$options?.name || 'Unknown',
+  };
+  console.error('Global Error:', error); // 或上报Sentry: Sentry.captureException(error)
+};
+
+// Pinia和Router集成
+app.use(createPinia());
+app.use(router);
+
+app.mount('#app');
+```
+
+#### 2. 错误边界组件（ErrorBoundary.vue）
+
+```vue
+<template>
+  <div v-if="hasError" class="error-boundary">
+    <h2>Something went wrong: {{ errorMessage }}</h2>
+    <button @click="resetError">Retry</button>
+  </div>
+  <component v-else :is="childComponent" v-bind="$attrs">
+    <slot />
+  </component>
+</template>
+
+<script setup lang="ts">
+import { ref, defineAsyncComponent, shallowRef, onErrorCaptured } from 'vue';
+
+interface Props {
+  component: any; // 动态组件
+}
+
+const props = defineProps<Props>();
+
+const hasError = ref<boolean>(false);
+const errorMessage = ref<string>('');
+const childComponent = shallowRef<any>(props.component);
+
+// 错误边界钩子
+onErrorCaptured((err: unknown, target: any, info: string) => {
+  hasError.value = true;
+  errorMessage.value = err instanceof Error ? err.message : String(err);
+  console.error('Error Boundary Captured:', { err, target, info }); // 日志上报
+  return false; // 阻止错误向上冒泡
+});
+
+const resetError = () => {
+  hasError.value = false;
+  errorMessage.value = '';
+  childComponent.value = props.component; // 重置组件
+};
+</script>
+
+<style scoped>
+.error-boundary {
+  padding: 20px;
+  border: 1px solid red;
+  background: #fee;
+}
+</style>
+```
+
+#### 3. 使用错误边界（App.vue，结合Vite动态导入）
+
+```vue
+<template>
+  <div id="app">
+    <ErrorBoundary :component="asyncComponent">
+      <router-view />
+    </ErrorBoundary>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { defineAsyncComponent } from 'vue';
+import ErrorBoundary from './components/ErrorBoundary.vue';
+
+// Vite动态导入异步组件
+const asyncComponent = defineAsyncComponent(() =>
+  import('./views/Dashboard.vue').catch((err) => {
+    console.error('Async Load Error:', err); // 捕获加载错误
+    throw err;
+  })
+);
+</script>
+```
+
+#### 4. API请求错误处理（services/api.ts，使用try-catch）
+
+```ts
+// services/api.ts
+import axios from 'axios';
+
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL });
+
+interface ApiError extends Error {
+  status?: number;
+  data?: any;
+}
+
+// 拦截器 + try-catch
+api.interceptors.response.use(
+  (response) => response,
+  (error: ApiError) => {
+    console.error('API Error:', error); // 日志上报
+    // 防止传播：返回默认值或通知
+    return Promise.reject(error);
+  }
+);
+
+export const fetchData = async (): Promise<any> => {
+  try {
+    const response = await api.get('/data');
+    return response.data;
+  } catch (error) {
+    const apiError = error as ApiError;
+    // 隔离错误：不影响其他组件
+    throw new Error(`Fetch failed: ${apiError.message}`); // 或显示Toast
+  }
+};
+```
+
+### 代码说明
+
+* 全局异常：errorHandler捕获Promise/渲染错误，TypeScript的CustomError确保日志结构化。
+* 错误边界：onErrorCaptured返回false隔离错误，提供重试UI；与Vue的defineAsyncComponent结合处理异步加载失败。
+* 请求错误：axios拦截器 + try-catch防止网络错误传播到组件树。
+
+### 效果和作用
+
+* 用户体验：错误边界显示友好fallback，避免白屏；全局日志便于调试。
+* TypeScript安全：接口定义减少运行时错误。
+* 项目集成：与Pinia结合上报状态错误，与Vite插件扩展（如rollup-plugin-sentry）自动化上报。
+
+## 9. Vue 3中Teleport和Suspense的实际应用场景是什么？请结合TypeScript和Vite给出代码示例。
+
+Vue 3的Teleport和Suspense是Composition API的重要部分，用于解决组件渲染和加载的痛点。Teleport允许将子组件的DOM“传送”到指定位置，脱离父组件的CSS作用域，常用于全局UI元素。Suspense处理异步组件或异步操作，提供fallback内容，直到resolve或reject。结合Vite的动态导入（import()）和TypeScript类型安全，可以实现高效的懒加载和错误处理。
+
+### 实际应用场景
+
+#### 1. Teleport
+
+* 场景：模态框（Modal）或Tooltip脱离父容器，避免z-index冲突或父级样式影响；在后台管理系统中，将Dialog渲染到body末尾，确保全屏覆盖。
+* 优势：保持组件逻辑封装，但DOM灵活；Vite热更新时不影响位置。
+
+#### 2. Suspense
+
+* **场景**：路由懒加载或异步数据组件；在Vue Router中包裹懒加载视图，展示加载spinner，直到组件/数据ready。
+* 优势：提升用户体验，避免白屏；与Vite的代码分割结合，优化首屏加载。
+
+### 代码示例（结合TypeScript和Vite动态导入）
+
+#### 1. Teleport示例：全局模态框（Modal.vue）
+
+```vue
+<template>
+  <Teleport to="body"> <!-- 传送至body，避免父级样式影响 -->
+    <div v-if="visible" class="modal-overlay" @click="handleOverlayClick">
+      <div class="modal-content" @click.stop>
+        <h2>{{ title }}</h2>
+        <slot /> <!-- 插槽内容 -->
+        <button @click="close">关闭</button>
+      </div>
+    </div>
+  </Teleport>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+
+interface Props {
+  title?: string;
+  visible: boolean;
+}
+
+const props = defineProps<Props>();
+const emit = defineEmits<{
+  close: [];
+}>();
+
+const handleOverlayClick = (e: MouseEvent) => {
+  if (e.target === e.currentTarget) emit('close');
+};
+
+const close = () => emit('close');
+</script>
+
+<style scoped>
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* 高层级 */
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+</style>
+```
+
+使用示例（在父组件）
+
+```vue
+<template>
+  <button @click="showModal = true">打开模态框</button>
+  <Modal :visible="showModal" title="自定义标题" @close="showModal = false">
+    <p>模态框内容</p>
+  </Modal>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import Modal from './Modal.vue';
+
+const showModal = ref<boolean>(false);
+</script>
+```
+
+#### 2. Suspense示例：异步组件懒加载（结合Vite动态导入）
+
+```vue
+<template>
+  <Suspense>
+    <template #default>
+      <AsyncDashboard /> <!-- 异步组件 -->
+    </template>
+    <template #fallback>
+      <div class="loading">加载中...</div> <!-- 后备内容 -->
+    </template>
+  </Suspense>
+</template>
+
+<script setup lang="ts">
+import { defineAsyncComponent, Suspense } from 'vue';
+
+// Vite动态导入 + TypeScript类型
+const AsyncDashboard = defineAsyncComponent({
+  loader: () => import('./Dashboard.vue'), // Vite代码分割
+  loadingComponent: () => <div>预加载...</div>, // 可选加载中组件
+  errorComponent: (err: Error) => ( // 错误处理
+    <div>加载失败: {err.message} <button @click="retry">重试</button></div>
+  ),
+  delay: 200, // 延迟显示fallback
+  timeout: 3000, // 超时抛错
+});
+
+const retry = () => {
+  // 重试逻辑
+};
+</script>
+
+<style scoped>
+.loading {
+  text-align: center;
+  padding: 20px;
+}
+</style>
+```
+
+Dashboard.vue（异步组件示例，模拟数据请求）
+
+```vue
+<script setup lang="ts">
+import { onMounted, ref } from 'vue';
+
+const data = ref<string[]>([]);
+
+onMounted(async () => {
+  // 模拟异步请求
+  const response = await fetch('/api/dashboard');
+  data.value = await response.json();
+});
+</script>
+
+<template>
+  <div>
+    <h1>Dashboard 数据</h1>
+    <ul>
+      <li v-for="item in data" :key="item">{{ item }}</li>
+    </ul>
+  </div>
+</template>
+```
+
+### 代码说明
+
+* Teleport：`to="body"`将Modal DOM移到body，TypeScript的Props接口确保visible为boolean。Vite热更新时，位置不变。
+* Suspense：包裹defineAsyncComponent，Vite的import()实现懒加载；#fallback显示加载UI，直到Dashboard的onMounted resolve。TypeScript的Error类型处理超时/加载失败。
+* 集成：在Vue Router中用Suspense包裹，优化多页应用
+
+### 优势和注意事项
+
+* 性能：Vite代码分割 + Suspense减少初始bundle；Teleport避免嵌套DOM复杂性。
+* TypeScript：接口/类型断言确保props和错误安全。
+* 场景扩展：Teleport + Portal库增强；Suspense + IntersectionObserver实现视口懒加载。
+* 坑点：Teleport目标必须存在；Suspense不支持SSR中异步setup。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
