@@ -126,7 +126,8 @@ const config: Config = {
           position: 'left' as 'left' | 'right',
           label: title,
         })),
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: 'blog', label: 'Blog', position: 'left'},
+        {to: 'download', label: '资源下载', position: 'left'},
         {
           href: 'https://github.com/zhangpanonline/enterprise-admin/tree/main/apps/doc',
           label: 'GitHub',
