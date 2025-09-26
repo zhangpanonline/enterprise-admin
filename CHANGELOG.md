@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.7.0...v1.7.1) (2025-09-26)
+
+
+### Bug Fixes
+
+* **文档管理:** 修复路径错误导致打包失败问题 ([736a867](https://github.com/zhangpanonline/enterprise-admin/commit/736a86789910953db725693dc41211ae7011abe3))
+
 # [1.7.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.6.1...v1.7.0) (2025-09-24)
 
 
