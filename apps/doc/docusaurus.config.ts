@@ -5,16 +5,12 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 const docList = [
   {
-    path: 'nest',
-    title: 'NestJS'
-  },
-  {
     path: 'interview',
     title: 'Interview'
   },
   {
-    path: 'website',
-    title: 'Website'
+    path: 'nest',
+    title: 'NestJS'
   },
 ]
 const config: Config = {
@@ -33,7 +29,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://doc.zhangpan.online',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -41,7 +37,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  projectName: 'doc', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -60,10 +56,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './docs/sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
@@ -74,7 +66,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/zhangpanonline/enterprise-admin/tree/main/apps/doc/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -115,9 +107,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'docsSidebar',
+          sidebarId: 'sidebarId',
           position: 'left',
-          label: 'Tutorial',
+          label: 'WebSite',
         },
         ...docList.map(({ path, title }) => ({
           type: 'docSidebar',
@@ -142,43 +134,45 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'WebSite',
+              to: '/docs',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Interview',
+              to: '/interview',
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'NestJS',
+              to: '/nestjs',
             },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
             {
               label: 'Blog',
               to: '/blog',
             },
             {
+              label: '资源下载',
+              to: '/download',
+            },
+          ],
+        },
+        {
+          title: 'WebSite',
+          items: ['main', 'vue.main', 'next.main', 'nuxt.main', 'vercel.api', 'render.api'].map(path => ({
+            label: path,
+            href: `https://${path}.zhangpan.online`,
+          })),
+        },
+        {
+          title: 'More',
+          items: [
+            {
               label: 'GitHub',
-              href: 'https://github.com/zhangpanonline/enterprise-admin/tree/main/apps/doc',
+              href: 'https://github.com/zhangpanonline/enterprise-admin',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} zhangpan. Built with Docusaurus. Deploy in Vercel.`,
     },
     prism: {
       theme: prismThemes.github,
