@@ -1,6 +1,6 @@
 ---
-slug: greetings
-title: Greetings!
+slug: BBB
+title: AAA!
 authors:
 - name: Joel Marcey
 url: https://github.com/JoelMarcey
