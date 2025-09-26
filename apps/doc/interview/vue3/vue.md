@@ -1,5 +1,12 @@
 ---
 sidebar_position: 1
+# slug: BBB
+# title: AAA!
+# authors:
+# - name: Joel Marcey
+# url: https://github.com/JoelMarcey
+# image_url: https://github.com/JoelMarcey.png
+# tags: [Demo]
 ---
 
 ## 1. 请解释Vue 3中Composition API的核心概念，以及它与Options API的区别。为什么在大型项目中更推荐使用Composition API？请用TypeScript示例说明一个简单的Composition API用法。
