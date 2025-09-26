@@ -135,15 +135,15 @@ const config: Config = {
           items: [
             {
               label: 'WebSite',
-              to: '/docs',
+              to: '/docs/dir',
             },
             {
               label: 'Interview',
-              to: '/interview',
+              to: '/interview/vue3/vue',
             },
             {
               label: 'NestJS',
-              to: '/nestjs',
+              to: '/nest/intro',
             },
             {
               label: 'Blog',
