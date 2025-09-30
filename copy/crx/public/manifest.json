@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "电力交易申报助手",
+  "version": "1.0.6",
+  "description": "电力交易申报助手",
+  "action": {
+    "default_icon": {
+      "16": "icons/logo.png",
+      "32": "icons/logo.png",
+      "48": "icons/logo.png",
+      "128": "icons/logo.png"
+    }
+  },
+  "options_page": "index.html",
+  "background": {
+    "service_worker": "src/background/main.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://pm.gx.csg.cn/*"],
+      "js": ["src/content/main.ts"]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "declarativeNetRequest",
+    "offscreen",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": ["https://pm.gx.csg.cn/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*", "libs/*", "icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icons/logo.png",
+    "32": "icons/logo.png",
+    "48": "icons/logo.png",
+    "128": "icons/logo.png"
+  }
+}
