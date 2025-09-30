@@ -15,7 +15,8 @@ module.exports = {
         'test',
         'chore',
         'revert',
-        'ui' // 你自定义的
+        'ui',
+        'other'
       ]
     ],
 

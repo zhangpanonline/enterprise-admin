@@ -18,7 +18,7 @@ function generate() {
       name: file,
       path: `/download/${file}`, // 对应 static/download 目录
       size: formatSize(stats.size),
-      date: stats.mtime.toLocaleDateString(),
+      date: stats.birthtime.toLocaleDateString(),
     };
   });
 

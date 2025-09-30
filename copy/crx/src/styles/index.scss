@@ -1,0 +1,30 @@
+@use "element-plus/theme-chalk/src/index.scss" as *;
+@use "./element.scss" as *;
+
+// 设置全局变量
+#aog-app {
+  --aog-el-bg-color: var(--aog-app-base-bg-color);
+  --aog-el-text-color-primary: var(--aog-app-base-font-color);
+  --aog-el-font-size-large: var(--aog-app-base-title-font-size);
+  --aog-el-text-color-regular: var(--aog-app-base-title-font-color);
+  background-color: var(--aog-app-base-bg-color);
+  font-size: var(--aog-app-base-font-size);
+  color: var(--aog-app-base-font-color);
+
+  *,
+  :after,
+  :before {
+    box-sizing: border-box;
+  }
+}
+
+.aog-dialog-box {
+  border-radius: var(--aog-app-popup-border-radius);
+  --aog-el-dialog-bg-color: var(--aog-app-dialog-bg-color);
+  padding: 0;
+}
+
+.aog-el-container {
+  width: 100%;
+  height: 100%;
+}
