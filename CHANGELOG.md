@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/zhangpanonline/enterprise-admin/compare/v1.7.1...v1.7.2) (2025-09-30)
+
+
+### Bug Fixes
+
+* **文档管理:** 修复资源下载页面，文件上传日期不正确问题 ([18d2339](https://github.com/zhangpanonline/enterprise-admin/commit/18d23395a4cb27b7dfecf857d3286e8049995ce1))
+
 ## [1.7.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.7.0...v1.7.1) (2025-09-26)
 
 
