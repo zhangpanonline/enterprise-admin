@@ -1,3 +1,8 @@
+---
+sidebar_position: 2
+title: GitHub Actions
+---
+
 # 使用 `GitHub Actions` +  `semantic-release` 实现全自动的版本管理和发布
 * 自动版本管理
 * 自动 changelog
