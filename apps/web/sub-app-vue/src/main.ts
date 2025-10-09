@@ -5,7 +5,9 @@ import '@/assets/index.css'
 import i18n from '@/utils/i18n'
 import App from './App.vue'
 import router from './router'
+import { setTheme } from './theme/index'
 
+setTheme()
 const app = createApp(App)
 
 app.use(createPinia())
