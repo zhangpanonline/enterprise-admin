@@ -1,0 +1,81 @@
+{
+  "name": "po_chan",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "start": "vite --mode production",
+    "build": "rm -rf dist && vite build --mode net && start dist",
+    "build:prod": "rm -rf dist && vite build --mode production && start dist",
+    "preview": "vite preview --mode production",
+    "test:unit": "vitest",
+    "coverage:unit": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "preinstall": "node ./scripts/preinstall.js",
+    "git": "node ./scripts/commit.js"
+  },
+  "engines": {
+    "node": ">=18.16.0",
+    "pnpm": ">=8.10.5"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.6.1",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "axios": "^1.6.2",
+    "clipboard": "^2.0.11",
+    "compressorjs": "^1.2.1",
+    "dayjs": "^1.11.10",
+    "echarts": "^5.4.3",
+    "element-plus": "^2.4.2",
+    "lodash-es": "^4.17.21",
+    "photoswipe": "^5.4.3",
+    "pinia": "^2.1.7",
+    "pinia-plugin-persist": "^1.0.0",
+    "stompjs": "^2.3.3",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@iconify-json/el": "^1.1.5",
+    "@iconify-json/ep": "^1.1.10",
+    "@iconify-json/line-md": "^1.1.25",
+    "@iconify-json/material-symbols": "^1.1.65",
+    "@iconify-json/system-uicons": "^1.1.11",
+    "@playwright/test": "^1.39.0",
+    "@vitejs/plugin-vue": "^4.4.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.2",
+    "@vue/test-utils": "^2.4.1",
+    "autoprefixer": "^10.4.16",
+    "commitizen": "^4.3.0",
+    "cors": "^2.8.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "etag": "^1.8.1",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0",
+    "happy-dom": "^12.10.3",
+    "husky": "^8.0.3",
+    "jsdom": "^22.1.0",
+    "msw": "^2.0.11",
+    "postcss": "^8.4.31",
+    "svg-baker": "^1.7.0",
+    "svgo": "^3.1.0",
+    "tailwindcss": "^3.3.5",
+    "unplugin-auto-import": "^0.16.7",
+    "unplugin-icons": "^0.17.4",
+    "unplugin-vue-components": "^0.25.2",
+    "vite": "^4.4.11",
+    "vite-plugin-inspect": "^0.8.1",
+    "vitest": "^0.34.6"
+  }
+}
