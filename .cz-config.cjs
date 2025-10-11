@@ -21,7 +21,7 @@ module.exports =  {
     footer: '关联的 issue（如: #31, #34）（可选）:',
     confirmCommit: '确认提交？'
   },
-  scopes: ["服务端", "vue子应用", "next子应用", "nuxt子应用", "主应用", "微前端", "浏览器插件", "系统管理", "工程配置", "文档管理", "功能实现", "其它"],
+  scopes: ["微信小程序-记账工具", "服务端", "vue子应用", "next子应用", "nuxt子应用", "主应用", "微前端", "浏览器插件", "系统管理", "工程配置", "文档管理", "功能实现", "其它"],
   enableMultipleScopes: true,
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix'], // allowBreakingChanges: ['feat', 'fix'] 的作用是控制哪些类型的提交可以填写破坏性变更说明（BREAKING CHANGE），从而支持语义化版本自动升级时正确地判定为 major version（主版本）更新。

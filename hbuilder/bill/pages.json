@@ -1,0 +1,44 @@
+{
+	"pages": [
+		{
+			"path": "pages/input",
+			"style": {
+				"navigationBarTitleText": "记账"
+			}
+		},
+		{
+			"path": "pages/chart",
+			"style": {
+				"navigationBarTitleText": "分析"
+			}
+		}
+	],
+	"globalStyle": {
+		"pageOrientation": "portrait",
+		"navigationBarTitleText": "Hello uniapp",
+		"navigationBarTextStyle": "white",
+		"navigationBarBackgroundColor": "#007AFF",
+		"backgroundColor": "#F8F8F8",
+		"backgroundColorTop": "#F4F5F6",
+		"backgroundColorBottom": "#F4F5F6"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#F8F8F8",
+		"list": [{
+				"pagePath": "pages/input",
+				"iconPath": "static/component.png",
+				"selectedIconPath": "static/componentHL.png",
+				"text": "记账"
+			},
+			{
+				"pagePath": "pages/chart",
+				"iconPath": "static/component.png",
+				"selectedIconPath": "static/componentHL.png",
+				"text": "分析"
+			}
+		]
+	}
+}
