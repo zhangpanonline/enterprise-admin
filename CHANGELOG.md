@@ -1,3 +1,13 @@
+# [1.8.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.7.2...v1.8.0) (2025-10-13)
+
+
+### Features
+
+* **vue子应用:** 实现主题切换核心代码 ([5fa2b50](https://github.com/zhangpanonline/enterprise-admin/commit/5fa2b50fca8200d0fd087881da06e00cbf58394a))
+* **微信小程序-记账工具:** 完成基本功能 ([818656f](https://github.com/zhangpanonline/enterprise-admin/commit/818656f384b16ad4c8de1c1e9f62bf1190bf887f))
+* **微信小程序-记账工具:** 登录功能 ([e543931](https://github.com/zhangpanonline/enterprise-admin/commit/e5439315f34208dfb0837cc14e548801855acf4c))
+* **服务端:** 装饰圈、模块学习 ([db24f4d](https://github.com/zhangpanonline/enterprise-admin/commit/db24f4dc71d9dcf8604d99436a0d406c43bb8806))
+
 ## [1.7.2](https://github.com/zhangpanonline/enterprise-admin/compare/v1.7.1...v1.7.2) (2025-09-30)
 
 
