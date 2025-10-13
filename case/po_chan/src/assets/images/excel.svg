@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/excel</title>
+    <g id="icon/excel" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组" transform="translate(3.000000, 1.000000)" fill-rule="nonzero">
+            <g id="word" fill="#01C557">
+                <path d="M3.20052288,0 C1.43429594,0 0,1.39224942 0,3.11114149 L0,24.8888859 C0,26.6062166 1.43119938,28 3.20052288,28 L20.801024,28 C22.5657068,28 24,26.6077779 24,24.8888859 L24,5 L19.5241664,0 L3.20052288,0 Z" id="形状"></path>
+            </g>
+            <polygon id="X" fill="#FFFFFF" points="13.236 21.312 16.18 19.856 13.444 15.008 17.236 10.64 15.188 9.232 12.132 12.672 10.212 9.248 7.94 10.528 10.1 14.96 5.764 19.856 7.988 21.296 11.332 17.44"></polygon>
+            <path d="M19.5241565,4.09987937 C19.5241565,4.59752212 19.951012,5 20.476575,5 L24,5 L19.5241565,0 L19.5241565,4.09987937 Z" id="路径" fill="#62DC9B"></path>
+        </g>
+    </g>
+</svg>

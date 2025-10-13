@@ -131,19 +131,19 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: '文档',
           items: [
             {
               label: 'WebSite',
-              to: '/docs',
+              to: '/docs/dir',
             },
             {
               label: 'Interview',
-              to: '/interview',
+              to: '/interview/vue3/vue',
             },
             {
               label: 'NestJS',
-              to: '/nestjs',
+              to: '/nest/intro',
             },
             {
               label: 'Blog',
@@ -156,23 +156,27 @@ const config: Config = {
           ],
         },
         {
-          title: 'WebSite',
+          title: '网站',
           items: ['main', 'vue.main', 'next.main', 'nuxt.main', 'vercel.api', 'render.api'].map(path => ({
             label: path,
             href: `https://${path}.zhangpan.online`,
           })),
         },
         {
-          title: 'More',
+          title: '其它',
           items: [
             {
               label: 'GitHub',
               href: 'https://github.com/zhangpanonline/enterprise-admin',
             },
+            {
+              label: '浏览器插件',
+              href: 'https://chromewebstore.google.com/detail/crxzp/cldfhecabiccgemiendkpdckcahicbpc?hl=zh-CN&utm_source=ext_sidebar',
+            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} zhangpan. Built with Docusaurus. Deploy in Vercel.`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a target="__blank" href="https://doc.zhangpan.online" >ZhangPan</a>. Built with <a target="__blank" href="https://docusaurus.io/" >Docusaurus</a>. Deploy in <a target="__blank" href="https://vercel.com/" >Vercel</a>.`,
     },
     prism: {
       theme: prismThemes.github,

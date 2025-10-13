@@ -1,0 +1,33 @@
+{
+  "name": "theme",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/theme.umd.cjs",
+  "module": "./dist/theme.js",
+  "exports": {
+    ".": {
+      "import": "./dist/theme.js",
+      "require": "./dist/theme.umd.cjs"
+    },
+    "./style.css": "./dist/theme.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.17.0",
+  "devDependencies": {
+    "vite": "^7.1.9"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "tailwindcss": "^4.1.14"
+  }
+}

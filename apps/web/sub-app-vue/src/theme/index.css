@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: var(--primary-color);
+    --color-success: var(--success-color);
+    --color-warning: var(--warning-color);
+    --color-danger: var(--danger-color);
+    --color-error: var(--error-color);
+    --color-info: var(--info-color);
+}

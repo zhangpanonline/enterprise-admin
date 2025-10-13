@@ -1,0 +1,15 @@
+const { execSync } = require('child_process')
+
+execSync('git add .', { stdio: 'inherit' })
+console.log('==========已暂存==========')
+execSync('pnpm cz', { stdio: 'inherit' })
+console.log('==========已提交==========')
+const startTime = process.hrtime.bigint()
+execSync('git pull', { stdio: 'inherit' })
+console.log('==========已拉取==========')
+execSync('git push', { stdio: 'inherit' })
+console.log('==========已推送==========')
+execSync('git status', { stdio: 'inherit' })
+const endTime = process.hrtime.bigint()
+console.log('\x1B[42m %s \x1b[0m', '已拉取并同步远程：' + parseFloat(parseInt((endTime - startTime)) / 1000 / 1000 / 1000).toFixed(2) + '秒')
+

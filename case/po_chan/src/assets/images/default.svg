@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/其他</title>
+    <g id="icon/其他" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="word" transform="translate(3.000000, 1.000000)" fill-rule="nonzero">
+            <path d="M3.20052288,0 C1.43429594,0 0,1.39224942 0,3.11114149 L0,24.8888859 C0,26.6062166 1.43119938,28 3.20052288,28 L20.801024,28 C22.5657068,28 24,26.6077779 24,24.8888859 L24,5 L19.5241664,0 L3.20052288,0 Z" id="形状" fill="#CCCCCC"></path>
+            <path d="M12.004,17.664 L12.34,15.792 L14.74,13.456 L15.46,9.376 L9.62,9.376 L9.124,12.16 L11.076,12.16 L11.284,11.008 L13.22,11.008 L12.852,13.104 L10.452,15.44 L10.052,17.664 L12.004,17.664 Z M11.444,20.688 L11.78,18.736 L9.844,18.736 L9.508,20.688 L11.444,20.688 Z" id="？" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

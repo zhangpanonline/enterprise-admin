@@ -1,0 +1,27 @@
+/* 当前文件用来清除或覆盖elementPlus默认样式 */
+button.el-button {
+	--el-button-font-weight: normal;
+}
+/* input框hover颜色 */
+.el-input__wrapper {
+	--el-input-hover-border-color: var(--primary-color-100);
+}
+/* input框激活颜色 */
+.el-input .el-input__wrapper.is-focus{
+	--el-input-focus-border-color: var(--primary-color-350);
+}
+.el-button.el-button--primary:focus-visible {
+	outline: none;
+}
+/* dialog 标题添加下划线 */
+.el-dialog>.el-dialog__header {
+	border-bottom: 1px solid var(--primary-color);
+	margin-right: 0;
+	padding-bottom: 20px;
+}
+.el-input.el-date-editor {
+	--el-date-editor-width: 100%;
+}
+.el-select {
+	width: 100%;
+}

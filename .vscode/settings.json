@@ -14,6 +14,14 @@
   "tailwindCSS.classAttributes": ["class", "ui"],
   "tailwindCSS.experimental.classRegex": [
     ["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-  ]
+  ],
+  "files.exclude": {
+    // "**/hbuilder": true
+  },
+  "search.exclude": {
+    // "**/hbuilder": true
+  },
+  "editor.tabSize": 4
 }
+
 
