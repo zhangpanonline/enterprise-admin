@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.8.0...v1.8.1) (2025-10-13)
+
+
+### Bug Fixes
+
+* **文档管理:** 配置项里footer下的NestJS默认路径错误导致打包失败问题 ([d4cb9b9](https://github.com/zhangpanonline/enterprise-admin/commit/d4cb9b9f287c8b7314c6627cc1525c3006ac2b40))
+
 # [1.8.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.7.2...v1.8.0) (2025-10-13)
 
 
