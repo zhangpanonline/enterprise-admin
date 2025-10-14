@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class UserService {
-  getUserShare(): string {
+export class ShareService {
+  getShare() {
     return '共享模块';
   }
 }

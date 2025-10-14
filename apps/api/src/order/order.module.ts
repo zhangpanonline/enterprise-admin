@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { OrderService } from './order.service';
 import { OrderController } from './order.controller';
-import { UserModule } from 'src/user/user.module';
+import { ShareModule } from 'src/share/share.module';
 
 @Module({
-  imports: [UserModule],
+  imports: [ShareModule],
   controllers: [OrderController],
   providers: [OrderService],
 })

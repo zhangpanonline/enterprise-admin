@@ -1,16 +1,20 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { UserService } from 'src/user/user.service';
+import { GlobalService } from 'src/global/global.service';
+import { ShareService } from 'src/share/share.service';
 
 @Injectable()
 export class OrderService {
   // 使用构造函数注入
-  // constructor(private userService: UserService) {}
+  // constructor(private shareService: ShareService) {}
 
   // 依赖注入之属性注入共享的服务
-  @Inject(UserService) private userService: UserService;
+  @Inject(ShareService) private shareService: ShareService;
+  @Inject(GlobalService) private globalService: GlobalService;
 
-  getOrderDesc(): string {
-    const name = this.userService.getUserName();
-    return `订单ID: xxx，下单人：${name}`;
+  getShare(): string {
+    return this.shareService.getShare();
+  }
+  getGlobal(): string {
+    return this.globalService.getGlobal();
   }
 }

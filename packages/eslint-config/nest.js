@@ -1,9 +1,3 @@
-// import nestConfig from "@repo/eslint-config/nest";
-
-// /** @type {import("eslint").Linter.Config} */
-// export default nestConfig;
-
-
 // @ts-check
 import eslint from '@eslint/js';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
