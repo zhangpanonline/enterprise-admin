@@ -9,11 +9,13 @@ export default function Download() {
             <p className={style.item} >
                 <span>文件名</span>
                 <span>大小</span>
-                <span>上传日期</span>
+                {/* <span>上传日期</span> */}
             </p>
             {fileList.map((o, idx) => <li key={idx}>
                 <a className={ style.item } href={o.path} download={o.name}>
-                    <span>{o.name}</span>  <span>{o.size}</span>  <span>{o.date}</span></a>
+                    <span>{o.name}</span>  <span>{o.size}</span>  
+                    {/* <span>{o.date}</span> */}
+                </a>
             </li>)}
         </ul>
     </Layout>

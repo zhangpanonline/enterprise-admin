@@ -1,3 +1,50 @@
+## [1.8.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.8.0...v1.8.1) (2025-10-13)
+
+
+### Bug Fixes
+
+* **文档管理:** 配置项里footer下的NestJS默认路径错误导致打包失败问题 ([d4cb9b9](https://github.com/zhangpanonline/enterprise-admin/commit/d4cb9b9f287c8b7314c6627cc1525c3006ac2b40))
+
+# [1.8.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.7.2...v1.8.0) (2025-10-13)
+
+
+### Features
+
+* **vue子应用:** 实现主题切换核心代码 ([5fa2b50](https://github.com/zhangpanonline/enterprise-admin/commit/5fa2b50fca8200d0fd087881da06e00cbf58394a))
+* **微信小程序-记账工具:** 完成基本功能 ([818656f](https://github.com/zhangpanonline/enterprise-admin/commit/818656f384b16ad4c8de1c1e9f62bf1190bf887f))
+* **微信小程序-记账工具:** 登录功能 ([e543931](https://github.com/zhangpanonline/enterprise-admin/commit/e5439315f34208dfb0837cc14e548801855acf4c))
+* **服务端:** 装饰圈、模块学习 ([db24f4d](https://github.com/zhangpanonline/enterprise-admin/commit/db24f4dc71d9dcf8604d99436a0d406c43bb8806))
+
+## [1.7.2](https://github.com/zhangpanonline/enterprise-admin/compare/v1.7.1...v1.7.2) (2025-09-30)
+
+
+### Bug Fixes
+
+* **文档管理:** 修复资源下载页面，文件上传日期不正确问题 ([18d2339](https://github.com/zhangpanonline/enterprise-admin/commit/18d23395a4cb27b7dfecf857d3286e8049995ce1))
+
+## [1.7.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.7.0...v1.7.1) (2025-09-26)
+
+
+### Bug Fixes
+
+* **文档管理:** 修复路径错误导致打包失败问题 ([736a867](https://github.com/zhangpanonline/enterprise-admin/commit/736a86789910953db725693dc41211ae7011abe3))
+
+# [1.7.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.6.1...v1.7.0) (2025-09-24)
+
+
+### Features
+
+* **vue子应用:** 添加cesium ([47af6c5](https://github.com/zhangpanonline/enterprise-admin/commit/47af6c5e73b3e511b91fb9abf5e07c22a3a4d617))
+* **服务端:** aOP编程学习 ([f5ed863](https://github.com/zhangpanonline/enterprise-admin/commit/f5ed8630591f88d627419fbef50660382aa8a411))
+* **浏览器插件:** 添加dist.pem ([e16e936](https://github.com/zhangpanonline/enterprise-admin/commit/e16e936c05abef4fe88e73dfc27ef72c7dbdebdc))
+
+## [1.6.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.6.0...v1.6.1) (2025-09-20)
+
+
+### Bug Fixes
+
+* **微前端:** 添加缺失的.env文件| ([31c7f05](https://github.com/zhangpanonline/enterprise-admin/commit/31c7f05542711327e37e99760a11cd112a5636fc))
+
 # [1.6.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.5.1...v1.6.0) (2025-09-19)
 
 

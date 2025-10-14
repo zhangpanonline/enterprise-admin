@@ -143,7 +143,7 @@ const config: Config = {
             },
             {
               label: 'NestJS',
-              to: '/nest/intro',
+              to: '/nest/Nest 核心概念',
             },
             {
               label: 'Blog',
