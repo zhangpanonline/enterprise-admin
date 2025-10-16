@@ -95,3 +95,47 @@ sidebar_position: 1
    > ```
    >
    > 来使用 `this.userService`。
+
+### 全局模块
+
+:::info
+
+需要确保模块确实需要全局注入，以避免不必要的模块之间的耦合性。
+
+:::
+
+1. 在 `user.module.ts` 使用 `@Global` 装饰器将其声明为全局模块
+
+   ```typescript
+   // user.module.ts
+   import { Module, Global } from '@nestjs/common';
+   import { UserService } from './user.service';
+   import { UserController } from './user.controller';
+   
+   @Global()
+   @Module({
+     controllers: [UserController],
+     providers: [UserService],
+     exports: [UserService], // 导出UserService，使其可以在其他模块中使用
+   })
+   export class UserModule {}
+   ```
+
+2. 在 `order.service.ts` 中通过属性注入 `UserServcie` 依赖。
+
+### 动态模块 
+
+`TODO`
+
+## 3. 中间件
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
+
+
