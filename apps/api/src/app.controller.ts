@@ -12,11 +12,29 @@ import {
   ParseUUIDPipe,
   ParseEnumPipe,
   DefaultValuePipe,
+  ParseArrayPipe,
+  // ValidationPipe,
+  ParseFilePipe,
+  Inject,
+  Body,
+  Post,
+  UploadedFile,
+  UploadedFiles,
+  MaxFileSizeValidator,
+  FileTypeValidator,
 } from '@nestjs/common';
+import {
+  FileInterceptor,
+  FilesInterceptor,
+  FileFieldsInterceptor,
+  AnyFilesInterceptor,
+} from '@nestjs/platform-express';
 import { AppService } from './app.service';
 import { TimeoutInterceptor } from './interceptor/timeout.interceptor';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { Observable, from } from 'rxjs';
+import { UserService } from './user/user.service';
+import { CreateUserDto } from './user/dto/create-user.dto';
 
 enum StatusEnum {
   SUCCESS = 'success',
@@ -26,6 +44,83 @@ enum StatusEnum {
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+  // 上传单个文件
+  @Post('/upload')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadFile(@UploadedFile() file: Express.Multer.File, @Body() body) {
+    console.log(body, '<====== body');
+    console.log(file, '<====== file');
+    return {
+      message: '上传成功',
+      file,
+    };
+  }
+
+  // 多文件上传 - 不区分文件名
+  @Post('/uploads')
+  @UseInterceptors(FilesInterceptor('files', 2)) // 限制文件数量
+  uploadFiles(
+    @UploadedFiles() files: Array<Express.Multer.File>,
+    @Body() body,
+  ) {
+    console.log(body, '<====== body');
+    console.log(files, '<====== files');
+    return {
+      message: '上传成功',
+      files,
+    };
+  }
+
+  // 多文件上传 - 区分文件名
+  @Post('/uploads_')
+  @UseInterceptors(
+    FileFieldsInterceptor([
+      { name: 'files1', maxCount: 1 },
+      { name: 'files2', maxCount: 1 },
+    ]),
+  ) // 限制文件数量
+  uploadFiles_(
+    @UploadedFiles()
+    files: { files1: Express.Multer.File[]; files2: Express.Multer.File },
+    @Body() body,
+  ) {
+    console.log(body, '<====== body');
+    console.log(files, '<====== files');
+    return {
+      message: '上传成功',
+      files,
+    };
+  }
+
+  // 9. ParseFilePipe 管道
+  // 上传任意文件
+  @Post('/anyUploads')
+  @UseInterceptors(
+    AnyFilesInterceptor({
+      limits: { files: 3 },
+    }),
+  )
+  uploadAnyFiles(
+    @UploadedFiles(
+      new ParseFilePipe({
+        validators: [
+          //  文件大小限制
+          new MaxFileSizeValidator({ maxSize: 1024 * 1000 }),
+          // 文件类型限制
+          new FileTypeValidator({ fileType: 'image/png' }),
+        ],
+      }),
+    )
+    files: Express.Multer.File[],
+    @Body() body,
+  ) {
+    console.log(body, '<====== body');
+    console.log(files, '<====== files');
+    return {
+      files,
+    };
+  }
 
   @Get()
   @UseInterceptors(TimeoutInterceptor)
@@ -107,5 +202,31 @@ export class AppController {
     // http://localhost/pipe/default
     console.log('defaultValue value：', value);
     return value;
+  }
+
+  // 7. ParseArrayPipe 管道
+  @Get('pipe/array')
+  getPieArray(
+    @Query(
+      'ids',
+      new ParseArrayPipe({
+        separator: ',',
+      }),
+    )
+    ids: number[],
+  ): number[] {
+    // http://localhost/pipe/array?ids=1,2,3
+    return ids;
+  }
+
+  // 8. ValidationPipe 管道
+  @Inject(UserService) private userService: UserService;
+  @Post('pipe/create')
+  createUser(
+    // @Body(ValidationPipe) createUserDto: CreateUserDto,
+    // 由于在 main.ts 进行了全局管道验证器绑定，所以这里不需要绑定了
+    @Body() createUserDto: CreateUserDto,
+  ): CreateUserDto {
+    return this.userService.create(createUserDto);
   }
 }

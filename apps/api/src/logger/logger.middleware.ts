@@ -34,7 +34,7 @@ export function GlobalMiddleware(
   res: Response,
   next: NextFunction,
 ) {
-  console.log('before 全局中间件');
+  // console.log('before 全局中间件');
   next();
-  console.log('after 全局中间件');
+  // console.log('after 全局中间件');
 }

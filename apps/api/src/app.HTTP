@@ -1,0 +1,106 @@
+@protocol = http://
+@hostname = localhost
+@port = 80
+@BASE_URL = {{protocol}}{{hostname}}:{{port}}
+
+###
+POST {{BASE_URL}}/pipe/create
+Content-Type: application/json
+
+{
+    "name": "",
+    "age": 18,
+    "sex": "women",
+    "phone": "",
+    "email": ""
+}
+
+### 单文件上传
+POST {{BASE_URL}}/upload
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="userId"
+
+12345
+--MyBoundary
+Content-Disposition: form-data; name="file"; filename="avatar.png"
+Content-Type: image/png
+
+< ../static/avatar_1.png
+--MyBoundary--
+
+### 多文件上传 - 不区分文件名
+
+POST {{BASE_URL}}/uploads
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="userId"
+
+12345
+--MyBoundary
+Content-Disposition: form-data; name="files"; filename="avatar1.png"
+Content-Type: image/png
+
+< ../static/avatar_1.png
+--MyBoundary
+Content-Disposition: form-data; name="files"; filename="avatar2.png"
+Content-Type: image/png
+
+< ../static/avatar_2.png
+--MyBoundary--
+
+### 多文件上传 - 区分文件名
+
+POST {{BASE_URL}}/uploads_
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="userId"
+
+12345
+--MyBoundary
+Content-Disposition: form-data; name="files1"; filename="avatar1.png"
+Content-Type: image/png
+
+< ../static/avatar_1.png
+--MyBoundary
+Content-Disposition: form-data; name="files2"; filename="avatar2.png"
+Content-Type: image/png
+
+< ../static/avatar_2.png
+--MyBoundary--
+
+### 多文件上传 - 不知道哪个字段用于表示文件; 使用 ParseFilePipe 管道校验文件类型和文件大小
+
+POST {{BASE_URL}}/anyUploads
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="userId"
+
+12345
+--MyBoundary
+Content-Disposition: form-data; name="files_abc"; filename="avatar1.png"
+Content-Type: image/png
+
+< ../static/avatar_1.png
+--MyBoundary
+Content-Disposition: form-data; name="files_bca"; filename="avatar2.png"
+Content-Type: image/png
+
+< ../static/avatar_2.png
+--MyBoundary--
+
+###
+
+# @prompt username
+# @prompt refCode Your reference code display on webpage
+# @prompt otp Your one-time password in your mailbox
+POST https://{{host}}/verify-otp/{{refCode}} HTTP/1.1
+
+{
+    "username": "{{username}}",
+    "otp": "{{otp}}"
+}
