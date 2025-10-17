@@ -17,6 +17,10 @@ const config: Config = {
   title: 'Doc',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/avatar.png',
+//   markdown: {
+//     mermaid: true,
+//   },
+//   themes: ['@docusaurus/theme-mermaid'],
 
   // staticDirectories: ['static'],
   // clientModules: ['./src/pages/download/index.css'],
