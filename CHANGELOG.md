@@ -1,3 +1,15 @@
+# [1.9.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.8.1...v1.9.0) (2025-10-17)
+
+
+### Bug Fixes
+
+* **工程配置:** 修复bill移除依赖没有更新pnpm-local文件导致部署失败问题 ([117c63b](https://github.com/zhangpanonline/enterprise-admin/commit/117c63b96bae7626e144815bca6713ca6d4f49d0))
+
+
+### Features
+
+* **服务端:** 全局模块 ([53af312](https://github.com/zhangpanonline/enterprise-admin/commit/53af3120c5364e836099a0b2cc69e8f1c1bd9196))
+
 ## [1.8.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.8.0...v1.8.1) (2025-10-13)
 
 
