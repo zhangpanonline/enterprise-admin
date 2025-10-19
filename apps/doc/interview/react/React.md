@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
 
 ## 1. React 组件有几种写法？分别有什么区别？

@@ -9,6 +9,161 @@ sidebar_position: 1
 # tags: [Demo]
 ---
 
+## 1. Proxy 与 Object.defineProperty 优劣对比
+
+### Proxy 的优势
+* `Proxy` 可以直接监听对象而非属性
+* `Proxy` 可以直接监听数组的变化
+* `Proxy` 有多达 13 种拦截方法,不限于 `get`、`set` 等，是 `Object.defineProperty` 不具备的
+* `Proxy` 返回的是一个新对象，我们可以只操作新的对象达到目的，而 `Object.defineProperty` 只能遍历对象属性直接修改，特别耗费性能
+### Object.defineProperty 的优势
+* 兼容性好，支持 `IE9`，而 `Proxy` 的存在浏览器兼容性问题,而且无法用 `polyfill` 磨平，因此在`Vue3`才能用 `Proxy` 重写
+
+## 2. Vue3 组合式/响应性 API实现原理
+
+### 原理
+
+* 通过 `Proxy` （代理）：拦截对象中任意属性的变化，比如属性值的读写、添加、删除等13种拦截方法。
+* 通过 `Reflect` （反射）：对被代理对象的属性进行操作。
+
+### 实现
+
+* reactvie
+
+  ```js
+  // 定义一个reactiveHandler处理对象
+  const reactiveHandler = {
+    // 获取属性值
+    get (target, prop) {
+      const result = Reflect.get(target, prop)
+      console.log('拦截了读取数据', prop, result)
+      return result
+    },
+    // 修改属性值或者是添加属性
+    set (target, prop, value) {
+      const result = Reflect.set(target, prop, value)
+      console.log('拦截了修改数据或者是添加属性', prop, value)
+      return result
+    },
+    // 删除某个属性
+    deleteProperty (target, prop) {
+      const result = Reflect.deleteProperty(target, prop)
+      console.log('拦截了删除数据', prop)
+      return result
+    }
+  }
+  
+  // 定义一个reactive函数,传入一个目标对象
+  function reactive (target) {
+    // 判断当前的目标对象是不是object类型(对象/数组)
+    if (target && typeof target === 'object') {
+      // 对数组或者是对象中所有的数据进行reactive的递归处理
+      // 先判断当前的数据是不是数组
+      if (Array.isArray(target)) {
+        // 数组的数据要进行遍历操作
+        target.forEach((item, index) => {
+          target[index] = reactive(item)
+        })
+      } else {
+        // 再判断当前的数据是不是对象
+        // 对象的数据也要进行遍历的操作
+        Object.keys(target).forEach(key => {
+          target[key] = reactive(target[key])
+        })
+  
+      }
+      return new Proxy(target, reactiveHandler)
+    }
+    // 如果传入的数据是基本类型的数据,那么就直接返回
+    return target
+  }
+  ```
+
+* Ref
+
+  ```js
+  // 定义一个ref函数
+  function ref (target) {
+    // 如果将对象分配为ref值，则将它被处理为深层的响应式对象。故调用reactive函数
+    target = reactive(target)
+    return {
+      // 保存target数据保存起来
+      _value: target,
+      _is_ref: true, // 标识当前的对象是ref对象！！！！
+      get value () {
+        console.log('劫持到了读取数据')
+        return this._value
+      },
+      set value (val) {
+        console.log('劫持到了修改数据,准备更新界面', val)
+        this._value = val
+      }
+    }
+  }
+  ```
+
+
+
+## 3. Vue3 中做了哪些优化
+
+分为三个方面
+
+### 源码
+
+* 源码管理
+
+  vu3整个源码通过`monorepoe`的方式维护，根据功能将不同的模块拆分到 `packages` 目录下面不同的子目录中；
+
+  另外一些 `package` （比如 `reactivity` 响应式库）是可以独立于 `Vue` 使用的，这样如果只想使用 vue3 的响应式能力，可以值使用响应式库，而不用依赖整个 vue 。
+
+* TypeScript
+
+  vue3 是基于 typeScript 编写的，提供了更好的类型检查，能支持复杂的类型推导。
+
+### 性能
+
+* 编译阶段
+
+  1. diff 算法优化
+
+     进行静态标记，下次发生变化时只在有标记的地方进行比较
+
+  2. 静态提升
+
+     vue3 对不参与更新的元素，会做静态提升，在编译时只创建一次，在渲染时直接复用，不会再做对比
+
+  3. 事件监听缓存
+
+     默认情况下事件会被视为动态绑定，座椅每次都会追踪他的变化，开启事件监听缓存后，也会进行静态标记，每次对比时如果没有标记，就直接使用
+
+  4. SSR优化（服务器端渲染）
+
+     当静态内容大到一定量级的时候，会用 `createStaticeVNode` 方法在客户端去生成静态节点，这些静态节点会直接插入dom中，不会说是去创建对象，然后根据对象再渲染。
+
+* 体积优化
+
+  Vue3 移除了一些不常用的API，还使用了 `Tree shanking`功能，任何一个函数，比如 ref、reactive、computed 等，仅仅在用到的时候才打包，没用到的模块都被摇掉，打包的整体体积变小了。
+
+* 数据劫持优化
+
+  Vue2 使用 Object.defineProperty，但是这个API只能遍历对象属性进行劫持，并且不能检测对象和数组属性的添加和删除，需要重写数组方法，额外增加 set、delete方法
+
+  Vue3 使用 Proxy API，直接可以劫持整个对象，并返回新对象，只需要操作新对象就行，不需要遍历属性，他有13中拦截方式，可以直接监听数组、对象的变化
+
+语法 API
+
+也就是 composition API，两大显著的优化：
+
+* 优化逻辑组织
+
+  是功能更内聚，还不是分散在不同的地方
+
+* 逻辑复用
+
+  可以将复用的代码抽离出来作为一个 `hook` 函数，只要使用的地方直接调用，而 vue2 需要使用 mixin，存在**命名冲突**和**数据来源不清晰难以维护**的问题。
+
+
+
 ## 1. 请解释Vue 3中Composition API的核心概念，以及它与Options API的区别。为什么在大型项目中更推荐使用Composition API？请用TypeScript示例说明一个简单的Composition API用法。
 
 Composition API是Vue 3引入的一种新的组件编写方式，  
@@ -1227,7 +1382,6 @@ onMounted(async () => {
 5. 测试阶段：按模块或按阶段，功能开发完后与后端一起自测一边，修复遇到的功能性bug或交互上的不合理，UI显示问题等，然后交付测试，对测试提出的问题再进行修复。
 6. 部署阶段：修改 .env.production 的信息，vite配置项的打包配置进行修改，比如分包、tree Shaking（使用ESM模块化的库） ，将 minify 默认的 esbuild 配置改为 terser，来减小打包体积，安装打包分析器，查看打包后的依赖大小，对比较大的依赖进行特殊处理；安装vite-plugin-image-optimizer插件，压缩图片，将小图片转为base64内联；
 7. 维护阶段：迭代新功能，bug修复，使用Sentry捕获错误，系统性能优化，编写README和组件文档，降低团队上手成本等
-
 
 
 
