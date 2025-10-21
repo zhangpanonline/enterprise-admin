@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.9.0...v1.10.0) (2025-10-21)
+
+
+### Features
+
+* **微信小程序 - 记账工具:** 添加配置页、记录是否吃晚餐 ([cadacf8](https://github.com/zhangpanonline/enterprise-admin/commit/cadacf83fa90a7ca647960adf6e94affa091a894))
+
 # [1.9.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.8.1...v1.9.0) (2025-10-17)
 
 
