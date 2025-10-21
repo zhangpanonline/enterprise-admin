@@ -23,13 +23,32 @@ export interface Bill {
 }
 
 export interface BillListItem {
-  date: string,
-  total: number,
-  list: Array<Bill>
+  month: string,
+  month_total: number,
+  days: Array<{
+    date: string,
+    total: number,
+    list: Array<Bill>
+  }>
+}
+
+export interface Chart {
+    month: string,
+    total: number,
+    categories: Array<{
+        category_level1: string,
+        category_level1_name: string,
+        total: number
+    }>
 }
 
 export const getBillListApi = (): Promise<Array<BillListItem>> => request({
-  url: '/rest/v1/rpc/get_records_list3',
+  url: '/rest/v1/rpc/get_records_list4',
+  method: 'GET'
+})
+
+export const getChartApi = (): Promise<Array<Chart>> => request({
+  url: '/rest/v1/rpc/get_records_monthly_by_level2',
   method: 'GET'
 })
 
@@ -47,4 +66,27 @@ export const createBillApi = (bill: Pick<Bill, 'date'|'amount'|'category_id'>) =
   url: `/rest/v1/records`,
   method: 'POST',
   data: JSON.stringify(bill)
+})
+
+export const createLevel1Api = (o: { name: string }) => request({
+    url: `/rest/v1/category_level1`,
+    method: 'POST',
+    data: JSON.stringify(o)
+})
+
+export const createLevel2Api = (o: { name: string, level1_id: string }) => request({
+    url: `/rest/v1/category_level2`,
+    method: 'POST',
+    data: JSON.stringify(o)
+})
+
+export const createDinnerApi = (o: { type: number, date: string }) => request({
+    url: `/rest/v1/dinner`,
+    method: 'POST',
+    data: JSON.stringify(o)
+})
+
+export const getDinnerApi = () => request({
+    url: `/rest/v1/dinner`,
+    method: 'GET',
 })

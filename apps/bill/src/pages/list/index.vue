@@ -1,68 +1,27 @@
 <route lang="json">
 {
   "layout": "tabbar",
-  "style": { "navigationBarTitleText": "列表" },
+  "style": { "navigationBarTitleText": "账单" },
   "name": "list"
 }
 </route>
 <template>
-  <view class="content">
-    <wd-collapse v-model="active" accordion>
-      <wd-collapse-item v-for="v in list" :key="v.date" :name="v.date">
-        <template #title>
-          <view class="flex justify-between items-center" >
-            <text>{{ v.date }}</text>
-            <text>{{ v.total }} ¥</text>
-          </view>
-        </template>
-        <wd-table :data="v.list" :showHeader="false">
-          <wd-table-col prop="amount" label="金额">
-            <template #value="{row}">
-              {{ row.amount }} ¥
-            </template>
-          </wd-table-col>
-          <wd-table-col prop="category_level2_name" label="二级分类"></wd-table-col>
-          <wd-table-col prop="category_level1_name" label="一级分类"></wd-table-col>
-          <wd-table-col prop="id" label="操作">
-            <template #value="{ row }">
-              <wd-button type="error" size="small" @click="onDelete(row)">删除</wd-button>
-            </template>
-          </wd-table-col>
-        </wd-table>
-      </wd-collapse-item>
-    </wd-collapse>
+  <view>
+    <wd-tabs v-model="tab">
+         <wd-tab title="列表" name="list">
+            <List v-if="tab === 'list'" />
+        </wd-tab>
+        <wd-tab title="图表" name="chart">
+            <Chart />
+        </wd-tab>
+    </wd-tabs>
   </view>
 </template>
 
 <script setup lang="ts">
-import { onShow } from '@dcloudio/uni-app';
-import { getBillListApi, deleteBillApi, type Bill } from '@/apis/index'
-import { useMessage, useNotify } from 'wot-design-uni';
-const message = useMessage()
-
-const active = ref([])
-
-const list = ref([])
-
-onShow(getBillList)
-async function getBillList() {
-  list.value = await getBillListApi()
-  active.value = list.value[0].date
-}
-
-const { showNotify } = useNotify();
-const onDelete = (row: Bill) => {
-  message
-  .confirm({
-    msg: '是否删除？',
-    title: '提示'
-  })
-  .then(async () => {
-      await deleteBillApi(row.id)
-      getBillList()
-      showNotify({ type: 'success', message: '操作成功！', background: '#07c160', duration: 1500 });
-    })
-}
+import List from './list.vue'
+import Chart from './chart.vue'
+const tab = ref('list')
 
 </script>
 

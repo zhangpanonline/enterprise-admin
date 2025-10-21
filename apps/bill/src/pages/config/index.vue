@@ -6,7 +6,8 @@
 }
 </route>
 <template>
-  <view class="content"> 我的页面 </view>
+  <wd-cell title="添加一级分类" is-link to="/sub-pages/category/index?type=1" />
+  <wd-cell title="添加二级分类" is-link to="/sub-pages/category/index?type=2" />
 </template>
 
 <script setup lang="ts"></script>
