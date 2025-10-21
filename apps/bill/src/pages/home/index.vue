@@ -55,7 +55,7 @@ const form = reactive({
   category_id: '4d774d11-e121-4d05-a4b4-447c1ce9bf67',
 });
 
-onShow(getCategoryTree)
+onShow(getCategoryTree);
 async function getCategoryTree() {
   category.value = await getCategoryTreeApi();
 }
@@ -68,7 +68,12 @@ const handleSubmit = async () => {
   const day = date.getDate();
   await createBillApi({ ...form, date: `${year}-${month}-${day}` });
   form.amount = null;
-  showNotify({ type: 'success', message: '操作成功！', background: '#07c160', duration: 1500 });
+  showNotify({
+    type: 'success',
+    message: '操作成功！',
+    background: '#07c160',
+    duration: 1500,
+  });
 };
 </script>
 

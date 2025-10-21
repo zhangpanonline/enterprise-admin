@@ -131,10 +131,34 @@ sidebar_position: 1
 
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    中间件-->实现方式;
+    中间件-->作用域;
+    实现方式-->函数式中间件;
+    实现方式-->类中间件;
+    作用域 --> 局部中间件
+    作用域 --> 全局中间件
+```
+
+### 类中间件
+
+类中间件通过使用 `@Injectable()` 装饰器来声明，并需要实现 `NestMiddleware` 接口的 `use` 方法。
+
+实现一个 `logger.middleware.ts` 中间件：
+
+```typescript
+// logger.middleware.ts
+import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Request, Response, NextFunction } from 'express';
+
+// 这是类中间件
+@Injectable()
+export class LoggerMiddleware implements NestMiddleware {
+  use(req: Request, res: Response, next: NextFunction) {
+    console.log('before 类中间件');
+    next();
+    console.log('after 类中间件');
+  }
+}
 ```
 
 

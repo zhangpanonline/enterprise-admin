@@ -38,13 +38,13 @@ export default defineUniPages({
         iconPath: '/static/tabbar/my_default.png',
         selectedIconPath: '/static/tabbar/my_active.png',
         pagePath: 'pages/list/index',
-        text: '列表',
+        text: '账单',
       },
       {
         iconPath: '/static/tabbar/my_default.png',
         selectedIconPath: '/static/tabbar/my_active.png',
         pagePath: 'pages/chart/index',
-        text: '统计',
+        text: '晚餐',
       },
       {
         iconPath: '/static/tabbar/my_default.png',
