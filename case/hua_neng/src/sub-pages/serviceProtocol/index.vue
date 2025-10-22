@@ -1,0 +1,385 @@
+<route lang="json">
+{
+  "style": { "navigationBarTitleText": "服务协议" },
+  "name": "ServiceProtocol"
+}
+</route>
+
+<template>
+  <view class="container">
+    <scroll-view scroll-y class="scroll-box">
+      <view class="content">
+        <view class="title">服 务 协 议</view>
+
+        <!-- 引言 -->
+        <view class="section">
+          <text class="subtitle">引言</text>
+          <text class="paragraph">
+            欢迎使用我们的电量智能管家小程序！电量智能管家是由华能广西能源销售有限责任公司（以下简称“我们”）为方便用户填报计划用电量、使用电量监测，提供的电量智能管理服务客户端。
+          </text>
+        </view>
+
+        <!-- 一、总则 -->
+        <view class="section">
+          <text class="subtitle">一、总则</text>
+
+          <text class="subsubtitle">（一）协议目的</text>
+          <text class="paragraph">
+            本用户服务协议（以下简称 “本协议”）是您（以下简称
+            “用户”）与华能广西能源销售有限责任公司（以下简称
+            “我们”）之间就使用电量智能管家（以下简称
+            “小程序”）所提供的各项服务所订立的具有法律约束力的协议。本协议旨在明确双方在小程序使用过程中的权利、义务和责任，保护双方的合法权益。
+          </text>
+
+          <text class="subsubtitle">（二）协议生效</text>
+          <text class="paragraph">
+            请您在使用小程序前仔细阅读本协议的全部内容。您点击 “同意”
+            或实际使用小程序的任何服务，即表示您已充分理解并同意本协议的全部条款，包括但不限于免除或限制我们责任的条款、对用户权利进行限制的条款等。如果您不同意本协议的任何内容，您应立即停止使用小程序。
+          </text>
+
+          <text class="subsubtitle">（三）协议适用范围</text>
+          <text class="paragraph">
+            本协议适用于所有使用小程序服务的用户，包括但不限于注册用户、游客用户以及通过其他方式使用小程序服务的用户。小程序提供的各项具体服务可能有其单独的服务规则或条款，该等规则或条款构成本协议不可分割的一部分，与本协议具有同等法律效力。若具体服务规则或条款与本协议不一致的，以该具体服务规则或条款为准。
+          </text>
+        </view>
+        <!-- 二、用户注册与账户管理 -->
+        <view class="section">
+          <text class="subtitle">二、用户注册与账户管理</text>
+
+          <text class="subsubtitle">（一）注册资格</text>
+          <view class="list">
+            <text
+              >1.
+              您声明并保证，在注册成为小程序用户时，您是具有完全民事权利能力和民事行为能力的自然人、法人或其他组织。若您不具备相应的民事行为能力，则您及您的监护人应承担因此而导致的一切后果。</text
+            >
+            <text
+              >2.
+              您承诺在注册过程中提供的信息真实、准确、完整且有效，并将及时更新相关信息。如您提供的信息存在虚假、错误或失效的情况，我们有权暂停或终止向您提供服务，并保留追究您相关责任的权利。</text
+            >
+          </view>
+
+          <text class="subsubtitle">（二）账户创建与使用</text>
+          <view class="list">
+            <text
+              >1.
+              您完成注册流程后，将获得小程序的账户。您应妥善保管账户信息，包括但不限于用户名、密码、验证码等，对通过该账户进行的所有操作和行为承担全部责任。</text
+            >
+            <text
+              >2.
+              未经您的许可，任何人不得使用您的账户。如您发现账户存在异常使用情况或安全漏洞，应立即通知我们，并采取修改密码等必要措施。我们在收到您的通知后，将及时采取相应的措施进行处理，但不对因您未及时通知或未采取必要措施而造成的损失承担责任。</text
+            >
+            <text
+              >3.
+              您不得将账户出租、出借、转让或出售给他人使用。如违反此规定，由此产生的一切风险和责任由您自行承担，我们有权对该账户采取限制使用、冻结或注销等措施。</text
+            >
+          </view>
+
+          <text class="subsubtitle">（三）账户注销</text>
+          <text class="paragraph">
+            您有权根据小程序的相关规定申请注销您的账户。账户注销后，您将无法再使用该账户登录和使用小程序的服务，且该账户下的所有数据（包括但不限于个人信息、交易记录等）将按照相关法律法规和隐私政策的规定进行处理。请您在注销账户前谨慎考虑，账户一旦注销，将无法恢复。
+          </text>
+        </view>
+
+        <!-- 三、用户权利与义务 -->
+        <view class="section">
+          <text class="subtitle">三、用户权利与义务</text>
+
+          <text class="subsubtitle">（一）用户权利</text>
+          <view class="list">
+            <text
+              >•
+              您有权按照本协议及小程序的相关规定使用小程序提供的各项服务，包括但不限于浏览信息、发布内容、参与互动或服务等。</text
+            >
+            <text
+              >•
+              您有权对小程序的服务提出意见、建议和投诉，我们将在合理期限内予以处理和反馈。</text
+            >
+            <text
+              >•
+              在符合本协议及相关法律法规规定的前提下，您有权获取因使用小程序服务而产生的合法收益。</text
+            >
+            <text
+              >•
+              您有权根据本协议及相关规定，对我们的违约行为追究相应的法律责任。</text
+            >
+          </view>
+
+          <text class="subsubtitle">（二）用户义务</text>
+          <view class="list">
+            <text
+              >您应遵守国家法律法规及相关政策，不得利用小程序从事任何违法违规活动，包括但不限于：</text
+            >
+            <text>• 违反宪法确定的基本原则的；</text>
+            <text
+              >•
+              危害国家安全、泄露国家秘密、颠覆国家政权、破坏国家统一的；</text
+            >
+            <text>• 损害国家荣誉和利益的；</text>
+            <text>• 煽动民族仇恨、民族歧视，破坏民族团结的；</text>
+            <text>• 破坏国家宗教政策，宣扬邪教和封建迷信的；</text>
+            <text>• 散布淫秽、色情、赌博、暴力、恐怖或者教唆犯罪的；</text>
+            <text>• 侮辱或者诽谤他人，侵害他人合法权益的；</text>
+            <text>• 含有法律、行政法规禁止的其他内容的。</text>
+          </view>
+          <text class="paragraph"
+            >您应遵守小程序的各项规则和规定，包括但不限于本协议、隐私政策、具体服务规则等，不得滥用小程序服务，如恶意注册账户、发布垃圾信息、干扰小程序正常运行等。</text
+          >
+          <text class="paragraph"
+            >您应尊重他人的知识产权和其他合法权益，不得侵犯他人的著作权、商标权、专利权、肖像权、名誉权等。如您上传、发布的内容涉及他人权利的，您应保证已获得相关权利人的合法授权。</text
+          >
+          <text class="paragraph"
+            >您应妥善保管自己的账户信息，对账户的使用和安全负责，不得将账户信息泄露给他人或允许他人使用。如因您的原因导致账户被盗用、冒用等，由此产生的一切损失由您自行承担。</text
+          >
+          <text class="paragraph"
+            >您在使用小程序服务过程中，应遵守诚实信用原则，不得进行欺诈、虚假交易等行为，不得损害我们或其他用户的合法权益。</text
+          >
+        </view>
+
+        <!-- 四、服务内容与提供 -->
+        <view class="section">
+          <text class="subtitle">四、服务内容与提供</text>
+
+          <text class="subsubtitle">（一）服务内容</text>
+          <view class="list">
+            <text>我们为您提供以下服务：</text>
+            <text
+              >【电量填报】用户可以根据要求在规定的时间内方便快捷地填报企业的用电计划；</text
+            >
+            <text
+              >【电量监测】通过此功能可以随时掌握填报电量与实际用电量的偏差情况；</text
+            >
+            <text
+              >【积分中心】当填报的计划用电量与实际用电量的偏差率较低时，可以获得相应的积分奖励，提高用户填报电量的积极性和准确率；</text
+            >
+            <text>【积分兑换】用户可将获得的积分进行实物兑换；</text>
+            <text>【个人中心】提供查看、修改、注销个人信息的功能。</text>
+            <text
+              >我们有权根据业务发展需要，对服务内容进行调整、更新或增减，如有重大变更，我们将通过小程序内公告、弹窗等方式通知您。</text
+            >
+          </view>
+
+          <text class="subsubtitle">（二）服务提供</text>
+          <view class="list">
+            <text
+              >我们将尽力保障小程序服务的稳定性和可用性，但由于互联网服务的特殊性，我们不保证服务不会中断，也不保证服务的及时性、安全性和准确性。因不可抗力、网络故障、第三方服务中断等原因导致服务无法正常提供的，我们将尽力采取补救措施，但不承担由此给您造成的直接或间接损失。</text
+            >
+            <text
+              >您理解并同意，我们有权根据法律法规的要求、监管部门的指令或为了维护小程序的正常运营和安全，对小程序的服务进行限制、暂停或终止，如有此情况，我们将在合理范围内通知您。</text
+            >
+            <text
+              >我们有权对小程序的功能、界面、操作流程等进行优化和改进，相关变更将在小程序上线后生效，您继续使用小程序即表示您同意该等变更。</text
+            >
+          </view>
+        </view>
+
+        <!-- 五、知识产权 -->
+        <view class="section">
+          <text class="subtitle">五、知识产权</text>
+          <text class="subsubtitle">（一）我们的知识产权</text>
+          <view class="list">
+            <text
+              >小程序的所有权利，包括但不限于著作权、商标权、专利权、商业秘密及其他所有相关权利，均归我们或我们的许可方所有。未经我们书面许可，您不得擅自使用（包括但不限于通过任何机器人、蜘蛛等程序或设备监视、复制、传播、展示、镜像、上载、下载小程序中的内容）。</text
+            >
+            <text
+              >小程序中包含的标识、图形、文字、音频、视频等元素，均受知识产权法律保护，未经我们书面许可，您不得擅自使用。</text
+            >
+            <text></text>
+          </view>
+          <text class="subsubtitle">（二）用户的知识产权</text>
+          <view class="list">
+            <text
+              >您在小程序上发布的原创内容（如文字、图片、音频、视频等），其知识产权归您所有，但您授予我们一项全球性、免费、非独家、可转让、可再许可的使用权，允许我们在小程序及与我们相关的服务中使用、复制、修改、改编、出版、翻译、传播该等内容。</text
+            >
+            <text
+              >您保证您发布的内容不侵犯任何第三方的知识产权或其他合法权益，如因您发布的内容侵犯第三方权利而引起纠纷的，您应承担全部责任，并赔偿我们因此遭受的损失。</text
+            >
+            <text></text>
+          </view>
+        </view>
+
+        <!-- 六、隐私保护 -->
+        <view class="section">
+          <text class="subtitle">六、隐私保护</text>
+          <text class="paragraph">
+            我们重视您的隐私保护，关于您的个人信息的收集、使用、存储、共享等事宜，详见《隐私条款》。《隐私条款》构成本协议不可分割的一部分，与本协议具有同等法律效力。您同意我们按照《隐私条款》的规定处理您的个人信息。
+          </text>
+        </view>
+
+        <!-- 七、服务变更、中断与终止 -->
+        <view class="section">
+          <text class="subtitle">七、服务变更、中断与终止</text>
+          <text class="subsubtitle">（一）服务变更</text>
+          <text class="paragraph"
+            >我们有权根据业务发展需要，对小程序的服务内容、功能、收费标准等进行变更。如变更可能对您的权益产生重大影响，我们将提前通过小程序内公告、弹窗等方式通知您，您有权选择是否继续使用变更后的服务。如您不同意变更，您可以停止使用小程序服务。</text
+          >
+          <text class="subsubtitle">（二）服务中断</text>
+          <text class="paragraph"
+            >因维护、升级、系统故障等原因需要暂时中断小程序服务的，我们将尽可能提前通知您，并在合理时间内恢复服务。如因不可抗力、第三方原因等导致服务中断，我们将尽力协助解决，但不承担由此给您造成的损失。</text
+          >
+          <text class="subsubtitle">（三）服务终止</text>
+          <view class="list">
+            <text
+              >您可以随时停止使用小程序服务，如需注销账户，可按照小程序规定的流程办理。</text
+            >
+            <text
+              >如您违反本协议的任何条款，我们有权根据情节轻重，对您采取警告、限制功能、暂停服务、注销账户等措施，终止对您的服务，且不退还任何已支付的费用（如有）。</text
+            >
+            <text
+              >如我们因自身原因决定终止提供小程序服务，我们将提前30日通过小程序内公告等方式通知您，并为您提供账户余额退还、数据导出等善后服务。</text
+            >
+          </view>
+        </view>
+
+        <!-- 八、免责条款 -->
+        <view class="section">
+          <text class="subtitle">八、免责条款</text>
+          <text class="subsubtitle">（一）不可抗力</text>
+          <text class="paragraph"
+            >因不可抗力（如地震、台风、洪水、战争、政府行为等）导致小程序服务无法正常提供的，我们不承担任何责任，但应在不可抗力发生后及时通知您，并采取合理措施减少损失。</text
+          >
+          <text class="subsubtitle">（二）第三方行为</text>
+          <text class="paragraph"
+            >因第三方的过错、侵权行为或其他行为导致您遭受损失的，我们不承担责任，但我们将尽力协助您追究第三方的责任。</text
+          >
+          <text class="subsubtitle">（三）用户自身原因</text>
+          <text class="paragraph"
+            >因您自身的过错（如账户信息泄露、操作失误、违反本协议约定等）导致您遭受损失的，我们不承担责任。</text
+          >
+          <text class="subsubtitle">（四）信息风险</text>
+          <text class="paragraph"
+            >小程序上的信息均由我们或第三方提供，我们尽力保证信息的准确性和完整性，但不对此作出任何明示或暗示的保证。您基于小程序上的信息作出的任何决策或行动，其风险由您自行承担。</text
+          >
+          <text class="subsubtitle">（五）其他免责情形</text>
+          <text class="paragraph"
+            >对于因互联网传输过程中的不确定性、计算机病毒、黑客攻击等原因导致的服务中断、数据丢失或其他损失，我们不承担责任，但将尽力采取防范和补救措施。</text
+          >
+        </view>
+
+        <!-- 九、违约责任 -->
+        <view class="section">
+          <text class="subtitle">九、违约责任</text>
+          <text class="subsubtitle">（一）我们的违约责任</text>
+          <text class="paragraph"
+            >如我们违反本协议的约定，给您造成损失的，我们将承担相应的赔偿责任，但赔偿金额不超过您因使用小程序服务而支付的费用（如有）。因不可抗力、第三方原因等导致我们违约的，我们不承担责任。</text
+          >
+          <text class="subsubtitle">（二）用户的违约责任</text>
+          <text class="paragraph"
+            >如您违反本协议的约定，给我们或其他用户造成损失的，您应承担全部赔偿责任，包括但不限于直接损失、间接损失、律师费、诉讼费等。我们有权根据您的违约情节，采取警告、限制功能、暂停服务、注销账户等措施，并保留追究您法律责任的权利。</text
+          >
+        </view>
+
+        <!-- 十、协议变更与解除 -->
+        <view class="section">
+          <text class="subtitle">十、协议变更与解除</text>
+          <text class="subsubtitle">（一）协议变更</text>
+          <text class="paragraph"
+            >我们有权根据法律法规的变化、业务发展需要等情况，对本协议进行修改和更新。修改后的协议将在小程序内以公告等方式公布，公布之日起生效。如您对修改后的协议有异议，应立即停止使用小程序；您继续使用小程序的，视为您同意修改后的协议。</text
+          >
+          <text class="subsubtitle">（二）协议解除</text>
+          <view class="list">
+            <text>您可以随时解除本协议，只需停止使用小程序服务即可。</text>
+            <text
+              >如您严重违反本协议的约定，我们有权解除本协议，终止对您的服务。</text
+            >
+            <text
+              >因法律法规的规定或政府部门的要求，我们有权解除本协议，终止对您的服务。</text
+            >
+          </view>
+        </view>
+
+        <!-- 十一、法律适用与争议解决 -->
+        <view class="section">
+          <text class="subtitle">十一、法律适用与争议解决</text>
+          <text class="subsubtitle">（一）法律适用</text>
+          <text class="paragraph"
+            >本协议的订立、效力、解释、履行及争议解决均适用中华人民共和国法律（不包括香港、澳门特别行政区和台湾地区的法律）。</text
+          >
+          <text class="subsubtitle">（二）争议解决</text>
+          <text class="paragraph">
+            因本协议引起的或与本协议有关的任何争议，双方应首先通过友好协商解决；协商不成的，任何一方均有权向电量智能管家所在地人民法院提起诉讼。</text
+          >
+        </view>
+
+        <!-- 十二、其他 -->
+        <view class="section">
+          <text class="subtitle">十二、其他</text>
+          <text class="subsubtitle">（一）通知与送达</text>
+          <text class="paragraph"
+            >本协议项下的所有通知、要求或其他通信应以书面形式作出，并通过小程序内消息、电子邮件、手机短信等方式送达至您在注册时提供的联系方式或您在小程序内更新的联系方式。通知在发出且未被退回的情况下，视为已送达。</text
+          >
+          <text class="subsubtitle">（二）协议完整性</text>
+          <text class="paragraph"
+            >本协议构成双方就使用小程序服务所达成的完整协议，取代双方此前就此达成的任何口头或书面协议、谅解和承诺。</text
+          >
+          <text class="subsubtitle">（三）可分割性</text>
+          <text class="paragraph"
+            >如本协议任何条款被认定为无效、违法或不可执行，该条款应视为从本协议中删除，但不影响本协议其他条款的效力。</text
+          >
+          <text class="subsubtitle">（四）弃权</text>
+          <text class="paragraph"
+            >我们未行使或延迟行使本协议项下的任何权利，不应视为对该权利的放弃。我们对任何权利的单独或部分行使，不排除对该权利其他部分的行使。</text
+          >
+        </view>
+
+        <view class="footer">
+          <text>再次感谢您对电量智能管家的信任和使用！</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>
+
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+.scroll-box {
+  flex: 1;
+}
+.content {
+  padding: 24px 20px;
+  background-color: #fff;
+}
+.title {
+  margin-bottom: 32px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.subtitle {
+  display: block;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.subsubtitle {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.paragraph {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 16px;
+  font-size: 14px;
+}
+.footer {
+  margin-top: 32px;
+  font-size: 14px;
+  text-align: right;
+}
+</style>
