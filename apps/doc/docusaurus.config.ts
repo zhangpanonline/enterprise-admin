@@ -12,6 +12,10 @@ const docList = [
     path: 'nest',
     title: 'NestJS'
   },
+  {
+    path: 'postgresql',
+    title: 'PostgreSQL'
+  },
 ]
 const config: Config = {
   title: 'Doc',
@@ -148,6 +152,10 @@ const config: Config = {
             {
               label: 'NestJS',
               to: '/nest/Nest 核心概念',
+            },
+            {
+              label: 'PostgreSQL',
+              to: '/postgresql/介绍',
             },
             {
               label: 'Blog',

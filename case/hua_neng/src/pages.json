@@ -1,0 +1,200 @@
+{
+  "globalStyle": {
+    "navigationStyle": "default",
+    "navigationBarTitleText": "hua_neng",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFFFFF"
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue"
+    }
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#1A65EE",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "height": "65px",
+    "fontSize": "10px",
+    "iconWidth": "20px",
+    "spacing": "10px",
+    "list": [
+      {
+        "iconPath": "static/tabbar/home_default.png",
+        "selectedIconPath": "static/tabbar/home_active.png",
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "static/tabbar/monitor_default.png",
+        "selectedIconPath": "static/tabbar/monitor_active.png",
+        "pagePath": "pages/monitor/index",
+        "text": "电量监测"
+      },
+      {
+        "iconPath": "static/tabbar/points_default.png",
+        "selectedIconPath": "static/tabbar/points_active.png",
+        "pagePath": "pages/points/index",
+        "text": "积分中心"
+      },
+      {
+        "iconPath": "static/tabbar/my_default.png",
+        "selectedIconPath": "static/tabbar/my_active.png",
+        "pagePath": "pages/my/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "type": "home",
+      "layout": "tabbar",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "navigationStyle": "custom"
+      },
+      "name": "home"
+    },
+    {
+      "path": "pages/demo",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "测试",
+        "navigationBarBackgroundColor": "#ebebeb"
+      },
+      "name": "demo"
+    },
+    {
+      "path": "pages/home/report",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "电量填报"
+      },
+      "name": "homeReport"
+    },
+    {
+      "path": "pages/monitor/index",
+      "type": "page",
+      "layout": "tabbar",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#1A65EE"
+      },
+      "name": "monitor"
+    },
+    {
+      "path": "pages/my/accountConfirm",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "账号认证",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      },
+      "name": "accountConfirm"
+    },
+    {
+      "path": "pages/my/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#ebebeb"
+      },
+      "name": "myIndex"
+    },
+    {
+      "path": "pages/my/password",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "修改密码",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      },
+      "name": "password"
+    },
+    {
+      "path": "pages/points/index",
+      "type": "page",
+      "layout": "tabbar",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#1A65EE"
+      },
+      "name": "points"
+    },
+    {
+      "path": "pages/points/pointsRedemption",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "积分兑换",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      },
+      "name": "myIndex"
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "sub-pages",
+      "pages": [
+        {
+          "path": "login/index",
+          "type": "page",
+          "style": {
+            "navigationBarTitleText": "登录",
+            "navigationStyle": "custom"
+          },
+          "name": "Login"
+        },
+        {
+          "path": "privacyProtocol/index",
+          "type": "page",
+          "style": {
+            "navigationBarTitleText": "隐私协议"
+          },
+          "name": "PrivacyProtocol"
+        },
+        {
+          "path": "privacyProtocol/index_",
+          "type": "page",
+          "style": {
+            "navigationBarTitleText": "隐私协议"
+          },
+          "name": "PrivacyProtocol"
+        },
+        {
+          "path": "register/index",
+          "type": "page",
+          "style": {
+            "navigationBarTitleText": "注册"
+          },
+          "name": "Register"
+        },
+        {
+          "path": "register/result",
+          "type": "page",
+          "style": {
+            "navigationBarTitleText": "注册结果"
+          },
+          "name": "RegisterResult"
+        },
+        {
+          "path": "serviceProtocol/index",
+          "type": "page",
+          "style": {
+            "navigationBarTitleText": "服务协议"
+          },
+          "name": "ServiceProtocol"
+        },
+        {
+          "path": "serviceProtocol/index_",
+          "type": "page",
+          "style": {
+            "navigationBarTitleText": "服务协议"
+          },
+          "name": "ServiceProtocol"
+        }
+      ]
+    }
+  ]
+}

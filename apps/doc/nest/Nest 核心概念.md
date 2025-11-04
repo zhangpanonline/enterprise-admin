@@ -2,30 +2,30 @@
 sidebar_position: 1
 ---
 
-## 1. Nest 中的装饰器
-### 类装饰器
+##  一. Nest 中的装饰器
+### 1.1 类装饰器
 * `@Controller`：用于装饰控制器类，使之能够管理应用中的路由程序，并通过设置路由路径前缀来模块化管理路由。
 * `@Injectable`：装饰后成为服务提供者，可以被其他对象进行依赖注入。
 * `@Module`：模块装饰器，用于在 `Nest` 中划分功能模块并限制依赖注入的范围。
 * `@UseInterceptors`：用于绑定拦截器，将拦截器的作用范围限制在控制器类范围中（当然也可以作用在类的方法上）。
 
-### 方法装饰器
+### 1.2 方法装饰器
 
 * `@Get/@Post`：用于定义路由方法的 `HTTP` 请求方式。
 
-### 属性装饰器
+### 1.3 属性装饰器
 
 * `@IsNotEmpty/@IsString/@IsNumber`：用于在参数的验证场景中校验 `HTTP` 请求的参数是否符合预期。
 
-### 参数装饰器
+### 1.4 参数装饰器
 
 * `@Body/@Param/@Query`：用于接收 `HTTP` 请求发送的数据，不同的请求方式对应不同的参数接收方式。
 
-## 2. 模块化
+## 二. 模块化
 
 模块通过 `@Module` 装饰器来声明。每个应用都会有一个根模块，`Nest` 框架会从根模块开始收集各个模块之间的依赖关系，形式依赖关系树。
 
-### 共享模块
+### 2.1 共享模块
 
 使用`nest g resource User --no-spec` 和 `nest g resource Order --no-spec` 命令分别生成 `User` 和 `Order` 模块。
 
@@ -96,7 +96,7 @@ sidebar_position: 1
    >
    > 来使用 `this.userService`。
 
-### 全局模块
+### 2.2 全局模块
 
 :::info
 
@@ -123,11 +123,11 @@ sidebar_position: 1
 
 2. 在 `order.service.ts` 中通过属性注入 `UserServcie` 依赖。
 
-### 动态模块 
+### 2.3 动态模块 
 
 `TODO`
 
-## 3. 中间件
+## 三. 中间件
 
 ```mermaid
 graph TD;
@@ -139,7 +139,7 @@ graph TD;
     作用域 --> 全局中间件
 ```
 
-### 类中间件
+### 3.1 类中间件
 
 类中间件通过使用 `@Injectable()` 装饰器来声明，并需要实现 `NestMiddleware` 接口的 `use` 方法。
 
@@ -160,6 +160,56 @@ export class LoggerMiddleware implements NestMiddleware {
   }
 }
 ```
+
+TODO
+
+### 3.2 函数式中间件
+
+### 3.3 局部中间件
+
+### 3.4 全局中间件
+
+## 四. 拦截器与RxJS
+
+### 4.1 拦截器
+
+### 4.2 RxJS 常用 API
+
+## 五. 管道
+
+### 5.1 内置管道
+
+#### 1. ParseIntPipe
+
+#### 2. ParseFloatPipe
+
+#### 3. ParseBoolPipe
+
+#### 4. ParseUUIDPipe
+
+#### 5. ParseEnumPipe
+
+#### 6. DefaultValuePipe
+
+#### 7. ParseArraypipie
+
+#### 8. ValidationPipe
+
+#### 9. ParseFilePipe
+
+### 5.2 自定义管道
+
+## 六. 文件上传
+
+### 6.1 单文件上传
+
+### 6.2 多文件上传 — 相同表单字段
+
+### 6.3 多文件上传 — 不同表单字段
+
+### 6.4 上传任意文件（不确定表单字段的情况）
+
+### 6.5 文件验证
 
 
 
