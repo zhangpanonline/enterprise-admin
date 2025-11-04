@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/zhangpanonline/enterprise-admin/compare/v1.10.0...v1.10.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* **文档管理:** postgresql 第一个菜单名修改了，但是没在 docusaurus.config.ts 更新，导致打包报错问题. ([1550de6](https://github.com/zhangpanonline/enterprise-admin/commit/1550de66ecbc3984dae79ce5ffba972ec0892f77))
+
 # [1.10.0](https://github.com/zhangpanonline/enterprise-admin/compare/v1.9.0...v1.10.0) (2025-10-21)
 
 
