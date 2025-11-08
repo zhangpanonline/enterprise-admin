@@ -21,10 +21,14 @@ const config: Config = {
   title: 'Doc',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/avatar.png',
-//   markdown: {
-//     mermaid: true,
-//   },
-//   themes: ['@docusaurus/theme-mermaid'],
+  markdown: {
+    mermaid: true,
+    hooks: {
+        onBrokenMarkdownLinks: 'throw', // 遇到损坏的markdown的链接时如何处理，throw表示抛出错误，warn表示警告，ignore表示忽略，log表示记录日志
+        onBrokenMarkdownImages: 'throw', // 遇到损坏的markdown的图片时如何处理，throw表示抛出错误，warn表示警告，ignore表示忽略，log表示记录日志
+    }
+  },
+  themes: ['@docusaurus/theme-mermaid'],
 
   // staticDirectories: ['static'],
   // clientModules: ['./src/pages/download/index.css'],
@@ -48,7 +52,6 @@ const config: Config = {
   projectName: 'doc', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
