@@ -29,6 +29,10 @@ const config: Config = {
     }
   },
   themes: ['@docusaurus/theme-mermaid'],
+  i18n: {
+    defaultLocale: 'zh',
+    locales: ['zh'],
+  },
 
   // staticDirectories: ['static'],
   // clientModules: ['./src/pages/download/index.css'],
