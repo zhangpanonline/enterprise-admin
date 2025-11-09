@@ -13,7 +13,7 @@ const docList = [
     title: 'NestJS'
   },
   {
-    path: 'postgresql',
+    path: 'postgre_sql',
     title: 'PostgreSQL'
   },
 ]
