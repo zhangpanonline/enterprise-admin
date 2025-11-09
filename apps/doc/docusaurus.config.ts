@@ -158,7 +158,7 @@ const config: Config = {
             },
             {
               label: 'PostgreSQL',
-              to: '/postgresql/入门',
+              to: '/postgresql/数据库',
             },
             {
               label: 'Blog',
