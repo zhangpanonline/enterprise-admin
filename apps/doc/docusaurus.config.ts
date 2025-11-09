@@ -13,7 +13,7 @@ const docList = [
     title: 'NestJS'
   },
   {
-    path: 'postgresql',
+    path: 'postgre_sql',
     title: 'PostgreSQL'
   },
 ]
@@ -29,6 +29,10 @@ const config: Config = {
     }
   },
   themes: ['@docusaurus/theme-mermaid'],
+  i18n: {
+    defaultLocale: 'zh',
+    locales: ['zh'],
+  },
 
   // staticDirectories: ['static'],
   // clientModules: ['./src/pages/download/index.css'],
@@ -56,10 +60,6 @@ const config: Config = {
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
 
   presets: [
     [
@@ -158,7 +158,7 @@ const config: Config = {
             },
             {
               label: 'PostgreSQL',
-              to: '/postgresql/入门',
+              to: '/postgresql/数据库',
             },
             {
               label: 'Blog',

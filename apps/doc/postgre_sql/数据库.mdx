@@ -39,9 +39,11 @@ PostgreSQL 可以处理多个客户端的并发连接，例如A和B用户同时�
 
 ## 四、数据库命令
 
+### 4.1 登录数据库
+
 使用 `psql -U postgres` 登录成功后，才能执行数据库的创建、查看、连接和删除。
 
-### 4.1 创建数据库
+### 4.2 创建数据库
 
 ```postgresql
 CREATE DATABASE mydb;
@@ -58,7 +60,7 @@ CREATE DATABASE mydb
   CONNECTION LIMIT = -1;
 ```
 
-#### 4.2 查看数据库列表
+### 4.3 查看数据库列表
 
 ```sql
 \l
@@ -68,7 +70,7 @@ CREATE DATABASE mydb
 
 <Image src="/postgresql/2.png" />
 
-#### 4.3 切换数据库
+### 4.4 切换数据库
 
 ```sql
 \c mydb
@@ -87,7 +89,7 @@ psql -U postgres -d mydb
 
 <Image src="/postgresql/4.png" />
 
-#### 4.4 查看当前数据库
+### 4.5 查看当前数据库
 
 ```sql
 SELECT current_database();
@@ -95,7 +97,7 @@ SELECT current_database();
 
 <Image src="/postgresql/5.png" />
 
-#### 4.5 物理删除数据库
+### 4.6 物理删除数据库
 
 ```sql
 DROP DATABASE mydb;
@@ -103,7 +105,7 @@ DROP DATABASE mydb;
 
 <Image src="/postgresql/6.png" />
 
-#### 4.6 其他命令
+### 4.7 其他命令
 
 ```sql
 # 查看版本信息
