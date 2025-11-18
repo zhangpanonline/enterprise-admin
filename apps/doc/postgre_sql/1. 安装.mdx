@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+title: 1. 安装
 ---
 
 ##  一、[什么是 PostgreSQL?](https://postgres.ac.cn/docs/current/intro-whatis.html)
@@ -49,7 +50,7 @@ PostgreSQL 可以处理多个客户端的并发连接，例如A和B用户同时�
 CREATE DATABASE mydb;
 ```
 
-<Image src="/postgresql/1.png" alt="创建数据库"/>
+<Image src="/postgresql/1.4.2.png" alt="创建数据库"/>
 
 指定编码和所有者：
 
@@ -68,7 +69,7 @@ CREATE DATABASE mydb
 \list
 ```
 
-<Image src="/postgresql/2.png" />
+<Image src="/postgresql/1.4.3.png" />
 
 ### 4.4 切换数据库
 
@@ -78,7 +79,7 @@ CREATE DATABASE mydb
 \connect mydb
 ```
 
-<Image src="/postgresql/3.png" />
+<Image src="/postgresql/1.4.4_a.png" />
 也可以在登录时指定要连接的数据库：
 
 ```sql
@@ -87,7 +88,7 @@ psql -U postgres -d mydb
 
 `-d`  表示要连接的数据库，如果不写默认是 `postgres`。
 
-<Image src="/postgresql/4.png" />
+<Image src="/postgresql/1.4.4_b.png" />
 
 ### 4.5 查看当前数据库
 
@@ -95,7 +96,7 @@ psql -U postgres -d mydb
 SELECT current_database();
 ```
 
-<Image src="/postgresql/5.png" />
+<Image src="/postgresql/1.4.5.png" />
 
 ### 4.6 物理删除数据库
 
@@ -103,7 +104,7 @@ SELECT current_database();
 DROP DATABASE mydb;
 ```
 
-<Image src="/postgresql/6.png" />
+<Image src="/postgresql/1.4.6.png" />
 
 ### 4.7 其他命令
 
@@ -124,5 +125,5 @@ SELECT version();
 \q
 ```
 
-<Image src="/postgresql/7.png" />
+<Image src="/postgresql/1.4.7.png" />
 
