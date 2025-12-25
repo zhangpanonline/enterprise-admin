@@ -181,6 +181,68 @@ CREATE TABLE tree (
 );
 ```
 
+实现多对多关系：
 
+```sql
+CREATE TABLE products (
+    product_no integer PRIMARY KEY,
+    name text,
+    price numeric
+);
+
+CREATE TABLE orders (
+    order_id integer PRIMARY KEY,
+    shipping_address text,
+    ...
+);
+
+CREATE TABLE order_items (
+    product_no integer REFERENCES products ON DELETE RESTRICT,
+    order_id integer REFERENCES orders ON DELETE CASCADE,
+    quantity integer,
+    PRIMARY KEY (product_no, order_id)
+);
+```
+
+:::info 外键删除时的约束
+
+* ON DELETE NO ACTION：默认行为，允许删除被引用表中的删除操作继续进行
+* ON DELETE RESTRICT：阻止删除被引用的行
+* ON DELETE CASCADE：当被引用的行被删除时，引用它的行也将被自动删除
+* ON DELETE SET NULL：当被引用的行被删除时，会将引用行中的引用列设置为 null
+* ON DELETE SET DEFAULT：当被引用的行被删除时，会将引用行中的引用列设置为默认值
+
+与 ON DELETE 类似，还有一个 ON UPDATE。
+
+:::
 
 #### [5.6 排斥约束](https://postgres.ac.cn/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-EXCLUSION)
+
+## [六、系统列](https://postgres.ac.cn/docs/current/ddl-system-columns.html#DDL-SYSTEM-COLUMNS)
+
+每个表都有几个由系统隐式定义的*系统列*。因此，这些名称不能用作用户定义的列名。
+
+* tableoid：包含此行的表的 OID。此列对于选择来自分区表或继承层次结构的查询特别有用，因为如果没有它，很难知道一行来自哪个单独的表。可以 `tableoid` 与 `oid` 列 `pg_class` 进行联接以获取表名。
+* xmin：此行版本的插入事务的标识（事务 ID）。
+* cmin：插入事务中的命令标识（从零开始）。
+* xmax：删除事务的标识（事务 ID），对于未删除的行版本为零。可见的行版本中此列可能为非零。这通常表示删除事务尚未提交，或者尝试的删除已被回滚。
+* cmax：删除事务中的命令标识，或零。
+* ctid：行版本在表中的物理位置。
+
+## [七、修改表](https://postgres.ac.cn/docs/current/ddl-alter.html#DDL-ALTER)
+
+### [7.1 添加列](https://postgres.ac.cn/docs/current/ddl-alter.html#DDL-ALTER-ADDING-A-COLUMN)
+
+### [7.2 删除列](https://postgres.ac.cn/docs/current/ddl-alter.html#DDL-ALTER-REMOVING-A-COLUMN) 
+
+### [7.3 添加约束](https://postgres.ac.cn/docs/current/ddl-alter.html#DDL-ALTER-ADDING-A-CONSTRAINT)
+
+### [7.4 删除约束](https://postgres.ac.cn/docs/current/ddl-alter.html#DDL-ALTER-REMOVING-A-CONSTRAINT)
+
+### [7.5 更改列的默认值](https://postgres.ac.cn/docs/current/ddl-alter.html#DDL-ALTER-COLUMN-DEFAULT)
+
+### [7.6 更改列的数据类型](https://postgres.ac.cn/docs/current/ddl-alter.html#DDL-ALTER-COLUMN-TYPE)
+
+### [7.7 重命名列](https://postgres.ac.cn/docs/current/ddl-alter.html#DDL-ALTER-RENAMING-COLUMN)
+
+### [7.8 重命名表](https://postgres.ac.cn/docs/current/ddl-alter.html#DDL-ALTER-RENAMING-TABLE)

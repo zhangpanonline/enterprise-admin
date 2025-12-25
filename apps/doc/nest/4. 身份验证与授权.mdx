@@ -62,19 +62,224 @@ Token 是访问受限资源时需要携带的一种凭证，通常是一个加�
 
 访问令牌（Access Token）是一种用于授权用户访问特定资源或执行特定操作的凭证。
 
-```sequence
-对象A -> 对象: 32
+```mermaid
+sequenceDiagram
+title 访问令牌的工作流程
+actor  C as 客户端（浏览器）
+participant S as 服务器
+C ->> S: 第一次请求<br/>（userName && password）
+Note right of S: 对登录凭证进行数据签名，<br/>得到Token字符串
+S -->> C: 返回Token令牌
+Note left of C: 客户端保存在本地
+C ->> S: 第二次请求时带上Token
+Note right of S: 获取Token进行解密和验签，<br/>判断其有效性
+S -->> C: 返回数据
 ```
 
 
 
 #### 1.7.2 刷新令牌
 
+刷新令牌（Refresh Token）是专门用于刷新访问令牌的Token，它的有效期通常比访问令牌长，以保证用户登录状态的持久性。
+
+```mermaid
+sequenceDiagram
+title 双 Token 工作流程
+
+actor  C as 客户端（浏览器）
+participant S as 服务器
+
+C ->> S: 第一次请求<br/>（userName && password）
+Note right of S: 对登录凭证进行数据签名，<br/>得到Access Token 和 Refresh Token字符串
+S -->> C: Access Token（7天）<br/>Refresh Token（15天）
+Note left of C: 客户端保存在本地
+C ->> S: 携带Access Token
+Note right of S: Access Token 未过期
+S -->> C: 返回数据
+C ->> S: 携带Access Token
+Note right of S: Access Token 过期<br/>Refresh Token未过期
+S -->> C: 返回特殊状态码，<br/>告知客户端重新获取Access Token
+C ->> S: 携带Refresh Token
+Note right of S: 校验Refresh Token
+alt 
+rect rgba(0,255,0,0.1)
+Note over C,S: Refresh Token未过期
+S -->> C: 返回新的<br/>Access Token（7天）<br/>Refresh Token（15天）
+Note left of C: 客户端重新保存
+end
+else 
+rect rgba(255, 0, 0, 0.1)
+Note over C,S: Refresh Token过期
+S -->> C: 返回错误，要求重新登录
+end
+end
+```
+
+
+
 ### 1.8 什么是 JWT
+
+JWT 是一种特殊的 Token。JWT 允许在用户和服务端之间传递经认证的用户信息，而无需暴露用户的认证凭据。
+
+```mermaid
+sequenceDiagram
+title 访问令牌的工作流程
+
+actor  C as 客户端（浏览器）
+participant S as 服务器
+
+C ->> S: 第一次请求<br/>（userName && password）
+Note right of S: 根据登录信息创建JWT
+S -->> C: 返回JWT
+Note left of C: 客户端保存在本地
+C ->> S: 第二次请求时带上JWT
+Note right of S: 验证JWT，从中获取用户信息
+S -->> C: 返回数据
+
+```
+
+
 
 ### 1.9 JWT 和 Token 的区别
 
+#### 共同点
+
+* **访问资源的令牌**
+
+* **记录用户认证信息**
+
+* **服务端无状态化**：两者都支持服务端的无状态化，即服务端不需要存储会话信息
+
+* **跨域资源共享**：JWT 和 Token 都能够支持跨域资源共享（Cross-Origin Resource Sharing，CROS）
+
+  :::warning
+
+  **Token 本身并不是跨域资源共享的，而是 Token 机制能够更好地支持跨域场景。**
+
+  “Token 适合跨域”是因为对比传统的**Session-Cookie机制**，Token 机制在跨域场景中**更容易实现和安全**。
+
+  Token 跨域只需要手动通过请求头发送即可；
+
+  而传统Cookie存在以下限制：
+
+  1. Cookie 默认不能跨域访问
+  2. 需要设置CROS头部
+  3. 需要设置Cookie的SameSite属性
+  4. 需要处理CSRF防护
+  5. 需要配置复杂的domain/path
+  6. 移动端支持差，处理复杂
+  7. 多域名共享需要子域名单独设置Cookie
+
+  :::
+
+#### 区别
+
+* **鉴权机制**：传统 Token 鉴权通常需要服务端解析客户端发送的 Token，并根据该 Token 去**数据库查询**用户信息，以此验证 Token 的有效性；而JWT只需要验证签名和过期时间，如果都有效，则直接解析Payload获取用户信息。
+* **多样性**：Token 可以采取多种形式，例如随机字符串，OAuth 令牌、Session Token（Session-Cookie 机制） 等。而 JWT 是 Token 的一种具体实现形式。
+* **信息存储与加密**：JWT 在发行时会将用户信息加密并存储在 Token 自身中，客户端携带 JWT 进行请求，服务端通过密钥进行解密校验，无须再次查询数据库。 
+
 ### 1.10 什么是 SSO
+
+SSO（Single Sign On，单点登录）是在多个应用系统中，只需要登录一次，就可以访问其他相互信任的应用系统。
+
+单点登录有两种情况，一是多个应用系统在同一域名下，子系统通过二级域名来区分；另一种是多个应用系统分布在不同域名下。
+
+#### 1. 同域名下的单点登录 ?
+
+企业通常拥有一个主域名，并利用二级域名来区分其不同的子系统。例如，如果企业的顶级域名是 xxx.com，那么业务系统 A 和 B 可能分别位于 a.xxx.com 和 b.xxx.com。为了实现单点登录，企业需要一个集中的登录系统，比如位于 sso.xxx.com。
+
+在单点登录机制下，用户只需要在 sso.xxx.com 进行一次登录，随后便能无缝访问系统A和B，无须重复登录。这种登录认证机制允许用户在多个相关联的系统间自由切换，同时保持会话的连续性。
+
+```mermaid
+sequenceDiagram
+title 同域名单点登录的工作流程
+
+actor  C as 客户端（浏览器）
+participant A as 系统A<br/>————<br/>a.xxx.com
+participant B as 系统B<br/>————<br/>b.xxx.com
+participant S as SSO系统<br/>————<br/>sso.xxx.com
+
+C ->> A: 访问a.xxx.com
+Note over A: 用户未登录
+A -->> C: 302 重定向到<br/>sso.xxx.com/login?service=a.xxx.com
+C ->> S: 请求sso.xxx.com/login?service=a.xxx.com
+Note over S: 用户未登录<br/>要求输入账号密码并进行校验<br/>创建Session<br/>设置SessionId到.xxx.com顶域的Cookie中
+S -->> C: 302重定向回a.xxx.com
+C ->> A: 请求a.xxx.com
+Note over A: 获取.xxx.com下Cookie<br/>中的SessionID进行验证
+A -->> C: 登录成功，返回数据
+C ->> B: 访问b.xxx.com
+Note over B: 获取.xxx.com下Cookie<br/>中的SessionID进行验证
+B -->> C: 登录成功，返回数据
+
+
+```
+
+:::warning
+
+SSO、系统A和系统B是不同的应用，它们的 Session 存储在自己的服务器上，并不默认共享。等用户登录 SSO 系统后，若要访问系统A，系统A需要能够识别和验证SSO系统设置的Cookie中的SessionID。
+
+为了解决这一问题，可以采用如 Redis 这样的工具来实现 Session 的共享。
+
+此外，也可以使用 Token 机制来维护用户的认证信息，Token 由客户端存储，从而是使服务端达到无状态化。
+
+:::
+
+#### 2. 不同域名（跨域）下的单点登录
+
+采用中央认证服务（Central Authentication Service，CAS）来集中管理身份认证 。
+
+```mermaid
+sequenceDiagram
+title 跨域单点登录的工作流程
+
+actor  C as 客户端（浏览器）
+participant A as 系统A<br/>————<br/>a.xxx.com
+participant B as 系统B<br/>————<br/>b.xxx.com
+participant S as CAS系统<br/>————<br/>cas.xxx.com
+
+Note over C,S: 登录
+rect rgba(255, 0, 0, 0.1)
+C ->> A: 访问a.xxx.com
+Note over A: 用户未登录
+A -->> C:302重定向到<br/>cas.xxx.com/login?service=a.xxx.com
+C ->> S: 请求cas.xxx.com/login?service=a.xxx.com
+Note over S: 用户未登录<br/>输入账号密码进行校验<br/>成功后为应用A创建Service Ticket<br/>生成CAS系统大令牌TGT<br/>同时设置CAS系统的Cookie为CASTGC
+S -->> C: 302重定向到a.xxx.com?ticket=ST-xxxxxx
+end
+Note over C,S: 访问应用A
+rect rgba(0, 255, 0, 0.1)
+C ->> A: 请求a.xxx.com?ticket=ST-xxxxx
+Note over A: 获取请求中的ticket
+A ->> S: 携带ticket到CAS认证中心校验
+Note over S: 验证ticket中的ST-xxxxxx的有效性
+S -->> A: 验证成功，返回success
+A -->> C: 记录用户Session，返回数据
+C ->> A: 第二次请求a.xxx.com
+Note over A: 该用户已经有Session信息
+A -->> C: 直接返回数据
+end
+Note over C,S: 访问应用B
+rect rgba(0, 0, 255, 0.1)
+C ->> B: 访问b.xxx.com
+Note over B: 判断为首次访问
+B -->> C:302重定向到<br/>cas.xxx.com/login?service=b.xxx.com
+C ->> S: 请求cas.xxx.com/login?service=b.xxx.com
+Note over S: Cookie 中存在CASTGC<br/>尝试与TGT匹配<br/>成功后为应用B创建Service Ticket<br/>并重定向回应用B
+S -->> C: 302重定向到b.xxx.com?ticket=ST-yyyyyy
+C ->> B: 请求b.xxx.com?ticket=ST-yyyyyy
+Note over B: 获取请求中的ticket
+B ->> S: 携带ticket到CAS认证中心校验
+Note over S: 验证ticket中ST-yyyyyy的有效性
+S --> B: 验证成功，返回success
+B -->> C: 记录用户Session，返回数据
+C -->> B: 第二次请求b.xxx.com
+Note over B: 该用户已经有Session信息
+B -->> C: 直接返回数据
+end
+```
+
+
 
 ## 二、基于 Passport 和 JWT 实现身份验证
 
