@@ -10,6 +10,8 @@ import { UserController } from './user/user.controller';
 import { MulterModule } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './user/entities/user.entity'
 
 @Module({
   imports: [
@@ -34,6 +36,16 @@ import { extname } from 'path';
           );
         },
       }),
+    }),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'root',
+      database: 'db1125',
+      entities: [User],
+      synchronize: true,
     }),
   ],
   controllers: [AppController],
