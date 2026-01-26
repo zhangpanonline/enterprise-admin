@@ -288,4 +288,79 @@ Passport 是最流行的 Node.js 身份验证中间件，广泛应用于许多�
 Passport 基于策略模式扩展不同的验证方式，它不直接提供 JWT 的具体实现，而是扩展了一个名为 passport-jwt 的策略包，用于在 Node.js 应用中实现基于 JWT 的无状态身份验证机制。JWT 被用作验证令牌（Token），在客户端与服务端之间传递用户身份信息，而 Passport 负责验证和解析 JWT 中的 Payload，将用户信息添加到请求对象中，以便在后续的路由处理程序中通过请求对象来获取用户信息，进行访问控制和权限判断。
 
 需要注意的是，在 Nest 中依旧可以单独用 JWT进行身份认证，使用 Passport 是因为它提供了进一步的抽象，以简化身份认证流程。此外， Passport 与 Nest 框架的分层理念相契合，这使得在开发大型应用时，身份认证的维护和扩展变得更加容易。
+### 2.2 本地策略实现用户登录
+1. 安装依赖包
+```bash
+npm install @nestjs/passport passport passport-local
+npm install --save-dev @types/passport-local
+```
+2. 创建本地策略
+```typescript
+import { Strategy } from 'passport-local';
+import { PassportStrategy } from '@nestjs/passport';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { AuthService } from '../auth.service';  
+@Injectable()
+export class LocalStrategy extends PassportStrategy(Strategy) {
+    constructor(private authService: AuthService) {
+        super({
+            usernameField: 'username',
+            passwordField: 'password',
+        });
+    }
+
+    async validate(username: string, password: string): Promise<any> {
+        const user = await this.authService.validateUser(username, password);
+        if (!user) {
+            throw new UnauthorizedException();
+        }
+        return user;
+    }
+}
+```
+需要继承 PassportStrategy 并传入 passport-local 提供的 Strategy 类。
+通过 super 方法可以配置用户名和密码的字段名称，默认是 username 和 password。 
+在 validate 方法中调用 AuthService 的 validateUser 方法验证用户，
+    如果验证失败则抛出 UnauthorizedException 异常，
+    验证成功则返回用户信息，该信息会被附加到请求对象的 user 属性上。
+3. 创建 AuthService 的 validateUser 方法
+```typescript
+async validateUser(username: string, password: string): Promise<any> {
+    const user = await this.usersService.findOneByUsername(username);
+    if (user && user.password === password) {
+        const { password, ...result } = user;
+        return result;
+    }
+    return null;
+}
+```
+4. 在 AuthModule 中注册 LocalStrategy
+```typescript
+import { Module } from '@nestjs/common';
+import { PassportModule } from '@nestjs/passport';
+import { AuthService } from './auth.service';
+import { LocalStrategy } from './strategies/local.strategy';    
+@Module({
+    imports: [PassportModule],
+    providers: [AuthService, LocalStrategy],
+})
+export class AuthModule {}
+```
+5. 创建登录接口
+```typescript
+import { Controller, Post, UseGuards, Request } from '@nestjs/common';  
+import { AuthGuard } from '@nestjs/passport';
+import { AuthService } from './auth.service';   
+@Controller('auth')
+export class AuthController {
+    constructor(private authService: AuthService) {}
+    // 使用 local 策略进行身份验证
+    @UseGuards(AuthGuard('local'))
+    @Post('login')
+    async login(@Request() req) {
+        return this.authService.login(req.user);
+    }
+}
+```
+
 ## 三、基于 RBAC 实现权限控制
